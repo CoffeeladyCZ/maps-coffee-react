@@ -1,0 +1,373 @@
+/* header */
+h1 {
+  font-size: 35px;
+  text-align: center;
+  
+}
+body,
+.App {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Varela Round', sans-serif;  
+  font-size: 1em;
+  height: 100%;
+  background-color: #fff;
+  color: #000;
+}
+
+img {
+  height: 100%;
+  width: auto;
+}
+
+img:focus {
+  outline: 0;
+}
+
+/* .App-header {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+} */
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+h1 {
+  font-size: 43px;
+  color: #9F2B1F;
+  margin: 0;
+  padding-top: 50px;
+}
+
+.claim {
+  color: #9F2B1F;
+  font-size: 27px;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.coffee-cup {
+  width: 150px;
+  height: auto;
+  position: absolute;
+  right: 72px;
+  top: 20px;
+}
+
+/* Location */
+.location-btn {
+  background-color: #fff;
+  /* background-image: url('/img/location.svg'); */
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 4px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  margin: 7px;
+  padding: 0;
+}
+
+.location-btn:focus,
+.location-btn:active {
+  outline: 0;
+}
+
+.location-btn:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+
+/* section coffeehouse */
+.list-coffeehouse {
+  align-self: flex-start;
+  margin-left: 50px;
+  max-height: 500px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+  height: 10px;
+
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #9F2B1F; 
+  border-radius: 10px;
+  height: 15px;
+}
+
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #C92E1E;
+} */
+
+.coffeehouse {
+  padding: 20px;
+  width: 340px;
+  border-bottom: 2px solid #C92E1E;
+}
+
+.list-coffeehouse p {
+  margin: 5px 0;
+  text-align: left;
+}
+
+.list-name {
+  font-size: 18px;
+  margin: 0;
+  text-align: left;
+}
+
+.list-adress {
+  font-size: 16px;
+}
+
+.coffeehouse:hover {
+  background-color: #D7DBDD;
+}
+
+.coffeehouse__hover {
+  background-color: #D7DBDD;
+}
+
+/* Button */
+.btn {
+  align-self: flex-end;
+}
+
+.fas {
+  color: #9F2B1F;
+  font-size: 24px;
+}
+
+.fas:hover {
+  color: #C92E1E;
+}
+
+#btn-next,
+#btn-prev {
+
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#btn-next:focus,
+#btn-prev:focus {
+  outline: 0;
+} 
+
+/* toggle information */
+.list-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.list {
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3 ease;
+}
+
+.list-title {
+  color: #9F2B1F;
+  margin-left: 150px;
+}
+
+.list-text {
+  display: none;
+  margin: 30px 0 0;
+  color: black;
+}
+
+.list.active .list-text {
+  display: block;
+}
+
+.list-toggle {
+  background-color: transparent;
+  font-family: 'Font Awesome 5 Free';
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  padding: 0;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  height: 30px;
+  width: 30px;
+}
+
+.list-toggle:focus {
+  outline: 0;
+}
+
+.list-toggle .fa-times {
+  display: none;
+}
+
+.list.active .list-toggle .fa-chevron-down {
+  color:#9F2B1F;
+  display: block;
+}
+
+.list.active .list-toggle .fa-times {
+  color:#9F2B1F;
+  display: block;
+}
+
+.list.active .list-toggle .fa-chevron-down {
+  display: none;
+}
+
+/* image container */
+.container-image {
+  display: none;
+}
+
+.list.active .container-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.list-image {
+  max-width: 100px;
+  height: auto;
+  margin: 10px;
+}
+
+
+
+/* maps marker */
+.marker-img {
+  background-image: './img/coffee-shop.png';
+}
+
+/* Info Window */
+#content {
+  font-family: 'Varela Round', sans-serif; 
+  border-radius: 8px;
+}
+
+#firstHeading {
+  color: #9F2B1F;
+  font-family: 'Varela Round', sans-serif; 
+}
+
+.contentImage {
+  position: relative;
+  width: 40px;
+  height: 100%;
+  top: 43px;
+  left: -117px;
+}
+
+@media (max-width: 560px) {
+  h1 {
+    font-size: 32px;
+  }
+  .claim {
+    font-size: 25px;
+  }
+  .navigation-ul {
+    flex-wrap: wrap;
+  }
+  .navigation li:last-child {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 679px) {
+  .navigation {
+    top: 0;
+    right: 0;
+    left: 0;
+
+  }
+  .navigation-menu {
+    position: absolute;
+  }
+}
+
+@media (min-width: 680px) {
+  .App-header .navigation {
+    margin-bottom: 20px;
+  }
+  .App-header ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    align-items: center;
+    margin-left: 50px;
+  }
+  .App-header li {
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  .App-header .menu-icon {
+    display: none;
+  }
+  .App-header .navigation-menu {
+    max-height: 100%;
+  }
+}
+
+@media (max-width: 730px) {
+  .App-map {
+    display: block;
+  }
+  #map {
+    width: 75%;
+    margin: 0 auto;
+  }
+  .list-coffeehouse {
+    margin-left: 0;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+}
+
+@media (max-width: 820px) {
+  /* .navigation-ul {
+    /* display: none; */
+ 
+}
+
+@media (max-width: 1130px) {
+  .coffee-cup {
+    display: none;
+  }
+}
+
+
+
