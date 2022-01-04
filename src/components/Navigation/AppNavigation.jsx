@@ -1,27 +1,66 @@
-import React, { Component } from 'react';
+import React from "react";
 
-import './AppNavigation.css';
+import "./AppNavigation.css";
 
 const cityDistrict = [
-  'All', 'Letná', 'Karlín', 'Dejvice', 'Vinohrady',
-  'Nusle', 'Centrum'
+  {
+    name: "All",
+  },
+  {
+    name: "Letná",
+  },
+  {
+    name: "Karlín",
+  },
+  {
+    name: "Dejvice",
+  },
+  {
+    name: "Vinohrady",
+  },
+  {
+    name: "Nusle",
+  },
+  {
+    name: "Centrum",
+  },
 ];
 
-class Navigation extends Component {
+class Navigation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      district: 'All',
+      active: true,
+  };
+  }
+  
+  changeDistrict = (name) => {
+    this.setState({
+      district: name,
+      active: !this.state.active
+    },
+    () => {
+      this.props.callback(name)
+    }
+    )
 
+  };
+  
   render() {
-  const list = cityDistrict.map(item => <li className="li" key={item}>{item}</li>)
-
+    
     return (
       <div className="navigation">
-        {/* <input className="menu-btn" type="checkbox" id="menu-btn"></input>
-        <label className="menu-icon"><span className="nav-icon"></span></label>
-       */}
         <ul className="navigation-menu">
-          {list}
-        </ul>
+        {
+          cityDistrict.map((item) =>
+          <li className={this.state.active && item.name === this.state.district ? 'active' : ''} key={item.name} onClick={() => this.changeDistrict(item.name)}>
+            {item.name}
+          </li>
+          )
+        }</ul>
       </div>
-    )
+    );
   }
 }
 

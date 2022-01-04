@@ -1,5 +1,4 @@
-// Variales
-const coffeehouse = document.querySelector('.list-coffeehouse'),
+export const coffeehouse = document.querySelector('.list-coffeehouse'),
       markers = document.querySelectorAll('#letna, #karlin, #vinohrady, #nusle, #dejvice, #centrum'),
       icons = [
         {
@@ -8,13 +7,13 @@ const coffeehouse = document.querySelector('.list-coffeehouse'),
         },
         {
           name: 'My location',
-          icon: 'img/pin.svg',
+          icon: '../img/pin.svg',
         },
       ],
       photo = [];
 
 // list of coffeehouse
-const listCoffeehouse = [
+export const listCoffeehouse = [
 {
   name: 'Kofárna',
   time: 'Po - Ne: 8:00 - 19:00',
@@ -150,7 +149,7 @@ const listCoffeehouse = [
   time: 'Po - Pá: 7:01 - 19:01, So - 12:01 - 17:01',
   content: '',
   lat: 50.08459124214152, 
-  lnt: 14.375977737345796
+  lng: 14.375977737345796
 },
 {
   name: 'The Flat Café',
@@ -159,7 +158,7 @@ const listCoffeehouse = [
   time: 'Po - Pá: 8:30 - 22:00, So: 9:00 - 23:00, Ne: 9:00 - 16:00',
   content: 'Anglie v Praze',
   lat: 50.071209365923345,
-  lnt: 14.451311520864516
+  lng: 14.451311520864516
 },
 {
   name: 'Mamacoffee Jaromírova',
@@ -178,6 +177,33 @@ const listCoffeehouse = [
   content: '',
   lat: 50.07874384511063, 
   lng: 14.451214020641554,
+},
+{
+  name: 'Coffe Imrvére',
+  address: 'Olšanské nám. 1785, 130 00 Praha 3-Žižkov',
+  district: 'All',
+  time: 'Po - Pá: 9:00 - 17:00',
+  content: '',
+  lat: 50.082074825242515, 
+  lng: 14.459151740227787 
+},
+{
+  name: 'Megera Café',
+  address: 'Dačického 1225/8, 140 00 Praha 4-Nusle',
+  district: 'Nusle',
+  time: 'Po - Pá: 8:00 - 21:00',
+  content: '',
+  lat: 50.05581497709363, 
+  lng: 14.433091411718667, 
+},
+{
+  name: 'Kafé Atrium',
+  address: 'Čajkovského 12, 130 00 Praha 3-Žižkov',
+  district: 'Žižkov All',
+  time: 'Po - Ne: 10:00 - 21:00',
+  content: '',
+  lat: 50.08204423391477, 
+  lng: 14.453021796882094
 },
 
 ];

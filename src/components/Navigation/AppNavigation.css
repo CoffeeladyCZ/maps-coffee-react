@@ -1,9 +1,11 @@
 /* hamburger menu */
-/* .navigation {
+.navigation {
   text-align: left;
-} */
+  height: 100%;
+  margin-bottom: 20px;
+}
 
-.App-header ul {
+.app-header ul {
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -11,13 +13,15 @@
 }
 
 .navigation-menu {
-  clear: both;
-  position: relative;
-  max-height: 0;
-  transition: max-height .2s ease-out;
+  /* clear: both; */
+  /* position: relative; */
+  /* max-height: 0; */
+  /* transition: max-height .2s ease-out; */
+  display: flex;
+  
 } 
 
-.navigation li {
+.navigation .navigation-menu li {
   cursor: pointer;
   margin: 0;
   text-align: center;
@@ -31,11 +35,11 @@
 }
 
 .navigation li:hover {
-  color:#9F2B1F;
+  color: #9F2B1F;
 }
 
 .active {
-  color:#9F2B1F;
+  color: #9F2B1F;
 }
 
 /* .navigation .menu-icon .nav-icon {

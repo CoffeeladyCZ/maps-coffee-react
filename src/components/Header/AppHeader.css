@@ -24,15 +24,15 @@ img:focus {
   outline: 0;
 }
 
-/* .App-header {
+.app-header {
   display: flex;
   justify-content: space-evenly;
   position: relative;
   flex-direction: column;
   width: 100%;
-} */
+}
 
-.App-header {
+/* .app-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -41,13 +41,13 @@ img:focus {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 h1 {
   font-size: 43px;
   color: #9F2B1F;
   margin: 0;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 .claim {
