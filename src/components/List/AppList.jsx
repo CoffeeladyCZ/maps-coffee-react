@@ -1,12 +1,12 @@
 import React from 'react';
 
-import './AppList.css';
+import './AppList.scss';
 
 class List extends React.Component {
   render() {
     const { name, address, time, content} = this.props;
     return(
-      <div className="coffe-list">
+      <div className="coffee-list">
         <h4 className="list-name">{name}</h4>
         <p className="list-adress">{address}</p>
         <p className="list-time">{time}</p>

@@ -1,28 +1,12 @@
-/* hamburger menu */
 .navigation {
   text-align: left;
   height: 100%;
   margin-bottom: 20px;
 }
-
-.app-header ul {
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  /* width: 100%; */
-}
-
-.navigation-menu {
-  /* clear: both; */
-  /* position: relative; */
-  /* max-height: 0; */
-  /* transition: max-height .2s ease-out; */
+.navigation .navigation-menu {
   display: flex;
-  
-} 
-
+}
 .navigation .navigation-menu li {
-  cursor: pointer;
   margin: 0;
   text-align: center;
   padding: 10px;
@@ -32,64 +16,31 @@
   text-decoration: none;
   list-style: none;
   transition: all 0.15s ease-in;
+  cursor: pointer;
 }
-
-.navigation li:hover {
+.navigation .navigation-menu li:hover {
+  color: #9F2B1F;
+}
+.navigation .navigation-menu .active {
   color: #9F2B1F;
 }
 
-.active {
-  color: #9F2B1F;
+.app-header ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-/* .navigation .menu-icon .nav-icon {
-  background: #9F2B1F;
-  display: block;
-  margin-left: 20px;
-  height: 2px;
-  width: 30px;
-  position: relative;
-  transition: background .2s ease-out; */
-/* } */
-
-/* .navigation .menu-icon .nav-icon:before,
-.navigation .menu-icon .nav-icon:after {
-  background: #9F2B1F;
-  content: "";
-  display: block;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  transition: all .2s ease-out;
+@media (max-width: 695px) {
+  .navigation .navigation-menu {
+    flex-wrap: wrap;
+  }
 }
-
-.navigation .menu-icon .nav-icon:before {
-  top: 8px;
+@media (max-width: 679px) {
+  .navigation {
+    top: 0;
+    right: 0;
+    left: 0;
+  }
 }
-
-.navigation .menu-icon .nav-icon:after {
-  top: -8px;
-}
-
-.navigation .menu-btn {
-  text-align: left;
-  display: none;
-}
-
-.navigation .menu-btn:checked ~ .navigation-menu {
-  max-height: 300px;
-  width: 100%;
-}
-
-.navigation .menu-btn:checked ~ .menu-icon .nav-icon {
-  background: transparent;
-}
-
-.navigation .menu-btn:checked ~ .menu-icon .nav-icon:before {
-  transform: rotate(-45deg);
-  top: 0;
-}
-.navigation .menu-btn:checked ~ .menu-icon .nav-icon:after {
-  transform: rotate(45deg);
-  top: 0;
-} */
+/*# sourceMappingURL=AppNavigation.css.map */

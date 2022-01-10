@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./AppNavigation.css";
+import "./AppNavigation.scss";
 
 const cityDistrict = [
   {
@@ -38,7 +38,7 @@ class Navigation extends React.Component {
   changeDistrict = (name) => {
     this.setState({
       district: name,
-      active: !this.state.active
+      active: this.state.active
     },
     () => {
       this.props.callback(name)
@@ -54,7 +54,10 @@ class Navigation extends React.Component {
         <ul className="navigation-menu">
         {
           cityDistrict.map((item) =>
-          <li className={this.state.active && item.name === this.state.district ? 'active' : ''} key={item.name} onClick={() => this.changeDistrict(item.name)}>
+          <li 
+            className={this.state.active && item.name === this.state.district ? 'active' : ''} 
+            key={item.name} 
+            onClick={() => this.changeDistrict(item.name)}>
             {item.name}
           </li>
           )

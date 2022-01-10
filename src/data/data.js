@@ -119,7 +119,7 @@ export const listCoffeehouse = [
 {
   name: 'Kontejner',
   address: 'Ortenovo nám. 169, 170 00 Praha 7-Holešovice',
-  district: 'All Holešovice',
+  district: 'Holešovice',
   time: 'Po - Pá: 8:00 - 18:00, So - Ne: 10:00 - 18:00',
   content: ' je netradiční kavárna, která na tomto místě chyběla.',
   lat: 50.10782923945228, 
@@ -156,7 +156,7 @@ export const listCoffeehouse = [
 {
   name: '20m2',
   address: 'Bělohorská 29, 169 00 Praha 6',
-  district: 'Ostatní',
+  district: 'All',
   time: 'Po - Pá: 7:01 - 19:01, So - 12:01 - 17:01',
   content: '',
   lat: 50.08459124214152, 
@@ -213,11 +213,51 @@ export const listCoffeehouse = [
 {
   name: 'Kafé Atrium',
   address: 'Čajkovského 12, 130 00 Praha 3-Žižkov',
-  district: 'Žižkov All',
+  district: 'All',
   time: 'Po - Ne: 10:00 - 21:00',
   content: '',
   lat: 50.08204423391477, 
   lng: 14.453021796882094,
+  image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+},
+{
+  name: 'Etapa',
+  address: 'Urxova 479/6, 186 00 Karlín',
+  district: 'Karlín',
+  time: 'Po - Pá: 9:00 - 18:00, So - Ne: 9:00 - 17:00',
+  content: '',
+  lat: 50.09466086737089, 
+  lng: 14.457777660541346,
+  image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+},
+{
+  name: 'Eska',
+  address: 'Pernerova 49, 186 00 Karlín',
+  district: 'Karlín',
+  time: 'Po - Pá: 8:00 - 22:00, So - Ne: 9:00 - 22:00',
+  content: '',
+  lat: 50.091574389863545, 
+  lng: 14.454573908436654,
+  image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+},
+{
+  name: 'EMA espresso bar',
+  address: 'Palác Karlín Thámova 289/13 vstup z, Křižíkova, 186 00 Praha 8',
+  district: 'Karlín',
+  time: 'Po - Pá: 8:00 - 18:00, So - Ne: 10:00 - 18:00',
+  content: '',
+  lat: 50.092620419002, 
+  lng: 14.451573565601478,
+  image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+},
+{
+  name: 'Coffee Room',
+  address: 'Korunní 1208/74, 101 00 Vinohrady',
+  district: 'Vinohrady',
+  time: 'Po - Pá: 8:00 - 18:00, So - Ne: 9:00 - 17:00',
+  content: '',
+  lat: 50.075424825594816, 
+  lng: 14.451322566873111,
   image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
 },
 

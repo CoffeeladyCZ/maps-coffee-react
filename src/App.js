@@ -13,7 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        districtParent: null 
+        districtParent:  'All'
     }
   }
 
@@ -31,9 +31,13 @@ class App extends React.Component {
        />
 
         <section className="app-map">        
-          <Map />
+          <Map
+            district={this.state.districtParent}
+           />
           <div className="list-coffeehouse">
-            {listCoffeehouse.map(coffeehouse =>
+            {
+              listCoffeehouse.filter(coffeehouse => coffeehouse.district === this.state.districtParent)
+              .map(coffeehouse =>
                 <List 
                   key={coffeehouse.name}
                   name={coffeehouse.name}

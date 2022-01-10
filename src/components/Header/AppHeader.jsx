@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './AppHeader.css';
+import './AppHeader.scss';
 
 import coffeeCup from './coffee-cup.png';
 

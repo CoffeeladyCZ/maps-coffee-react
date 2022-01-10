@@ -1,5 +1,4 @@
-$brown: #9F2B1F;
-$dark-grey: #333333;
+@import '../../scss/colors.scss';
 
 .map-info {
     &-window {
@@ -25,24 +24,24 @@ $dark-grey: #333333;
         font-weight: bold;
         margin: 0 0 10px 0;
         padding: 0 0 10px 0;
-        border-bottom: solid $brown 1px;
-        color: $brown;
+        border-bottom: solid &$--primary-red 1px;
+        color: &$--primary-red;
     }
 
     &-subtitle {
-        color: lighten($brown, 10%);
+        color: $--secondary-red;
         margin: 0 0 5px 0;
         padding: 0;
         font-size: 16px;
     }
 
     &-content {
-        color: $dark-grey;
+        color:$--dark-grey;
         margin-bottom: 10px;
     }
 
     &-address {
-        color: $brown;
+        color: &$--primary-red;
         font-size: 90%;
         margin-bottom: 10px;
         font-style: normal;

@@ -1,76 +1,51 @@
-.app-list {
-  display: block;
-  align-self: flex-start;
+.coffee-list {
+  /* toggle information */
 }
-
-.list-coffeehouse {
-  align-self: flex-start;
-  margin-left: 50px;
-  max-height: 500px;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-
-.coffeehouse {
-  padding: 20px;
-  width: 340px;
-  border-bottom: 2px solid #C92E1E;
-}
-
-.list-coffeehouse p {
+.coffee-list p {
   margin: 5px 0;
   text-align: left;
 }
-
-.list-name {
+.coffee-list .list-name {
   font-size: 18px;
   margin: 0;
   text-align: left;
 }
-
-.list-adress {
+.coffee-list .list-adress {
   font-size: 16px;
 }
-
-.coffeehouse:hover {
-  background-color: #D7DBDD;
-}
-
-.coffeehouse__hover {
-  background-color: #D7DBDD;
-}
-
-/* toggle information */
-.list-container {
+.coffee-list .list-container {
   max-width: 600px;
   margin: 0 auto;
 }
-
-.list {
+.coffee-list .list-container .list {
   margin: 10px 0;
   position: relative;
   overflow: hidden;
   transition: 0.3 ease;
 }
-
-.list-title {
+.coffee-list .list-container .list .list-title {
   color: #9F2B1F;
   margin-left: 150px;
 }
-
-.list-text {
+.coffee-list .list-container .list .list-text {
   display: none;
   margin: 30px 0 0;
   color: black;
 }
-
-.list.active .list-text {
+.coffee-list .list-container .list.active .list-text {
   display: block;
 }
-
-.list-toggle {
+.coffee-list .list-container .list.active .list-toggle .fa-chevron-down,
+.coffee-list .list-container .list.active .list-toggle .fa-times {
+  color: #9F2B1F;
+  display: block;
+}
+.coffee-list .list-container .list.active .list-toggle .fa-chevron-down {
+  display: none;
+}
+.coffee-list .list-container .list.active .list-toggle {
   background-color: transparent;
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
   border: 0;
   cursor: pointer;
   display: flex;
@@ -84,25 +59,10 @@
   height: 30px;
   width: 30px;
 }
-
-.list-toggle:focus {
+.coffee-list .list-container .list.active .list-toggle-:focus {
   outline: 0;
 }
-
-.list-toggle .fa-times {
+.coffee-list .list-container .list.active .list-toggle .fa-times {
   display: none;
 }
-
-.list.active .list-toggle .fa-chevron-down {
-  color:#9F2B1F;
-  display: block;
-}
-
-.list.active .list-toggle .fa-times {
-  color:#9F2B1F;
-  display: block;
-}
-
-.list.active .list-toggle .fa-chevron-down {
-  display: none;
-}
+/*# sourceMappingURL=AppList.css.map */

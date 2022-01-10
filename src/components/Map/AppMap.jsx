@@ -1,4 +1,5 @@
-import React, {createRef} from "react";
+// eslint-disable-next-line
+import React, {createRef} from "react"; 
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import  MarkerComponent from '../Marker/AppMarker';
 
@@ -6,7 +7,7 @@ import  MarkerComponent from '../Marker/AppMarker';
 
 import coffeePin from '../../img/coffee-shop.png';
 
-import './AppMap.css';
+import './AppMap.scss';
 import { listCoffeehouse } from "../../data/data";
 
 
@@ -45,6 +46,7 @@ class Map extends React.Component {
       style
     } = this.settings;
     const { currentWindowVisibleIndex } = this.state;
+    const { district } = this.props;
     
     return (
         <div className="map">
@@ -57,22 +59,23 @@ class Map extends React.Component {
               mapContainerStyle={style}
             >
             {
-              listCoffeehouse.map((coffeehouse, i) => {
-                return <MarkerComponent
-                  className='coffee-marker'
-                  infoVisible={i === currentWindowVisibleIndex}
-                  onClick={() => this.showWindow(i)}
-                  data={coffeehouse}
-                  icon={coffeePin}
-                  animation={'DROP'}
-                  position={{
-                    lat: coffeehouse.lat,
-                    lng: coffeehouse.lng
-                  }}
-                  key={coffeehouse.name}
-                  title={coffeehouse.name}
-                />
-              })
+              listCoffeehouse.filter(coffeehouse => coffeehouse.district === district)
+                .map((coffeehouse, i) => {
+                  return <MarkerComponent
+                    className='coffee-marker'
+                    infoVisible={i === currentWindowVisibleIndex}
+                    onClick={() => this.showWindow(i)}
+                    data={coffeehouse}
+                    icon={coffeePin}
+                    animation={'DROP'}
+                    position={{
+                      lat: coffeehouse.lat,
+                      lng: coffeehouse.lng
+                    }}
+                    key={coffeehouse.name}
+                    title={coffeehouse.name}
+                  />
+                })
             }
             </GoogleMap>
           </LoadScript>
