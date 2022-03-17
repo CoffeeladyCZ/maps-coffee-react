@@ -24,24 +24,24 @@
         font-weight: bold;
         margin: 0 0 10px 0;
         padding: 0 0 10px 0;
-        border-bottom: solid &$--primary-red 1px;
-        color: &$--primary-red;
+        border-bottom: solid &$primary-red 1px;
+        color: &$primary-red;
     }
 
     &-subtitle {
-        color: $--secondary-red;
+        color: $secondary-red;
         margin: 0 0 5px 0;
         padding: 0;
         font-size: 16px;
     }
 
     &-content {
-        color:$--dark-grey;
+        color:$dark-grey;
         margin-bottom: 10px;
     }
 
     &-address {
-        color: &$--primary-red;
+        color: &$primary-red;
         font-size: 90%;
         margin-bottom: 10px;
         font-style: normal;

@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import React, {createRef} from "react"; 
+import React from "react"; 
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import  MarkerComponent from '../Marker/AppMarker';
 
@@ -22,10 +22,24 @@ class Map extends React.Component {
     }
   };
 
-  showWindow = index => {
+  onHideWindow = () =>{
     this.setState({
-      currentWindowVisibleIndex: index
-    })
+      currentWindowVisibleIndex: null,
+      activeCoffee: '',
+    },
+    () => {
+      this.props.callbackClass('');
+    });
+  }
+
+  showWindow = (index, name) => {
+    this.setState({
+      currentWindowVisibleIndex: index,
+      activeCoffee: name,
+    },
+    () => {
+      this.props.callbackClass(name)
+    });
   }
 
   constructor(props) {
@@ -34,7 +48,8 @@ class Map extends React.Component {
     this.state = {
       windowPosition: {},
       windowWisible: false,
-      currentWindowVisibleIndex: null
+      currentWindowVisibleIndex: null,
+      activeCoffee: '',
     }
   }
 
@@ -64,10 +79,11 @@ class Map extends React.Component {
                   return <MarkerComponent
                     className='coffee-marker'
                     infoVisible={i === currentWindowVisibleIndex}
-                    onClick={() => this.showWindow(i)}
+                    onClick={() => this.showWindow(i, coffeehouse.name)}
+                    onCloseClick={this.onHideWindow}
                     data={coffeehouse}
                     icon={coffeePin}
-                    animation={'DROP'}
+                    animation={i === currentWindowVisibleIndex ? 1 : null}
                     position={{
                       lat: coffeehouse.lat,
                       lng: coffeehouse.lng

@@ -1,31 +1,32 @@
-import React from 'react';
+import React from "react";
 
-import './AppList.scss';
+import ListItem from '../ListItem/AppListItem';
+
+import { listCoffeehouse } from "../../data/data";
 
 class List extends React.Component {
   render() {
-    const { name, address, time, content} = this.props;
-    return(
-      <div className="coffee-list">
-        <h4 className="list-name">{name}</h4>
-        <p className="list-adress">{address}</p>
-        <p className="list-time">{time}</p>
-        <div className="list-container">
-          <div className="list">
-            <p className="list-title">Další informace</p>
-            <p className="list-text">{content}</p>
-            {/* <div class="container-image">
-              <img class="list-image" src="{photo}" />
-              <img class="list-image" src="${image}" />
-              <img class="list-image" src="${image}" />
-            </div> */}
+    const { district } = this.props;
+    const activeCoffee = this.props;
+    console.log('list', listCoffeehouse);
+    console.log('list2', district);
 
-            <div className="list-toggle">
-              <i className="fas fa-chevron-down"></i>
-              <i className="fas fa-times"></i>
-            </div>
-          </div>
-        </div>
+
+    return (
+      <div className="app-list">
+        {
+          listCoffeehouse.filter(coffeehouse => coffeehouse.district === district)
+          .map(coffeehouse => {
+             return <ListItem 
+              key={coffeehouse.name}
+              name={coffeehouse.name}
+              address={coffeehouse.address}
+              time={coffeehouse.time}
+              content={coffeehouse.content}
+              activeCoffee={activeCoffee === coffeehouse.name ? 'active-class' : ''}
+            />
+          }
+        )}
       </div>
     )
   }

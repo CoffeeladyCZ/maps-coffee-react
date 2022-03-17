@@ -46,7 +46,7 @@ class MarkerComponent extends React.Component {
     const { zIndex, infoVisible } = state;
     
     return (
-      <Marker animation='BOUNCE' zIndex={zIndex} {...props} onMouseOver={pushUp} onMouseOut={pushDown} >
+      <Marker zIndex={zIndex} {...props} onMouseOver={pushUp} onMouseOut={pushDown} >
         { infoVisible ? <MapInfoWindow toggleClose={closeInfo} {...props} /> : null }
       </Marker>
     )

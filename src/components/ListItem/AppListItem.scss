@@ -1,6 +1,8 @@
 @import '../../scss/colors.scss';
 
 .coffee-list {
+  padding: 10px;
+  
   p {
     margin: 5px 0;
     text-align: left;
@@ -16,6 +18,10 @@
     font-size: 16px;
   }
 
+  &:hover {
+    background-color: $light-grey;
+  }
+
   /* toggle information */
   .list-container {
     max-width: 600px;
@@ -28,8 +34,9 @@
       transition: 0.3 ease;
 
       .list-title {
-        color: $--primary-red;
+        color: $primary-red;
         margin-left: 150px;
+        cursor: pointer;
       }
 
       .list-text {
@@ -46,7 +53,7 @@
         .list-toggle {
           .fa-chevron-down,
           .fa-times {
-            color: $--primary-red;
+            color: $primary-red;
             display: block;
           }
 
@@ -82,4 +89,8 @@
       }
     }
   }
+}
+
+.active-class {
+  background-color: $light-grey;
 }

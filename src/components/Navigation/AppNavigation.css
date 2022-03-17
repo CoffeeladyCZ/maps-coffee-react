@@ -3,9 +3,13 @@
   height: 100%;
   margin-bottom: 20px;
 }
+
 .navigation .navigation-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .navigation .navigation-menu li {
   margin: 0;
   text-align: center;
@@ -15,12 +19,15 @@
   text-transform: uppercase;
   text-decoration: none;
   list-style: none;
+  -webkit-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
   cursor: pointer;
 }
+
 .navigation .navigation-menu li:hover {
   color: #9F2B1F;
 }
+
 .navigation .navigation-menu .active {
   color: #9F2B1F;
 }
@@ -33,9 +40,11 @@
 
 @media (max-width: 695px) {
   .navigation .navigation-menu {
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
+
 @media (max-width: 679px) {
   .navigation {
     top: 0;
