@@ -1,29 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import "./AppNavigation.scss";
+import './AppNavigation.scss';
 
 const cityDistrict = [
-  {
-    name: "All",
-  },
-  {
-    name: "Letná",
-  },
-  {
-    name: "Karlín",
-  },
-  {
-    name: "Dejvice",
-  },
-  {
-    name: "Vinohrady",
-  },
-  {
-    name: "Nusle",
-  },
-  {
-    name: "Centrum",
-  },
+  { name: 'All' },
+  { name: 'Letná' },
+  {  name: 'Karlín' },
+  { name: 'Dejvice' },
+  { name: 'Vinohrady' },
+  { name: 'Nusle' },
+  { name: 'Centrum' },
 ];
 
 class Navigation extends React.Component {
@@ -50,8 +36,8 @@ class Navigation extends React.Component {
   render() {
     
     return (
-      <div className="navigation">
-        <ul className="navigation-menu">
+      <div className='navigation'>
+        <ul className='navigation-menu'>
         {
           cityDistrict.map((item) =>
           <li 

@@ -1,7 +1,6 @@
 import { Component } from 'react/cjs/react.production.min';
 import './ModalWindow.scss';
 
-
 /**
  * ModalWindow
  * Modal window with custom content
@@ -9,7 +8,6 @@ import './ModalWindow.scss';
  * @property {ReactComponent|HTMLElement|JSXComponent} content
  * @returns ModalWindow
  */
-
 
 class ModalWindow extends Component {
 

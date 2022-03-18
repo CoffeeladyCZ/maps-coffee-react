@@ -3,7 +3,7 @@ import { Marker} from '@react-google-maps/api';
 import MapInfoWindow from '../MapInfoWindow/MapInfoWindow';
 
 class MarkerComponent extends React.Component {
-  // pokud se zmení propsy zvenku
+  // if the props change from the outside
   static getDerivedStateFromProps(props, currentState) {
     if(props.infoVisible !== currentState.infoVisible) {
       return {

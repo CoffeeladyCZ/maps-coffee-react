@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 import ListItem from '../ListItem/AppListItem';
 
-import { listCoffeehouse } from "../../data/data";
+import { listCoffeehouse } from '../../data/data';
 
 class List extends React.Component {
   render() {
@@ -13,7 +13,7 @@ class List extends React.Component {
 
 
     return (
-      <div className="app-list">
+      <div className='app-list'>
         {
           listCoffeehouse.filter(coffeehouse => coffeehouse.district === district)
           .map(coffeehouse => {

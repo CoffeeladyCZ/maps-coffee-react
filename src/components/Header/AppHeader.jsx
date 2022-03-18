@@ -7,10 +7,10 @@ import coffeeCup from './coffee-cup.png';
 class Header extends Component {
  render() {
    return (
-    <header className="app-header">
+    <header className='app-header'>
       <h1>Mapa kaváren</h1>
-      <p className="claim">... tady se jede jenom výběrovka</p>
-      <img className="coffee-cup" src={coffeeCup} alt='coffee cup' />
+      <p className='claim'>... tady se jede jenom výběrovka</p>
+      <img className='coffee-cup' src={coffeeCup} alt='coffee cup' />
     </header>
    )
  }
