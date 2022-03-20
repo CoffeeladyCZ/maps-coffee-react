@@ -22,7 +22,7 @@ class Map extends React.Component {
     }
   };
 
-  onHideWindow = () =>{
+  onHideWindow = () => {
     this.setState({
       currentWindowVisibleIndex: null,
       activeCoffee: '',

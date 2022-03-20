@@ -5,7 +5,7 @@ import './AppNavigation.scss';
 const cityDistrict = [
   { name: 'All' },
   { name: 'Letná' },
-  {  name: 'Karlín' },
+  { name: 'Karlín' },
   { name: 'Dejvice' },
   { name: 'Vinohrady' },
   { name: 'Nusle' },
@@ -13,13 +13,6 @@ const cityDistrict = [
 ];
 
 class Navigation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      district: 'All',
-      active: true,
-  };
-  }
   
   changeDistrict = (name) => {
     this.setState({
@@ -30,8 +23,15 @@ class Navigation extends React.Component {
       this.props.callback(name)
     }
     )
-
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      district: 'All',
+      active: true,
+  };
+  }
   
   render() {
     

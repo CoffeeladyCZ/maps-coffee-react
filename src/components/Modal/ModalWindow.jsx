@@ -10,16 +10,17 @@ import './ModalWindow.scss';
  */
 
 class ModalWindow extends Component {
-
   closeModal = e => {
     if (e.keyCode) {
       if (e.keyCode !== 27) return
     } else {
       e.preventDefault();
     }
-      this.setState({opened: false});
-    
-  }
+      this.setState({opened: false},
+      () => {
+        this.props.callback()
+      }
+      )};
 
   constructor(props) {
     super(props);
