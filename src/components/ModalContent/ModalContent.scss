@@ -1,0 +1,40 @@
+@import '../../scss/colors.scss';
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  &-ref {
+    font-weight: 300;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  &-star {
+    display: flex;
+    flex-direction: row;
+    padding:10px;
+  }
+
+  &-parameters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+  }
+
+  &-parameters p {
+    padding-right: 20px;
+  }
+
+  &-img {
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  &-icon {
+    color: $primary-red;
+  }
+}

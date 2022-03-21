@@ -1,5 +1,6 @@
 import React from 'react';
 import ModalWindow from '../Modal/ModalWindow';
+import ModalContent from '../ModalContent/ModalContent';
 
 import './AppListItem.scss';
 
@@ -22,12 +23,8 @@ class ListItem extends React.Component {
   }
   
   render() {
-    const { name, address, time, content, activeCoffee } = this.props;
-    const contentModal = `
-      ${name}\n
-      ${address}\n
-      ${time}
-    `
+    const { name, address, time, content, image, activeCoffee } = this.props;
+    const contentModal = <ModalContent name={name} address={address} time={time} image={image} />
     const isOpened = this.state.isOpened;
     let modal;
     if (isOpened) {

@@ -1,9 +1,6 @@
-// eslint-disable-next-line
 import React from "react"; 
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import  MarkerComponent from '../Marker/AppMarker';
-
-// import Marker from '../Marker/AppMarker';
 
 import coffeePin from '../../img/coffee-shop.png';
 
