@@ -7,8 +7,6 @@ import Navigation from './components/Navigation/AppNavigation';
 import Footer from './components/Footer/AppFooter';
 import Map from './components/Map/AppMap';
 import List from './components/List/AppList';
-import ModalWindow from './components/Modal/ModalWindow';
-
 
 class App extends React.Component {
   constructor(props) {
@@ -49,7 +47,6 @@ class App extends React.Component {
           />
         </section>
         <Footer/>
-        <ModalWindow opened/>
       </div>
     );
   }

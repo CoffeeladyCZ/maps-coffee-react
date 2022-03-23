@@ -8,10 +8,7 @@ class List extends React.Component {
   render() {
     const { district } = this.props;
     const activeCoffee = this.props;
-    console.log('list', listCoffeehouse);
-    console.log('list2', district);
-
-
+   
     return (
       <div className='app-list'>
         {
@@ -22,6 +19,7 @@ class List extends React.Component {
               name={coffeehouse.name}
               address={coffeehouse.address}
               time={coffeehouse.time}
+              image={coffeehouse.image}
               content={coffeehouse.content}
               activeCoffee={activeCoffee === coffeehouse.name ? 'active-class' : ''}
             />
