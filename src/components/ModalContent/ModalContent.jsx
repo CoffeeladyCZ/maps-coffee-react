@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck, faStar, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
@@ -6,19 +6,28 @@ import { faCircleCheck, faStar, faCircleXmark } from '@fortawesome/free-solid-sv
 import './ModalContent.scss';
 
 function ModalContent (props) {
-  const [isActive, setActive] = useState(false);
+  const starsCount = 5;
+  const [rating, setRating] = useState(0);
+  const [hovered, setHovered] = useState(0);
 
-  function isActiveIcon() {
-    setActive((setActive) => !setActive);
-    if (isActive) localStorage.setItem('isActive', 'true');
-    if (!isActive) localStorage.setItem('isActive', 'false');
+  function getStars() {
+    const stars = [];
+    for(let i=1; i<=starsCount; i++) {
+      const larger = rating <= hovered ? hovered : rating;
+      const isActive = i <= larger;
+      stars.push(
+        <FontAwesomeIcon 
+          icon={faStar}
+          key={i}
+          size='lg'
+          onMouseOver={() => setHovered(i)}
+          className={isActive ? 'content-icon__active' : 'content-icon'} 
+          onClick={() => setRating(i)} 
+        />
+      )
+    }
+    return stars;
   }
-
-  useEffect(() => {
-    const setIcon = localStorage.getItem('isActive');
-    console.log('setIcon', setIcon)
-    setActive(setIcon);
-  }, [])
 
   return (
     <div className='content'>
@@ -27,25 +36,10 @@ function ModalContent (props) {
         <p className='list-adress'>{props.address}</p>
         <p className='list-time'>{props.time}</p>
         <p className='content-ref'>Hodnocení:</p>
-        <div className='content-star'>
-          <FontAwesomeIcon 
-            icon={faStar} 
-            size='lg'  
-            className={isActive ? 'content-icon__active' : 'content-icon'} 
-            onClick={isActiveIcon} 
-          />
-          <FontAwesomeIcon 
-            icon={faStar} 
-            size='lg' 
-            className={isActive ? 'content-icon__active' : 'content-icon'} 
-            onClick={isActiveIcon} 
-          />
-          <FontAwesomeIcon
-            icon={faStar} 
-            size='lg' 
-            className={isActive ? 'content-icon__active' : 'content-icon'} 
-            onClick={isActiveIcon} 
-          />
+        <div onMouseOut={() => setHovered(0)} className='content-star'>
+          {
+            getStars()
+          }
         </div>       
         <table className='content-table'>
           <tbody>
