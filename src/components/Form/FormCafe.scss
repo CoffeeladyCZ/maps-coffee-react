@@ -1,0 +1,86 @@
+@import '../../scss/colors.scss';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-title {
+    color: $primary-red;
+    margin: 50px;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+    border: 1px solid $dark-grey;
+    border-radius: 8px;
+    max-width: 600px;
+    height: 450px;
+
+    &-row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 30px;
+      justify-content: space-between;
+      padding-top: 20px;
+      height: 40px;
+
+      label {
+        position: absolute;
+        font-size: 12px;
+      }
+
+      input {
+        width: 300px;
+        border: none;
+        border-bottom: 1px solid $dark-grey;
+        display: flex;
+        justify-content: flex-end;
+
+        &.errorInput {
+          border-bottom: 1px solid $primary-red;
+        }
+      }
+    }
+
+    &-btn {
+      display: flex;
+      justify-content: flex-end;
+      margin: 10px;
+      margin-top: auto;
+      margin-right: 30px;
+
+      .btn {
+        width: 80px;
+        padding: 5px;
+        border-radius:4px;
+        border: 2px solid $primary-red;
+        text-transform: uppercase;
+        color: #fff;
+        cursor: pointer;
+
+        &-clean {
+          background-color: #fff;
+          color: $primary-red;
+          margin-right: 15px;
+        }
+
+        &-submit {
+          background-color: $primary-red;
+
+          &:hover {
+            background-color: $light-red;
+          }
+        }
+      }
+    }
+
+    .errorMessage {
+      color: $primary-red;
+      font-size: 12px;
+    }
+  }
+}

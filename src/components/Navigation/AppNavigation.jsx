@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import './AppNavigation.scss';
 
@@ -34,20 +37,24 @@ class Navigation extends React.Component {
   }
   
   render() {
-    
     return (
       <div className='navigation'>
         <ul className='navigation-menu'>
-        {
-          cityDistrict.map((item) =>
-          <li 
-            className={this.state.active && item.name === this.state.district ? 'active' : ''} 
-            key={item.name} 
-            onClick={() => this.changeDistrict(item.name)}>
-            {item.name}
-          </li>
-          )
-        }</ul>
+          {
+            cityDistrict.map((item) =>
+            <li 
+              className={this.state.active && item.name === this.state.district ? 'active' : ''} 
+              key={item.name} 
+              onClick={() => this.changeDistrict(item.name)}>
+              {item.name}
+            </li>
+            )
+          }
+          <Link to="form" className='navigation-menu__icon'>
+            <FontAwesomeIcon icon={faPlus} size="lg"/>
+              <span className='navigation-menu__icon-text'>New</span>
+          </Link>
+        </ul>
       </div>
     );
   }
