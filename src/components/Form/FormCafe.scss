@@ -1,9 +1,27 @@
 @import '../../scss/colors.scss';
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  &-head {
+    display: flex;
+
+    &__icon {
+      color: $primary-red;
+      margin-top: 57px;
+      padding-right: 20px;
+
+      &:hover {
+        color: $light-red;
+      }
+    }
+  }
 
   &-title {
     color: $primary-red;
@@ -14,44 +32,90 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 16px;
+    padding: 26px;
     border: 1px solid $dark-grey;
     border-radius: 8px;
+
     max-width: 600px;
-    height: 450px;
+    height: 500px;
 
     &-row {
       display: flex;
-      flex-wrap: wrap;
-      padding: 0 30px;
-      justify-content: space-between;
-      padding-top: 20px;
-      height: 40px;
-
-      label {
-        position: absolute;
-        font-size: 12px;
-      }
+      position: relative;
+      margin: 0 20px;
+      font-size: 12px;
+      --field-padding: 12px;
+      text-align: left;
+      border-top: 20px solid transparent;
 
       input {
-        width: 300px;
+        -webkit-appearance: none;
+        -ms-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: transparent;
         border: none;
         border-bottom: 1px solid $dark-grey;
-        display: flex;
-        justify-content: flex-end;
+        width: 300px;
+        font-size: 14px;
+        padding: var(--field-padding);
 
-        &.errorInput {
-          border-bottom: 1px solid $primary-red;
+        &:focus-visible {
+          outline-color: $input-blue;
         }
       }
+
+      select {
+        border: none;
+        border-bottom: 1px solid $dark-grey;
+        width: 300px;
+        height: 40px;
+        padding-left: 7px;
+        font-size: 14px;
+      }
+
+      &.errorInput {
+        border-bottom: 1px solid $primary-red;
+      }
+    }
+
+    .form-body-row .placeholder {
+      position: absolute;
+      top: 22px;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: $dark-grey;
+      text-align: left;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      left: var(--field-padding);
+      width: calc(100% - (var(--field-padding) * 2));
+      transition: 
+        top 0.3s ease,
+        color 0.3s ease,
+        font-size 0.3s ease;
+    }
+
+    .form-body-row input:focus + .placeholder {
+      top: -10px;
+      font-size: 12px;
+      text-align: left;
+      color: $input-blue;
+      width: calc(100% - (var(--field-padding) * 2));
+    }
+    
+    .form-body-row input:not(:placeholder-shown) + .placeholder
+    .form-body-row input:focus + .placeholder {
+      top: 0px;
+      font-size: 12px;
+      color: $dark-grey;
     }
 
     &-btn {
       display: flex;
       justify-content: flex-end;
-      margin: 10px;
-      margin-top: auto;
-      margin-right: 30px;
+      margin-top: 10px;
+      margin-right: 20px;
 
       .btn {
         width: 80px;
@@ -81,6 +145,12 @@
     .errorMessage {
       color: $primary-red;
       font-size: 12px;
+      padding-left: 30px;
+      text-align: left;
+      animation-name: bounce;
+      animation-duration: .5s;
+      animation-delay: 0.25s;
+      caret-color: $primary-red;
     }
   }
 }

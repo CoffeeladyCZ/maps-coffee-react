@@ -12,6 +12,17 @@ export const coffeehouse = document.querySelector('.list-coffeehouse'),
       ],
       photo = [];
 
+
+export const cityDistrict = [
+  { name: 'All' },
+  { name: 'Letná' },
+  { name: 'Karlín' },
+  { name: 'Dejvice' },
+  { name: 'Vinohrady' },
+  { name: 'Nusle' },
+  { name: 'Centrum' },
+];
+
 // list of coffeehouse
 export const listCoffeehouse = [
 {
