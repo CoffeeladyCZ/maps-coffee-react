@@ -44,7 +44,7 @@ const FormCafe = () => {
    });
 
   return (
-    <form className="form" onSubmit={formik.handleSubmit}>
+    <form className="form" onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
     <div className="form-head">
        <Link to="/" className='form-head__icon'>
         <FontAwesomeIcon icon={faArrowLeft} size="xl"/>
@@ -56,6 +56,7 @@ const FormCafe = () => {
           <input
             id="nameCafe"
             name="nameCafe"
+            required
             className={formik.errors.nameCafe ? 'errorInput' : ''}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -63,11 +64,14 @@ const FormCafe = () => {
           />
           <label htmlFor="nameCafe" className="placeholder">Název kavárny</label>
         </div>
-        {formik.touched.nameCafe && formik.errors.nameCafe ? (<div className="errorMessage">{formik.errors.nameCafe}</div>) : null}
+        <div className="errorMessage">
+          {formik.nameCafe && formik.errors.nameCafe ? formik.errors.nameCafe : null}
+        </div>
         <div className="form-body-row">
           <input
             id="addressCafe"
             name="addressCafe"
+            required
             className={formik.errors.addressCafe ? 'errorInput' : ''}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -75,7 +79,9 @@ const FormCafe = () => {
           />
           <label htmlFor="addressCafe" className="placeholder">Adresa kavárny</label>
         </div>
-        {formik.touched.addressCafe && formik.errors.addressCafe ? (<div className="errorMessage">{formik.errors.addressCafe}</div>) : null}
+        <div className="errorMessage">
+          {formik.touched.addressCafe && formik.errors.addressCafe ? formik.errors.addressCafe : null}
+        </div>
         <div className="form-body-row">
           <select
             id="location"
@@ -90,14 +96,16 @@ const FormCafe = () => {
               return <option>{location.name}</option>
             })}
           </select>
-          {/* <label htmlFor="location" className="placeholder">Lokalita</label> */}
         </div>
-        {formik.touched.location && formik.errors.location ? (<div className="errorMessage">{formik.errors.location}</div>) : null}
+        <div className="errorMessage">
+          {formik.touched.location && formik.errors.location ? formik.errors.location : null}
+        </div>
         <div className="form-body-row">
           <input
             id="openTime"
             name="openTime"
             type="openTime"
+            required
             className={formik.errors.openTime ? 'errorInput' : ''}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -105,33 +113,40 @@ const FormCafe = () => {
           />
           <label htmlFor="openTime" className="placeholder">Otevírací doba</label>
         </div>
-        {formik.touched.openTime && formik.errors.openTime ? (<div className="errorMessage">{formik.errors.location}</div>) : null}
+        <div className="errorMessage">
+          {formik.touched.openTime && formik.errors.openTime ? formik.errors.openTime : null}
+        </div>
+        
         <div className="form-body-row">
           <input
             id="web"
             name="web"
             type="web"
+            required
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.web}
           />
           <label htmlFor="web" className="placeholder">Webové stránky</label>
         </div>
-        {formik.touched.web && formik.errors.web ? (<div className="errorMessage">{formik.errors.location}</div>) : null}
+        <div className="errorMessage">
+          {formik.touched.web && formik.errors.web ? formik.errors.web : null}
+        </div>
         <div className="form-body-row">
           <input
             id="info"
             name="info"
             type="info"
+            required
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.info}
           />
           <label htmlFor="info" className="placeholder">Informace</label>
         </div>
-        {formik.touched.info && formik.errors.info ? (
-            <div className="errorMessage">{formik.errors.location}</div>
-          ) : null}
+        <div className="errorMessage">
+          {formik.touched.info && formik.errors.info ? formik.errors.info : null}
+        </div>
         <div className="form-body-btn">
           <button type="reset" className="btn btn-clean">Clean</button>
           <button type="submit" className="btn btn-submit">Submit</button>
