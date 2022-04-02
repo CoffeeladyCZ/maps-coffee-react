@@ -1,0 +1,75 @@
+@import '../../scss/colors.scss';
+
+.select {
+  transition: all 0.2s ease;
+
+  &-header {
+    border-bottom: 1px solid $dark-grey;
+    width: 300px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+
+    &-active {
+      padding-left: 12px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+
+      p {
+        font-size: 14px;
+        color: $input-blue;
+      }
+
+      .select-icon {
+        margin-left: auto;
+        color: $input-blue;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      padding-left: 12px;
+    }
+  }
+
+  &-icon {
+    color: $dark-grey;
+    margin-left: auto;
+  }
+
+  &-body {
+    display: none;
+  }
+
+  &-item {
+    padding: 10px;
+    padding-left: 12px;
+    transition: all 0.2s ease;
+
+    &-active {
+      padding: 10px;
+      padding-left: 12px;
+      transition: all 0.2s ease;
+      background-color: #90CAF9;
+    }
+
+    &:hover {
+      background-color: $light-grey;
+    }
+  }
+
+  &-active {
+    position: absolute;
+    border: 2px solid $input-blue;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: $dark-grey;
+    font-size: 14px;
+    width: 300px;
+    background-color: #fff;
+    z-index: 2;
+    overflow: hidden;
+    cursor: pointer;
+  }
+}

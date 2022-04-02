@@ -26,11 +26,14 @@ export const cityDistrict = [
 export const formItems = [
   { name: 'Název kavárny', value: 'nameCafe' },
   { name: 'Adresa kavárny', value: 'addressCafe' },
-  { name: 'Lokalita', value: 'location' },
   { name: 'Otevírací doba', value: 'openTime' },
   { name: 'Informace', value: 'info' },
   { name: 'Webové stránky', value: 'web' }
 ];
+
+export const selectItems = [
+  {name: 'Lokalita', value: 'location' }
+]
 
 // list of coffeehouse
 export const listCoffeehouse = [
