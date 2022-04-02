@@ -5,15 +5,13 @@ import { useFormik } from 'formik';
 import './FormCafe.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { cityDistrict } from "../../data/data";
+
+import { formItems } from '../../data/data';
 
 const validate = values => {
   const errors = {};
- 
   if (!values.nameCafe) {
     errors.nameCafe = 'Required';
-  } else if (values.nameCafe.length > 20) {
-    errors.nameCafe = 'Must be 15 characters or less';
   }
   if (!values.addressCafe) {
     errors.addressCafe = 'Required';
@@ -37,14 +35,13 @@ const FormCafe = () => {
        web: '',
        info: '',
      },
-     validate,
      onSubmit: values => {
-       alert(JSON.stringify(values, null, 2));
+      alert(JSON.stringify(values, null, 2));
      },
-   });
+  });
 
   return (
-    <form className="form" onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
+    <form className="form"  onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
     <div className="form-head">
        <Link to="/" className='form-head__icon'>
         <FontAwesomeIcon icon={faArrowLeft} size="xl"/>
@@ -52,104 +49,33 @@ const FormCafe = () => {
       <h1 className="form-title">Zadej údaje o nové kavárně</h1>
     </div>
       <div className="form-body">
-        <div className="form-body-row">
-          <input
-            id="nameCafe"
-            name="nameCafe"
-            required
-            className={formik.errors.nameCafe ? 'errorInput' : ''}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.nameCafe}
-          />
-          <label htmlFor="nameCafe" className="placeholder">Název kavárny</label>
-        </div>
-        <div className="errorMessage">
-          {formik.nameCafe && formik.errors.nameCafe ? formik.errors.nameCafe : null}
-        </div>
-        <div className="form-body-row">
-          <input
-            id="addressCafe"
-            name="addressCafe"
-            required
-            className={formik.errors.addressCafe ? 'errorInput' : ''}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.addressCafe}
-          />
-          <label htmlFor="addressCafe" className="placeholder">Adresa kavárny</label>
-        </div>
-        <div className="errorMessage">
-          {formik.touched.addressCafe && formik.errors.addressCafe ? formik.errors.addressCafe : null}
-        </div>
-        <div className="form-body-row">
-          <select
-            id="location"
-            name="location"
-            className={formik.errors.location ? 'errorInput' : ''}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.location}
-          >
-            <option>Vyber lokalitu:</option>
-            {cityDistrict.map(location => {
-              return <option>{location.name}</option>
-            })}
-          </select>
-        </div>
-        <div className="errorMessage">
-          {formik.touched.location && formik.errors.location ? formik.errors.location : null}
-        </div>
-        <div className="form-body-row">
-          <input
-            id="openTime"
-            name="openTime"
-            type="openTime"
-            required
-            className={formik.errors.openTime ? 'errorInput' : ''}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.openTime}
-          />
-          <label htmlFor="openTime" className="placeholder">Otevírací doba</label>
-        </div>
-        <div className="errorMessage">
-          {formik.touched.openTime && formik.errors.openTime ? formik.errors.openTime : null}
-        </div>
-        
-        <div className="form-body-row">
-          <input
-            id="web"
-            name="web"
-            type="web"
-            required
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.web}
-          />
-          <label htmlFor="web" className="placeholder">Webové stránky</label>
-        </div>
-        <div className="errorMessage">
-          {formik.touched.web && formik.errors.web ? formik.errors.web : null}
-        </div>
-        <div className="form-body-row">
-          <input
-            id="info"
-            name="info"
-            type="info"
-            required
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.info}
-          />
-          <label htmlFor="info" className="placeholder">Informace</label>
-        </div>
-        <div className="errorMessage">
-          {formik.touched.info && formik.errors.info ? formik.errors.info : null}
-        </div>
+        { 
+          formItems.map(item => {
+            return(
+              <>
+                <div className="form-body-row">
+                  <input 
+                    id={item.value} 
+                    name={item.value}
+                    required 
+                    className={formik.errors[item.value] ? 'errorInput' : ''}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values[item.value]}
+                  />
+                  <label htmlFor={item.value} className="placeholder">{item.name}</label>
+              </div>
+              <div className="errorMessage">
+                {formik[item.value] && formik.errors[item.value] ? formik.errors[item.value] : null}
+              </div>
+              </>
+             
+            )
+          })
+        }
         <div className="form-body-btn">
           <button type="reset" className="btn btn-clean">Clean</button>
-          <button type="submit" className="btn btn-submit">Submit</button>
+          <button type="submit" className="btn btn-submit" onClick={validate}>Submit</button>
         </div>
       </div>
      </form>
