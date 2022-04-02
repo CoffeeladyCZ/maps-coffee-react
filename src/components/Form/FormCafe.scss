@@ -1,0 +1,168 @@
+@import '../../scss/colors.scss';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-head {
+    display: flex;
+
+    &__icon {
+      color: $primary-red;
+      margin-top: 57px;
+      padding-right: 20px;
+
+      &:hover {
+        color: $light-red;
+      }
+    }
+  }
+
+  &-title {
+    color: $primary-red;
+    margin: 50px;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 26px;
+    border: 1px solid $dark-grey;
+    border-radius: 8px;
+
+    max-width: 600px;
+    height: 500px;
+
+    &-row {
+      display: flex;
+      position: relative;
+      margin: 0 20px;
+      font-size: 12px;
+      --field-padding: 12px;
+      text-align: left;
+      border-top: 15px solid transparent;
+
+      input {
+        -webkit-appearance: none;
+        -ms-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $dark-grey;
+        width: 300px;
+        font-size: 14px;
+        padding: var(--field-padding);
+
+        &:focus-visible {
+          outline-color: $input-blue;
+        }
+
+        &:valid {
+          border: 2px solid $dark-grey;
+          border-radius: 4px;
+        }
+
+        &:valid + .placeholder {
+          top: -10px;
+          font-size: 12px;
+          color: $dark-grey;
+        }
+
+        &.errorInput {
+          border-bottom: 1px solid $primary-red;
+        }
+      }
+
+      select {
+        border: none;
+        border-bottom: 1px solid $dark-grey;
+        width: 300px;
+        height: 40px;
+        padding-left: 7px;
+        font-size: 14px;
+      }
+    }
+
+    .form-body-row .placeholder {
+      position: absolute;
+      top: 22px;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: $dark-grey;
+      text-align: left;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      left: var(--field-padding);
+      width: calc(100% - (var(--field-padding) * 2));
+      transition: 
+        top 0.3s ease,
+        color 0.3s ease,
+        font-size 0.3s ease;
+    }
+
+    .form-body-row input:focus + .placeholder {
+      top: -10px;
+      font-size: 12px;
+      text-align: left;
+      color: $input-blue;
+      width: calc(100% - (var(--field-padding) * 2));
+    }
+    
+    .form-body-row input:not(:placeholder-shown) + .placeholder
+    .form-body-row input:focus + .placeholder {
+      top: 0px;
+      font-size: 12px;
+      color: $dark-grey;
+    }
+
+    &-btn {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 20px;
+
+      .btn {
+        width: 80px;
+        padding: 5px;
+        border-radius:4px;
+        border: 2px solid $primary-red;
+        text-transform: uppercase;
+        color: #fff;
+        cursor: pointer;
+
+        &-clean {
+          background-color: #fff;
+          color: $primary-red;
+          margin-right: 15px;
+        }
+
+        &-submit {
+          background-color: $primary-red;
+
+          &:hover {
+            background-color: $light-red;
+          }
+        }
+      }
+    }
+
+    .errorMessage {
+      color: $primary-red;
+      font-size: 12px;
+      min-height: 15px;
+      padding-left: 30px;
+      text-align: left;
+      animation-name: bounce;
+      animation-duration: .5s;
+      animation-delay: 0.25s;
+      caret-color: $primary-red;
+    }
+  }
+}

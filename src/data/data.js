@@ -12,6 +12,26 @@ export const coffeehouse = document.querySelector('.list-coffeehouse'),
       ],
       photo = [];
 
+
+export const cityDistrict = [
+  { name: 'All' },
+  { name: 'Letná' },
+  { name: 'Karlín' },
+  { name: 'Dejvice' },
+  { name: 'Vinohrady' },
+  { name: 'Nusle' },
+  { name: 'Centrum' },
+];
+
+export const formItems = [
+  { name: 'Název kavárny', value: 'nameCafe' },
+  { name: 'Adresa kavárny', value: 'addressCafe' },
+  { name: 'Lokalita', value: 'location' },
+  { name: 'Otevírací doba', value: 'openTime' },
+  { name: 'Informace', value: 'info' },
+  { name: 'Webové stránky', value: 'web' }
+];
+
 // list of coffeehouse
 export const listCoffeehouse = [
 {
