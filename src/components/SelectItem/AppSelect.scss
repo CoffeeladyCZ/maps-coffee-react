@@ -1,0 +1,97 @@
+@import '../../scss/colors.scss';
+
+$select-transition: all 0.25s ease;
+$body-border: solid transparent 1px;
+$body-border-active: solid $input-blue 1px;
+
+.select {
+  width: 100%;
+  max-width: 300px;
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+
+  &-icon {
+    transition: $select-transition;
+    transform: rotate(0);
+    color: $dark-grey;
+  }
+
+  &-header {
+    border-bottom: 1px solid $dark-grey;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: var(--field-padding);
+
+    input {
+      color: inherit;
+      border: none;
+      padding: 0;
+      margin: 0;
+      outline: none;
+    }
+
+    * {
+      transition: $select-transition;
+      margin: 0;
+    }
+  }
+
+  &-icon {
+    color: $dark-grey;
+    margin-left: auto;
+  }
+
+  &-body {
+    position: absolute;
+    inset: 100% 0 0 0;
+    width: 100%;
+    transition: $select-transition;
+    min-height: 0;
+    overflow: hidden;
+    z-index: 100;
+    background-color: #fff;
+    border-left: $body-border;
+    border-bottom: $body-border;
+    border-right: $body-border;
+  }
+
+  &-item {
+    padding: 10px;
+    padding-left: 12px;
+    transition: $select-transition;
+    font-size: 14px;
+    padding: var(--field-padding);
+
+    &.active {
+      background-color: #90caf9;
+    }
+
+    &:hover {
+      background-color: $light-grey;
+    }
+  }
+
+  &.active {
+    .select-header {
+      color: $input-blue;
+      border-bottom: $body-border-active;
+    }
+
+    .select-icon {
+      transform: rotate(180deg);
+      color: $input-blue;
+    }
+
+    .select-body {
+      min-height: var(--select-body-height);
+      border-left: $body-border-active;
+      border-bottom: $body-border-active;
+      border-right: $body-border-active;
+    }
+  }
+}

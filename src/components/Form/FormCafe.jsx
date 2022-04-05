@@ -6,7 +6,9 @@ import './FormCafe.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-import { formItems } from '../../data/data';
+import AppSelect from '../SelectItem/AppSelect';
+
+import { formItems, cityDistrict, selectItems } from '../../data/data';
 
 const validate = values => {
   const errors = {};
@@ -49,10 +51,13 @@ const FormCafe = () => {
       <h1 className="form-title">Zadej údaje o nové kavárně</h1>
     </div>
       <div className="form-body">
+        <div className="form-body-row">
+          <AppSelect selectItems={cityDistrict} selectName={selectItems} value={formik.values.location} name='lokalita' />
+        </div>
         { 
           formItems.map(item => {
-            return(
-              <>
+            return (
+              <div key={item.value}>
                 <div className="form-body-row">
                   <input 
                     id={item.value} 
@@ -68,7 +73,7 @@ const FormCafe = () => {
               <div className="errorMessage">
                 {formik[item.value] && formik.errors[item.value] ? formik.errors[item.value] : null}
               </div>
-              </>
+              </div>
              
             )
           })
