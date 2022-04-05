@@ -1,35 +1,43 @@
 @import '../../scss/colors.scss';
 
+$select-transition: all 0.25s ease;
+$body-border: solid transparent 1px;
+$body-border-active: solid $input-blue 1px;
+
 .select {
-  transition: all 0.2s ease;
+  width: 100%;
+  max-width: 300px;
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+
+  &-icon {
+    transition: $select-transition;
+    transform: rotate(0);
+    color: $dark-grey;
+  }
 
   &-header {
     border-bottom: 1px solid $dark-grey;
     width: 300px;
-    margin-bottom: 15px;
     display: flex;
     align-items: center;
+    font-size: 14px;
+    padding: var(--field-padding);
 
-    &-active {
-      padding-left: 12px;
-      text-align: left;
-      display: flex;
-      align-items: center;
-
-      p {
-        font-size: 14px;
-        color: $input-blue;
-      }
-
-      .select-icon {
-        margin-left: auto;
-        color: $input-blue;
-      }
+    input {
+      color: inherit;
+      border: none;
+      padding: 0;
+      margin: 0;
+      outline: none;
     }
 
-    p {
-      font-size: 14px;
-      padding-left: 12px;
+    * {
+      transition: $select-transition;
+      margin: 0;
     }
   }
 
@@ -39,19 +47,28 @@
   }
 
   &-body {
-    display: none;
+    position: absolute;
+    inset: 100% 0 0 0;
+    width: 100%;
+    transition: $select-transition;
+    min-height: 0;
+    overflow: hidden;
+    z-index: 100;
+    background-color: #fff;
+    border-left: $body-border;
+    border-bottom: $body-border;
+    border-right: $body-border;
   }
 
   &-item {
     padding: 10px;
     padding-left: 12px;
-    transition: all 0.2s ease;
+    transition: $select-transition;
+    font-size: 14px;
+    padding: var(--field-padding);
 
-    &-active {
-      padding: 10px;
-      padding-left: 12px;
-      transition: all 0.2s ease;
-      background-color: #90CAF9;
+    &.active {
+      background-color: #90caf9;
     }
 
     &:hover {
@@ -59,17 +76,22 @@
     }
   }
 
-  &-active {
-    position: absolute;
-    border: 2px solid $input-blue;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    color: $dark-grey;
-    font-size: 14px;
-    width: 300px;
-    background-color: #fff;
-    z-index: 2;
-    overflow: hidden;
-    cursor: pointer;
+  &.active {
+    .select-header {
+      color: $input-blue;
+      border-bottom: $body-border-active;
+    }
+
+    .select-icon {
+      transform: rotate(180deg);
+      color: $input-blue;
+    }
+
+    .select-body {
+      min-height: var(--select-body-height);
+      border-left: $body-border-active;
+      border-bottom: $body-border-active;
+      border-right: $body-border-active;
+    }
   }
 }

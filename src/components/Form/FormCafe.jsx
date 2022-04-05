@@ -52,7 +52,7 @@ const FormCafe = () => {
     </div>
       <div className="form-body">
         <div className="form-body-row">
-          <AppSelect selectItems={cityDistrict} selectName={selectItems} value={formik.values.location} />
+          <AppSelect selectItems={cityDistrict} selectName={selectItems} value={formik.values.location} name='lokalita' />
         </div>
         { 
           formItems.map(item => {

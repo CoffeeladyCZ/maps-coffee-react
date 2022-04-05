@@ -1,52 +1,72 @@
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
-
-import React, { useState } from 'react';
-
+import { useEffect, useRef, useState } from 'react';
 import './AppSelect.scss';
 
 const Select = (props) => {
-  const [select, setSelect] = useState(false);
-  const [selectItem, setSelectItem] = useState('Lokalita');
+  const selectBody = useRef(null);
+  const [isOpened, setIsOpened] = useState(false);
+  const [selectedItem, setSelectedItem] = useState('Lokalita');
+  const activeClass = isOpened ? ' active' : '';
+
+  useEffect(() => {
+    // component mounted
+    window.addEventListener('click', handleClickOutside);
+    window.addEventListener('keyup', handleClickOutside);
+
+    return () => {
+      // componetn unmounted
+      window.removeEventListener('click', handleClickOutside);
+      window.removeEventListener('keyup', handleClickOutside);
+    };
+  }, []);
+
+  function handleClickOutside(event) {
+    const target = event.target;
+    const type = event.type.toLowerCase();
+    const clickedOutside = type === 'click' && !target.matches('.select, .select *');
+    const escapePressed = type === 'keyup' && event.key.toLowerCase() === 'escape';
+    (clickedOutside || escapePressed) && setIsOpened(false);    
+  }
 
   function lastSelectItem(item) {
-    setSelectItem(item.name);
-    setSelect(false);
-  }
-  
-  function handleBlur(e) { 
-    console.log('blur event');
-    setSelect(false);
+    setSelectedItem(item.name);
   }
 
-  let icon;
-  if (select) {
-    icon = <FontAwesomeIcon icon={faAngleUp} size='lg' className='select-icon' />
-  } else {
-    icon = <FontAwesomeIcon  icon={faAngleDown} size='lg' className='select-icon' />
+  function toggle() {
+    selectBody &&
+      selectBody.current &&
+      selectBody.current.style.setProperty(
+        '--select-body-height',
+        selectBody.current.scrollHeight + 'px'
+      );
+    setIsOpened(!isOpened);
   }
 
   return (
-    <div className='select'  onBlur={() => handleBlur}>
-      <div className={select ? 'select-header-active' : 'select-header'} onClick={() => setSelect(select => !select)}>
-        <p>{selectItem}</p>
-        {icon}
+    <div onClick={toggle} className={`select${activeClass}`}>
+      <div className='select-header' onClick={toggle}>
+        <input readOnly type='text' value={selectedItem} name={props.name} />
+        <FontAwesomeIcon icon={faAngleDown} size='lg' className='select-icon' />
       </div>
-      <div className={select ? 'select-active' : 'select-body'}>
-        {props.selectItems.map(item => {
-          return ( 
-            <div 
+      <div ref={selectBody} className='select-body'>
+        {props.selectItems.map((item, index) => {
+          return (
+            <div
               key={item.name}
-              className={item.name === selectItem ? 'select-item-active' : 'select-item'}
+              tabIndex={index}
+              className={`select-item${
+                item.name === selectedItem ? ' active' : ''
+              }`}
               onClick={() => lastSelectItem(item)}
             >
               {item.name}
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Select;
