@@ -35,6 +35,13 @@ export const selectItems = [
   {name: 'Lokalita', value: 'location' }
 ]
 
+export const cities = [
+  { name: 'Plzeň' },
+  { name: 'Brno' },
+  { name: 'Tábor' },
+  { name: 'České Budějovice' },
+]
+
 // list of coffeehouse
 export const listCoffeehouse = [
 {

@@ -3,17 +3,10 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
+import { cityDistrict } from '../../data/data';
+
 import './AppNavigation.scss';
 
-const cityDistrict = [
-  { name: 'All' },
-  { name: 'Letná' },
-  { name: 'Karlín' },
-  { name: 'Dejvice' },
-  { name: 'Vinohrady' },
-  { name: 'Nusle' },
-  { name: 'Centrum' },
-];
 
 class Navigation extends React.Component {
   
@@ -41,13 +34,13 @@ class Navigation extends React.Component {
       <div className='navigation'>
         <ul className='navigation-menu'>
           {
-            cityDistrict.map((item) =>
-            <li 
-              className={this.state.active && item.name === this.state.district ? 'active' : ''} 
-              key={item.name} 
-              onClick={() => this.changeDistrict(item.name)}>
-              {item.name}
-            </li>
+            cityDistrict.map((item) => 
+              <li 
+                className={this.state.active && item.name === this.state.district ? 'active' : ''} 
+                key={item.name} 
+                onClick={() => this.changeDistrict(item.name)}>
+                {item.name}
+              </li>
             )
           }
           <Link to="form" className='navigation-menu__icon'>
