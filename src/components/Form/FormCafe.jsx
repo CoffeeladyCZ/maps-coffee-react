@@ -45,7 +45,7 @@ const FormCafe = () => {
   return (
     <form className="form"  onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
     <div className="form-head">
-       <Link to="/" className='form-head__icon'>
+      <Link to="/" className='form-head__icon'>
         <FontAwesomeIcon icon={faArrowLeft} size="xl"/>
       </Link>
       <h1 className="form-title">Zadej údaje o nové kavárně</h1>
@@ -69,10 +69,10 @@ const FormCafe = () => {
                     value={formik.values[item.value]}
                   />
                   <label htmlFor={item.value} className="placeholder">{item.name}</label>
-              </div>
-              <div className="errorMessage">
-                {formik[item.value] && formik.errors[item.value] ? formik.errors[item.value] : null}
-              </div>
+                </div>
+                <div className="errorMessage">
+                  {formik[item.value] && formik.errors[item.value] ? formik.errors[item.value] : null}
+                </div>
               </div>
              
             )

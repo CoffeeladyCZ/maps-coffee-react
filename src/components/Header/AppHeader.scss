@@ -24,6 +24,19 @@
     }
   }
 
+  .sign-icon {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    align-self: flex-end;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-red;
+      transition: all 0.25s ease;
+    }
+  }
+
   .claim {
     color: $primary-red;
     font-size: 27px;
@@ -35,8 +48,8 @@
     width: 150px;
     height: auto;
     position: absolute;
-    right: 72px;
-    top: 20px;
+    right: 140px;
+    top: 70px;
   }
 }
 
