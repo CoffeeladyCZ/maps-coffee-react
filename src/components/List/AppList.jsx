@@ -12,7 +12,7 @@ class List extends React.Component {
     return (
       <div className='app-list'>
         {
-          listCoffeehouse.filter(coffeehouse => coffeehouse.district === district)
+          listCoffeehouse.filter(coffeehouse => coffeehouse.district.includes(district))
           .map(coffeehouse => {
              return <ListItem 
               key={coffeehouse.name}

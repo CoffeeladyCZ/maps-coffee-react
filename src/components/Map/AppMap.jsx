@@ -61,38 +61,39 @@ class Map extends React.Component {
     const { district } = this.props;
     
     return (
-        <div className="map">
-          <LoadScript
-            googleMapsApiKey={secret}
+      <div className="map">
+        <LoadScript
+          googleMapsApiKey={secret}
+        >
+          <GoogleMap
+            zoom={zoom}
+            center={center}
+            mapContainerStyle={style}
           >
-            <GoogleMap
-              zoom={zoom}
-              center={center}
-              mapContainerStyle={style}
-            >
-            {
-              listCoffeehouse.filter(coffeehouse => coffeehouse.district === district)
-                .map((coffeehouse, i) => {
-                  return <MarkerComponent
-                    className='coffee-marker'
-                    infoVisible={i === currentWindowVisibleIndex}
-                    onClick={() => this.showWindow(i, coffeehouse.name)}
-                    onCloseClick={this.onHideWindow}
-                    data={coffeehouse}
-                    icon={coffeePin}
-                    animation={i === currentWindowVisibleIndex ? 1 : null}
-                    position={{
-                      lat: coffeehouse.lat,
-                      lng: coffeehouse.lng
-                    }}
-                    key={coffeehouse.name}
-                    title={coffeehouse.name}
-                  />
-                })
-            }
-            </GoogleMap>
-          </LoadScript>
-        </div>)
+          {
+            listCoffeehouse.filter(coffeehouse => coffeehouse.district.includes(district))
+              .map((coffeehouse, i) => {
+                return <MarkerComponent
+                  className='coffee-marker'
+                  infoVisible={i === currentWindowVisibleIndex}
+                  onClick={() => this.showWindow(i, coffeehouse.name)}
+                  onCloseClick={this.onHideWindow}
+                  data={coffeehouse}
+                  icon={coffeePin}
+                  animation={i === currentWindowVisibleIndex ? 1 : null}
+                  position={{
+                    lat: coffeehouse.lat,
+                    lng: coffeehouse.lng
+                  }}
+                  key={coffeehouse.name}
+                  title={coffeehouse.name}
+                />
+              })
+          }
+          </GoogleMap>
+        </LoadScript>
+      </div>
+    )
   }
 }
 

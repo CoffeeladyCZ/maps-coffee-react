@@ -50,9 +50,9 @@ export const listCoffeehouse = [
     name: 'Kofárna',
     time: 'Po - Ne: 8:00 - 19:00',
     address: 'Zborovská 60, Malá Strana',
-    district: 'Centrum',
+    district: ['All', 'Centrum'],
     type: 'coffeehouse',
-    content: 'Kavárna která je kousek od Janáčkova nábřeží a přivítá vás skvělou kávou.',
+    content: 'Kavárna a zároveň pražírna Beansmith\'s.',
     lat: 50.08033951568018, 
     lng: 14.407263420492933,
     image: 'https://media.istockphoto.com/photos/happy-coffee-cup-picture-id508347326?k=20&m=508347326&s=612x612&w=0&h=phdf_0eKqIbCj2ayXuXRktf8JGugJqFXdi6A8gBL6vU=',
@@ -61,9 +61,9 @@ export const listCoffeehouse = [
     name: 'format.coffee',
     time: 'Po - Ne: 9:00 - 18:00',
     address: 'M. Horákové 26, Praha 7-Letná',
-    district: 'Letná',
+    district: ['All', 'Letná'],
     type: 'coffeehouse',
-    content: ' je další kavárna na Letné od Jackieho.',
+    content: 'Další kavárna na Letné od Jackieho.',
     lat: 50.099816256123965, 
     lng: 14.429540195462284,
     image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
@@ -71,7 +71,7 @@ export const listCoffeehouse = [
   {
     name: 'Café Tvaroh',
     address: 'Šmeralova 22, Praha 7-Letná',
-    district: 'Letná',
+    district: ['All', 'Letná'],
     time: 'Po - Ne: 9:00 - 19:00',
     content: ' je nenápadná kavárna kousek od Centrum Stromovka.',
     lat: 50.10256728584566, 
@@ -81,9 +81,9 @@ export const listCoffeehouse = [
   {
     name: 'Cafe Letka',
     address:'Letohradská 44, 170 00 Praha 7-Letná',
-    district: 'Letná',
+    district: ['All', 'Letná'],
     time: 'Po - Pá: 8:00 - 18:00, So - Ne: 9:00 - 18:00',
-    content: ' jedna z nejstarších na Letné.',
+    content: 'Legendární kavárna na Letné.',
     lat: 50.09896095139468, 
     lng: 14.425286868749494,
     image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
@@ -91,7 +91,7 @@ export const listCoffeehouse = [
   {
     name: 'Dos Mundos Café',
     address: 'M. Horákové 600, Holešovice, 170 00 Praha 7',
-    district: 'Letná',
+    district: ['All', 'Letná'],
     time: 'Po - Ne: 9:30 - 19:00',
     content: '',
     lat: 50.106237669557665,
@@ -101,7 +101,7 @@ export const listCoffeehouse = [
   {
     name: 'Cafe Hrnek',
     address: 'Veletržní 839/49, 170 00 Praha 7-Holešovice',
-    district: 'Letná',
+    district: ['All', 'Letná'],
     time: 'Po - Ne: 10:00 - 18:00',
     content: '',
     lat: 50.10134293265671, 
@@ -111,7 +111,7 @@ export const listCoffeehouse = [
   {
     name: 'Kafe Karlín',
     address: 'Sokolovská 46/51, Praha-Karlín',
-    district: 'Karlín',
+    district: ['All', 'Karlín'],
     time: 'Po - Pá: 7:30 - 17:30',
     content: ' pokud jezdíte do Karlína nesmíte ji minout.',
     lat: 50.09300737010227, 
@@ -121,7 +121,7 @@ export const listCoffeehouse = [
   {
     name: 'Kafe Kiosek',
     address: 'Roh ulic Evropská a Šolínova, Praha 6 - Dejvice',
-    district: 'Dejvice',
+    district: ['All', 'Dejvice'],
     time: 'Po - Pá: 7:00 - 18:00, So - Ne: 9:00 - 16:00',
     content: '',
     lat: 50.10123348075611, 
@@ -131,7 +131,7 @@ export const listCoffeehouse = [
   {
     name: 'Kafemat',
     address: 'Dejvická 3, Praha 6-Dejvice',
-    district: 'Dejvice',
+    district: ['All', 'Dejvice'],
     time: 'Po - Pá: 8:00 - 18:00, So - Ne: 9:00 - 15:00',
     content: '',
     lat: 50.09809293267724,
@@ -141,7 +141,7 @@ export const listCoffeehouse = [
   {
     name: 'Osada',
     address: 'Osadní 35, 170 00 Praha 7-Holešovice',
-    district: 'All',
+    district: ['All'],
     time: 'Po - Pá: 8:00 - 20:00, So - Ne: 9:00 - 16:00',
     content: ', to je kousek Liberce v Praze.',
     lat: 50.10459685147894,
@@ -151,7 +151,7 @@ export const listCoffeehouse = [
   {
     name: 'Kontejner',
     address: 'Ortenovo nám. 169, 170 00 Praha 7-Holešovice',
-    district: 'Holešovice',
+    district: ['All', 'Holešovice'],
     time: 'Po - Pá: 8:00 - 18:00, So - Ne: 10:00 - 18:00',
     content: ' je netradiční kavárna, která na tomto místě chyběla.',
     lat: 50.10782923945228, 
@@ -161,7 +161,7 @@ export const listCoffeehouse = [
   {
     name: 'Mezi Srnky',
     address: 'Sázavská 720/19, 120 00 Praha 2-Vinohrady',
-    district: 'Vinohrady',
+    district: ['All', 'Vinohrady'],
     time: 'Po - Pá: 8:00 - 16:00 So - Ne: 9:00 - 16:00',
     content: '',
     lat: 50.076046307224324,
@@ -170,7 +170,7 @@ export const listCoffeehouse = [
   {
     name: 'Cafefin',
     address: 'nám. J. z Poděbrad 1407/4, 120 00 Vinohrady',
-    district: 'Vinohrady',
+    district: ['All', 'Vinohrady'],
     time: 'Po - So: 9:00 - 20:00, Ne: 9:00 - 19:00',
     content: '',
     lat: 50.078230491278774, 
@@ -180,7 +180,7 @@ export const listCoffeehouse = [
   {
     name: 'Botanica Coffee Truck',
     address: 'Moskevská 372/35, 101 00 Praha 10-Vršovice',
-    district: 'Vršovice',
+    district: ['All', 'Vršovice'],
     time: 'Po - Ne: 9:00 - 20:00',
     lat: 50.069417672774016, 
     lng: 14.455258250993772
@@ -188,7 +188,7 @@ export const listCoffeehouse = [
   {
     name: '20m2',
     address: 'Bělohorská 29, 169 00 Praha 6',
-    district: 'All',
+    district: ['All'],
     time: 'Po - Pá: 7:01 - 19:01, So - 12:01 - 17:01',
     content: '',
     lat: 50.08459124214152, 
@@ -197,7 +197,7 @@ export const listCoffeehouse = [
   {
     name: 'The Flat Café',
     address: 'Kodaňská 81/4, 101 00 Praha 10-Vršovice',
-    district: 'Vršovice',
+    district: ['All', 'Vršovice'],
     time: 'Po - Pá: 8:30 - 22:00, So: 9:00 - 23:00, Ne: 9:00 - 16:00',
     content: 'Anglie v Praze',
     lat: 50.071209365923345,
@@ -207,7 +207,7 @@ export const listCoffeehouse = [
   {
     name: 'Mamacoffee Jaromírova',
     address: 'Jaromírova 576/34, 128 00 Praha 2-Nusle',
-    district: 'Nusle',
+    district: ['Nusle'],
     time: 'Po - Pá: 8:00 - 19:00, So - Ne: 10:00 - 18:00',
     content: 'Pod Nuselským mostem',
     lat: 50.06505704895357, 
@@ -216,7 +216,7 @@ export const listCoffeehouse = [
   {
     name: 'Mamacoffee Jiřího z Poděbrad',
     address: 'nám. J. z Poděbrad 12, 130 00 Praha 3-Vinohrady',
-    district: 'Vinohrady',
+    district: ['Vinohrady'],
     time: 'Po - Pá: 8:00 - 19:00, So - Ne: 9:00 - 19:00',
     content: '',
     lat: 50.07874384511063, 
@@ -226,7 +226,7 @@ export const listCoffeehouse = [
   {
     name: 'Coffe Imrvére',
     address: 'Olšanské nám. 1785, 130 00 Praha 3-Žižkov',
-    district: 'All',
+    district: ['All', 'Žižkov'],
     time: 'Po - Pá: 9:00 - 17:00',
     content: '',
     lat: 50.082074825242515, 
@@ -235,7 +235,7 @@ export const listCoffeehouse = [
   {
     name: 'Megera Café',
     address: 'Dačického 1225/8, 140 00 Praha 4-Nusle',
-    district: 'Nusle',
+    district: ['All', 'Nusle'],
     time: 'Po - Pá: 8:00 - 21:00',
     content: '',
     lat: 50.05581497709363, 
@@ -245,7 +245,7 @@ export const listCoffeehouse = [
   {
     name: 'Kafé Atrium',
     address: 'Čajkovského 12, 130 00 Praha 3-Žižkov',
-    district: 'All',
+    district: ['All', 'Žižkov'],
     time: 'Po - Ne: 10:00 - 21:00',
     content: '',
     lat: 50.08204423391477, 
@@ -255,7 +255,7 @@ export const listCoffeehouse = [
   {
     name: 'Etapa',
     address: 'Urxova 479/6, 186 00 Karlín',
-    district: 'Karlín',
+    district: ['All', 'Karlín'],
     time: 'Po - Pá: 9:00 - 18:00, So - Ne: 9:00 - 17:00',
     content: '',
     lat: 50.09466086737089, 
@@ -265,7 +265,7 @@ export const listCoffeehouse = [
   {
     name: 'Eska',
     address: 'Pernerova 49, 186 00 Karlín',
-    district: 'Karlín',
+    district: ['All', 'Karlín'],
     time: 'Po - Pá: 8:00 - 22:00, So - Ne: 9:00 - 22:00',
     content: '',
     lat: 50.091574389863545, 
@@ -275,7 +275,7 @@ export const listCoffeehouse = [
   {
     name: 'EMA espresso bar',
     address: 'Palác Karlín Thámova 289/13 vstup z, Křižíkova, 186 00 Praha 8',
-    district: 'Karlín',
+    district: ['All', 'Karlín'],
     time: 'Po - Pá: 8:00 - 18:00, So - Ne: 10:00 - 18:00',
     content: '',
     lat: 50.092620419002, 
@@ -285,7 +285,7 @@ export const listCoffeehouse = [
   {
     name: 'Coffee Room',
     address: 'Korunní 1208/74, 101 00 Vinohrady',
-    district: 'Vinohrady',
+    district: ['Vinohrady'],
     time: 'Po - Pá: 8:00 - 18:00, So - Ne: 9:00 - 17:00',
     content: '',
     lat: 50.075424825594816, 
@@ -295,7 +295,7 @@ export const listCoffeehouse = [
   {
     name: 'Dok Nordbeans',
     address: 'Nákladní 431, 460 07 Liberec',
-    district: 'Liberec',
+    district: ['Liberec'],
     time: 'Po - Ne: 8:00 - 18:00',
     content: '',
     lat: 50.75974304434389, 
@@ -305,7 +305,7 @@ export const listCoffeehouse = [
   {
     name: 'Café Datel',
     addres: 'Piaristická 22/8, 370 01 České Budějovice',
-    district: 'České Budějovice',
+    district: ['České Budějovice'],
     time: 'Po - Ne: 8:00 - 22:00',
     content: '',
     lat: 48.97546893398027,

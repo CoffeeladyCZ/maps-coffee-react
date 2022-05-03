@@ -8,7 +8,6 @@ class MapInfoWindow extends Component {
         const {
             address,
             content,
-            district,
             lat,
             lng,
             name,
@@ -21,7 +20,6 @@ class MapInfoWindow extends Component {
                     <div>
                         <h4 className='map-info-title'>{name}</h4>
                         { !image ? null : <img src={image} alt='imagecoffee' />}  
-                        <h5 className='map-info-subtitle'>{district}</h5>
                         <p className='map-info-content'>{content}</p>
                         <address className='map-info-address'>{address}<br />{time}</address>
                         <div className='map-info-other'>
