@@ -4,3 +4,7 @@ $dark-grey: #333333;
 $light-grey: #cecece;
 $light-red: #c02413;
 $input-blue: #1E88E5;
+
+$select-transition: all 0.25s ease;
+$body-border: solid transparent 1px;
+$body-border-active: solid $input-blue 1px;

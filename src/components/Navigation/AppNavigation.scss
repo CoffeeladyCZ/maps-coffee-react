@@ -18,7 +18,7 @@
       text-decoration: none;
       list-style: none;
       transition: all 0.15s ease-in;
-      cursor: pointer;
+      cursor: pointer;  
     }
 
     li:hover {
@@ -27,6 +27,70 @@
 
     .active {
       color: $primary-red;
+    }
+
+    &-select {
+      display: flex;
+      max-width: 300px;
+      position: relative;
+      cursor: pointer;
+
+      &-wrapper {
+      display: flex;
+      align-items: flex-start;
+      }
+
+      &-icon {
+        margin-left: 10px;
+      }
+
+      &-body {
+        position: absolute;
+        inset: 100% 0 0 0;
+        width: max-content;
+        transition: $select-transition;
+        min-height: 0;
+        overflow: hidden;
+        z-index: 100;
+        background-color: #fff;
+        border-left: $body-border;
+        border-bottom: $body-border;
+        border-right: $body-border;
+      }
+
+      &-item {
+        padding: 8px;
+        transition: $select-transition;
+        font-size: 14px;
+        text-align: left;
+    
+        &.active {
+          background-color: #90caf9;
+        }
+    
+        &:hover {
+          background-color: $light-grey;
+        }
+      }
+
+      &.active {
+        .navigation-menu {
+          &-select-wrapper {
+            color: $primary-red;
+          }
+    
+          &-select-icon {
+            transform: rotate(180deg);
+          }
+    
+          &-select-body {
+            min-height: var(--select-body-height);
+            border-left: 1px solid $dark-grey;
+            border-bottom:1px solid $dark-grey;
+            border-right: 1px solid $dark-grey;
+          }
+        }
+      }
     }
 
     &__icon {
