@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
 body,
 .App {
   margin: 0 auto;

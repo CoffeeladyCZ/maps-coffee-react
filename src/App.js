@@ -7,7 +7,6 @@ import Navigation from './components/Navigation/AppNavigation';
 import Footer from './components/Footer/AppFooter';
 import Map from './components/Map/AppMap';
 import List from './components/List/AppList';
-import { PopUpStateProvider } from './contexts/PopupContext';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,26 +30,24 @@ class App extends React.Component {
 
   render () {
     return (
-      <PopUpStateProvider>
-        <div className="App">
-          <Header />
-          <Navigation
-            callback={this.callback}
-        />
+      <div className="App">
+        <Header />
+        <Navigation
+          callback={this.callback}
+       />
 
-          <section className="app-map">        
-            <Map
-              district={this.state.districtParent}
-              callbackClass={this.callbackClass}
-            />
-            <List
-              district={this.state.districtParent}
-              activeCoffee={this.state.activeCoffee}
-            />
-          </section>
-          <Footer/>
-        </div>  
-      </PopUpStateProvider>
+        <section className="app-map">        
+          <Map
+            district={this.state.districtParent}
+            callbackClass={this.callbackClass}
+           />
+          <List
+            district={this.state.districtParent}
+            activeCoffee={this.state.activeCoffee}
+          />
+        </section>
+        <Footer/>
+      </div>
     );
   }
 }
