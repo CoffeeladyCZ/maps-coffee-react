@@ -12,7 +12,6 @@ import './AppHeader.scss';
 import coffeeCup from './coffee-cup.png';
 
 const Header = () => {
-  // const [popUpSubmited, setpopUpSubmited] = useState(false);
   const popUpSubmited = usePopUp();
   const togglePopUp = useTogglePopup();
   const isSubmited = usePopUpContextSubmit();
@@ -32,4 +31,5 @@ const Header = () => {
     </header>
   );
 };
+
 export default Header;

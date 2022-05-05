@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { useTogglePopup, usePopUpContextSubmitted } from '../../contexts/PopupContext';
 import './PopUp.scss';
   
-
-
 const PopUpContent = () => {
   const [signIt, setSignIt] = useState(false)
   const togglePopUp = useTogglePopup();
