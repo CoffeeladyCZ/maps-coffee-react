@@ -5,7 +5,7 @@ import { faCircleCheck, faStar, faCircleXmark } from '@fortawesome/free-solid-sv
 
 import './ModalContent.scss';
 
-function ModalContent (props) {
+function ModalContent ({ name, address, time, content, image }) {
   const starsCount = 5;
   const [rating, setRating] = useState(0);
   const [hovered, setHovered] = useState(0);
@@ -32,9 +32,9 @@ function ModalContent (props) {
   return (
     <div className='content'>
       <div className="content-information">
-        <h4 className='list-name'>{props.name}</h4>
-        <p className='list-adress'>{props.address}</p>
-        <p className='list-time'>{props.time}</p>
+        <h4 className='list-name'>{name}</h4>
+        <p className='list-adress'>{address}</p>
+        <p className='list-time'>{time}</p>
         <p className='content-ref'>Hodnocení:</p>
         <div onMouseOut={() => setHovered(0)} className='content-star'>
           {
@@ -58,7 +58,7 @@ function ModalContent (props) {
         </table>
       </div>
       <div className='content-images'>
-        { !props.image ? null : <img src={props.image} alt='imagecoffee' className='img' />}      
+        { !image ? null : <img src={image} alt='imagecoffee' className='img' />}      
       </div>
     </div>
   )

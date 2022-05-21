@@ -8,51 +8,24 @@ import Footer from './components/Footer/AppFooter';
 import Map from './components/Map/AppMap';
 import List from './components/List/AppList';
 import { PopUpStateProvider } from './contexts/PopupContext';
+import { MapsStateProvider } from './contexts/MapsContext';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        districtParent:  'All',
-        activeCoffee: ''
-    }
-  }
-
-  callback = (name) => {
-    this.setState({
-      districtParent: name
-    })
-  }
-  callbackClass = (name) => {
-    this.setState({
-      activeCoffee: name
-    })
-  }
-
-  render () {
-    return (
+const App = () => {
+  return (
+    <MapsStateProvider>
       <PopUpStateProvider>
         <div className="App">
           <Header />
-          <Navigation
-            callback={this.callback}
-        />
-
+          <Navigation />
           <section className="app-map">        
-            <Map
-              district={this.state.districtParent}
-              callbackClass={this.callbackClass}
-            />
-            <List
-              district={this.state.districtParent}
-              activeCoffee={this.state.activeCoffee}
-            />
+            <Map />
+            <List />
           </section>
           <Footer/>
         </div>  
       </PopUpStateProvider>
-    );
-  }
+    </MapsStateProvider> 
+  );
 }
 
 export default App;

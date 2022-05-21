@@ -1,36 +1,21 @@
 import { InfoWindow } from '@react-google-maps/api';
-import React, { Component } from 'react';
+import React from 'react';
 import './MapInfoWindow.scss'
 
-
-class MapInfoWindow extends Component {
-    render() {
-        const {
-            address,
-            content,
-            lat,
-            lng,
-            name,
-            time,
-            image
-        } = this.props.data;
-        return (
-            <InfoWindow onCloseClick={this.props.toggleClose} {...this.props}>
-                <div className='map-info-window'>
-                    <div>
-                        <h4 className='map-info-title'>{name}</h4>
-                        { !image ? null : <img src={image} alt='imagecoffee' />}  
-                        <p className='map-info-content'>{content}</p>
-                        <address className='map-info-address'>{address}<br />{time}</address>
-                        <div className='map-info-other'>
-                            LNG: {lng}<br/>
-                            LAT: {lat}
-                        </div> 
-                    </div>
-                </div>
-            </InfoWindow>
-        )
-    }
+const MapInfoWindow = (props, toggleClose) => {
+  const { name, image, content, address, time } = props.data;
+  return (
+    <InfoWindow onCloseClick={toggleClose} {...props}>
+      <div className='map-info-window'>
+        <div>
+          <h4 className='map-info-title'>{name}</h4>
+          { !image ? null : <img src={image} alt='imagecoffee' />}  
+          <p className='map-info-content'>{content}</p>
+          <address className='map-info-address'>{address}<br />{time}</address>
+        </div>
+      </div>
+    </InfoWindow>
+  )
 }
 
 export default MapInfoWindow;
