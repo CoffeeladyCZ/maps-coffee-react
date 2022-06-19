@@ -1,5 +1,7 @@
-import { Component } from 'react/cjs/react.production.min';
+import React, { useEffect, useState } from 'react';
 import './ModalWindow.scss';
+
+import { useModalOpenedContext } from '../../contexts/MapsContext';
 
 /**
  * ModalWindow
@@ -8,60 +10,48 @@ import './ModalWindow.scss';
  * @property {ReactComponent|HTMLElement|JSXComponent} content
  * @returns ModalWindow
  */
+const ModalWindow = ({className, contentModal}) => {
+  const {isOpened, setIsOpened} = useModalOpenedContext();
 
-class ModalWindow extends Component {
-  closeModal = e => {
+  if (!contentModal) {
+    contentModal = <p>Nic tu není</p>;
+  };
+
+  const closeModal = e => {
     if (e.keyCode) {
       if (e.keyCode !== 27) return
     } else {
       e.preventDefault();
     }
-      this.setState({opened: false},
-      () => {
-        this.props.callback()
-      }
-      )};
+    setIsOpened(false);
+  };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      opened: props.opened ? props.opened : false,
-      content: props.content ? props.content : <div>Nic tu neni</div>
-    }
-  }
+  useEffect(() => {
+    window.addEventListener('keydown', closeModal);
 
-  
-  componentDidMount() {
-    window.addEventListener('keydown', this.closeModal)
-  }
+    return () => {
+      window.removeEventListener('keydown', closeModal);
+    };
+  }, []);
 
-  compnentWillUnmount() {
-    window.removeEventListener('keydown', this.closeModal);
-  }
+  const currentClass = `${className} modal-window`
 
-  render() {
-    const {opened, content} = this.state;
-    const currentClass = `${this.props.className} modal-window`
-
-    return (
-      opened ? 
-      <div className={currentClass}>
-        <div className='modal-window-base'>
-          <a 
-            role='button' 
-            href='www.' 
-            className='modal-window-close'
-            onClick={e => {
-            this.closeModal(e)
-            }} 
-          >&times;</a>
-          <div className='modal-window-content'>
-            {content}
-          </div>
-      </div>
-    </div> : null
-    );
-  }
+  return (
+    isOpened ? 
+    <div className={currentClass}>
+      <div className='modal-window-base'>
+        <a 
+          role='button' 
+          href='www.' 
+          className='modal-window-close'
+          onClick={e => closeModal(e)} 
+        >&times;</a>
+        <div className='modal-window-content'>
+          {contentModal}
+        </div>
+    </div>
+  </div> : null
+  );
 }
 
 export default ModalWindow;

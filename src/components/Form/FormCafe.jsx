@@ -74,7 +74,6 @@ const FormCafe = () => {
                   {formik[item.value] && formik.errors[item.value] ? formik.errors[item.value] : null}
                 </div>
               </div>
-             
             )
           })
         }
