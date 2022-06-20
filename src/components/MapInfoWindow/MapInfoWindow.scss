@@ -1,5 +1,10 @@
 @import '../../scss/colors.scss';
 
+.gm-ui-hover-effect {
+    top: -2px !important;
+    right: -2px !important;
+}
+
 .map-info {
     &-window {
         text-align: left;

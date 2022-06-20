@@ -6,7 +6,7 @@ import ModalContent from '../ModalContent/ModalContent';
 import './AppListItem.scss';
 
 const ListItem = ({ name, address, time, content, image, activeCoffee }) => {
-  const { setCoffeeHouse } = useActualCoffeeHouseContext();
+  const { coffeeHouse, setCoffeeHouse } = useActualCoffeeHouseContext();
   const { isOpened } = useModalOpenedContext();
   const open = useOpenModalContext();
 
@@ -17,7 +17,7 @@ const ListItem = ({ name, address, time, content, image, activeCoffee }) => {
   const contentModal = <ModalContent name={name} address={address} time={time} image={image} />
   
   let modal;
-  if (isOpened) {
+  if (isOpened && name === coffeeHouse) {
     modal = <ModalWindow contentModal={contentModal} />
   }
   return(
