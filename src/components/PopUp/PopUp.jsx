@@ -52,7 +52,7 @@ const PopUpContent = () => {
         ) 
       })}
       <div className='pop-up-body-btn'>
-        <button type="submit" className="btn btn-submit">Submit</button>
+        <button type="submit" className="btn-submit">Submit</button>
       </div>
       <Link to="/registration" className='link'>Zaregistrovat se</Link>
     </form>

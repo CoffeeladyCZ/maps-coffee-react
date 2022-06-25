@@ -1,0 +1,58 @@
+@import './colors.scss';
+
+@mixin hover($primaryColor, $secondaryColor, $thirdColor) {
+  position: relative;
+  background-image: linear-gradient(
+    to right,
+    $primaryColor,
+    $secondaryColor 50%,
+    $thirdColor 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  transition: all 0.3s ease-in-out;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &:hover {
+    background-position: 0;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+@mixin navigationHover {
+  @include hover($light-red, #5b0505, $dark-grey);
+
+  &:before {
+    content: '';
+    background: $light-red;
+    display: block;
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+@mixin button($primaryColor, $hoverColor, $textColor) {
+  width: 80px;
+  padding: 5px;
+  border-radius:4px;
+  border: none;
+  background-size: 300% 100%;  
+  background-color: $primaryColor;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  color: $textColor;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hoverColor;
+  }
+}
