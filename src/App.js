@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './App.css';
+import './App.scss';
 
 import Header from './components/Header/AppHeader';
 import Navigation from './components/Navigation/AppNavigation';
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <MapsStateProvider>
       <PopUpStateProvider>
-        <div className="App">
+        <div className="app-container">
           <Header />
           <Navigation />
           <section className="app-map">        

@@ -14,3 +14,27 @@
     margin: 0 auto;
   }
 }
+
+/* Location */
+.location-btn {
+  background-color: #fff;
+  /* background-image: url('/img/location.svg'); */
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 4px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  margin: 7px;
+  padding: 0;
+}
+
+.location-btn:focus,
+.location-btn:active {
+  outline: 0;
+}
+
+.location-btn:hover {
+  background-color: rgb(255, 255, 255);
+}

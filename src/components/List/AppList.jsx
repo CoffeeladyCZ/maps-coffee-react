@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ListItem from '../ListItem/AppListItem';
+import './AppList.scss';
 
 import { listCoffeehouse } from '../../data/data';
 import { useActualCoffeeHouseContext, useMarkerDistrictContext } from '../../contexts/MapsContext';
