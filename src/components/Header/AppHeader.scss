@@ -67,3 +67,27 @@
     display: none;
   }
 }
+// TODO smazat?
+@media (min-width: 680px) {
+  .App-header .navigation {
+    margin-bottom: 20px;
+  }
+  .App-header ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    align-items: center;
+    margin-left: 50px;
+  }
+  .App-header li {
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  .App-header .menu-icon {
+    display: none;
+  }
+  .App-header .navigation-menu {
+    max-height: 100%;
+  }
+}
