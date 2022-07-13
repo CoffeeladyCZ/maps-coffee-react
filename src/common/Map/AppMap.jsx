@@ -1,6 +1,6 @@
 import React, { useState } from "react"; 
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import  MarkerComponent from '../Marker/AppMarker';
+import  MarkerComponent from '../../components/Marker/AppMarker';
 
 import coffeePin from '../../img/coffee-shop.png';
 
@@ -8,7 +8,7 @@ import './AppMap.scss';
 import { listCoffeehouse } from "../../data/data";
 import { useMarkerDistrictContext, useActualCoffeeHouseContext } from '../../contexts/MapsContext';
 
-const Map = () => {
+const Map = (height) => {
   const [currentWindowVisibleIndex, setCurrentWindowVisibleIndex] = useState(null);
 
   const district = useMarkerDistrictContext();
@@ -30,18 +30,20 @@ const Map = () => {
     style: {
       width: '100%',
       height: '100%'  
-    }
+    },
   };
 
   const {
     center,
     zoom,
     secret,
-    style
+    style,
   } = settings;
+  console.log('height', height)
+
 
   return (
-    <div className="map">
+    <div className='map' style={{height: `${height.height}px`}}>
       <LoadScript
         googleMapsApiKey={secret}
       >

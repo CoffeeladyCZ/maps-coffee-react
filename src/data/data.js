@@ -50,12 +50,16 @@ export const listCoffeehouse = [
     name: 'Kofárna',
     time: 'Po - Ne: 8:00 - 19:00',
     address: 'Zborovská 60, Malá Strana',
+    phone:' 797795678',
+    web: 'https://www.facebook.com/kofarna',
     district: ['All', 'Centrum'],
     type: 'coffeehouse',
     content: 'Kavárna a zároveň pražírna Beansmith\'s.',
     lat: 50.08033951568018, 
     lng: 14.407263420492933,
-    image: 'https://media.istockphoto.com/photos/happy-coffee-cup-picture-id508347326?k=20&m=508347326&s=612x612&w=0&h=phdf_0eKqIbCj2ayXuXRktf8JGugJqFXdi6A8gBL6vU=',
+    image: ['https://media.istockphoto.com/photos/happy-coffee-cup-picture-id508347326?k=20&m=508347326&s=612x612&w=0&h=phdf_0eKqIbCj2ayXuXRktf8JGugJqFXdi6A8gBL6vU=',
+    'https://media.istockphoto.com/photos/happy-coffee-cup-picture-id508347326?k=20&m=508347326&s=612x612&w=0&h=phdf_0eKqIbCj2ayXuXRktf8JGugJqFXdi6A8gBL6vU=',
+  ],
   },
   {
     name: 'format.coffee',
@@ -66,7 +70,7 @@ export const listCoffeehouse = [
     content: 'Další kavárna na Letné od Jackieho.',
     lat: 50.099816256123965, 
     lng: 14.429540195462284,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Café Tvaroh',
@@ -76,7 +80,7 @@ export const listCoffeehouse = [
     content: ' je nenápadná kavárna kousek od Centrum Stromovka.',
     lat: 50.10256728584566, 
     lng: 14.422197754862381,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   }, 
   {
     name: 'Cafe Letka',
@@ -86,7 +90,7 @@ export const listCoffeehouse = [
     content: 'Legendární kavárna na Letné.',
     lat: 50.09896095139468, 
     lng: 14.425286868749494,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Dos Mundos Café',
@@ -96,7 +100,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.106237669557665,
     lng: 14.429093765706273,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Cafe Hrnek',
@@ -106,7 +110,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.10134293265671, 
     lng: 14.42821178016424,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Kafe Karlín',
@@ -116,7 +120,7 @@ export const listCoffeehouse = [
     content: ' pokud jezdíte do Karlína nesmíte ji minout.',
     lat: 50.09300737010227, 
     lng:14.445987692151286,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Kafe Kiosek',
@@ -126,7 +130,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.10123348075611, 
     lng: 14.39239431587142,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Kafemat',
@@ -136,7 +140,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.09809293267724,
     lng: 14.40069573866305,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Osada',
@@ -146,7 +150,7 @@ export const listCoffeehouse = [
     content: ', to je kousek Liberce v Praze.',
     lat: 50.10459685147894,
     lng: 14.44628384082367,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Kontejner',
@@ -156,7 +160,7 @@ export const listCoffeehouse = [
     content: ' je netradiční kavárna, která na tomto místě chyběla.',
     lat: 50.10782923945228, 
     lng: 14.448746107986691,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Mezi Srnky',
@@ -175,7 +179,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.078230491278774, 
     lng: 14.448439963363745,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Botanica Coffee Truck',
@@ -202,7 +206,7 @@ export const listCoffeehouse = [
     content: 'Anglie v Praze',
     lat: 50.071209365923345,
     lng: 14.451311520864516,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Mamacoffee Jaromírova',
@@ -221,7 +225,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.07874384511063, 
     lng: 14.451214020641554,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Coffe Imrvére',
@@ -240,7 +244,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.05581497709363, 
     lng: 14.433091411718667, 
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Kafé Atrium',
@@ -250,7 +254,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.08204423391477, 
     lng: 14.453021796882094,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Etapa',
@@ -260,7 +264,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.09466086737089, 
     lng: 14.457777660541346,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Eska',
@@ -270,7 +274,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.091574389863545, 
     lng: 14.454573908436654,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'EMA espresso bar',
@@ -280,7 +284,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.092620419002, 
     lng: 14.451573565601478,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Coffee Room',
@@ -290,7 +294,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.075424825594816, 
     lng: 14.451322566873111,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Dok Nordbeans',
@@ -300,7 +304,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.75974304434389, 
     lng: 15.048204418301879,
-    image: 'https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Café Datel',
