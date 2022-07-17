@@ -7,13 +7,6 @@
   flex-direction: column;
   width: 100%;
 
-  h1 {
-    font-size: 43px;
-    text-align: center;
-    color: $primary-red;
-    margin: 0;
-    padding-top: 40px;
-  }
 
   img {
     height: 100%;
@@ -21,6 +14,26 @@
 
     &:focus {
       outline: 0;
+    }
+  }
+
+  .header__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px 0 0 30px;
+
+    h1 {
+      font-size: 43px;
+      color: $primary-red;
+      margin: 0;
+    }
+
+     .claim {
+      color: $primary-red;
+      align-self: flex-end;
+      font-size: 22px;
+      padding-left: 20px;
+      margin: 0;
     }
   }
 
@@ -37,20 +50,7 @@
     }
   }
 
-  .claim {
-    color: $primary-red;
-    font-size: 27px;
-    margin-top: 10px;
-    align-self: center;
-  }
-  
-  .coffee-cup {
-    width: 150px;
-    height: auto;
-    position: absolute;
-    right: 140px;
-    top: 70px;
-  }
+ 
 }
 
 @media (max-width: 560px) {
