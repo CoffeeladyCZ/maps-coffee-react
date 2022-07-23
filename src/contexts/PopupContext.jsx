@@ -49,7 +49,7 @@ export function PopUpStateProvider({ children }) {
         ".app-header .sighn-icon, .app-header .sighn-icon *, .pop-up, .pop-up *"
       );
     const isEscapePressed =
-      type === "keyup" && event.key.toLowerCase() === "escape";
+      type === "keyup" && event.key && event.key.toLowerCase() === "escape";
 
     if (isBodyClicked || isEscapePressed) {
       window.removeEventListener("click", closePopUpOutside);

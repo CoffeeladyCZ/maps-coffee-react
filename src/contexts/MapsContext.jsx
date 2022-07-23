@@ -7,12 +7,14 @@ const ActualDistrictContext = createContext();
 const ActualCoffeeHouseContext = createContext();
 const ModalOpenedContext = createContext();
 const OpenModalContent = createContext();
+const CurrentCafeContext = createContext();
 
 export function MapsStateProvider({ children }) {
   const [isActive, setActive] = useState(false);
   const [district, setDistrict] = useState("All");
   const [coffeeHouse, setCoffeeHouse] = useState(null);
   const [isOpened, setIsOpened] = useState(false);
+  const [currentCafe, setCurrentCafe] = useState({});
 
   function active() {
     setActive(true);
@@ -35,7 +37,9 @@ export function MapsStateProvider({ children }) {
             <ActualCoffeeHouseContext.Provider value={{coffeeHouse, setCoffeeHouse}}>
               <ModalOpenedContext.Provider value={{isOpened, setIsOpened}}>
                 <OpenModalContent.Provider value={open}>
-                  {children}
+                  <CurrentCafeContext.Provider value={{currentCafe, setCurrentCafe}}>
+                    {children}
+                  </CurrentCafeContext.Provider>
                 </OpenModalContent.Provider>
               </ModalOpenedContext.Provider>
             </ActualCoffeeHouseContext.Provider>
@@ -53,3 +57,4 @@ export const useActualDistrictContent = () => useContext(ActualDistrictContext);
 export const useActualCoffeeHouseContext = () => useContext(ActualCoffeeHouseContext);
 export const useModalOpenedContext = () => useContext(ModalOpenedContext);
 export const useOpenModalContext = () => useContext(OpenModalContent);
+export const useCurrentCafeContext = () => useContext(CurrentCafeContext);

@@ -1,20 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './index.css';
 import App from './App';
-import FormCafe from './components/Form/FormCafe';
-import AppRegistration from './components/Registration/AppRegistration';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}/>
-      <Route path="form" element={<FormCafe />}/>
-      <Route path="registration" element={<AppRegistration />}/>
-    </Routes>
-  </BrowserRouter>,
+  <App />,
   document.getElementById('root')
 );
 

@@ -1,31 +1,27 @@
-import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Footer from './components/Footer/AppFooter';
+import Header from './components/Header/AppHeader';
+import { MapsStateProvider } from './contexts/MapsContext';
+import { PopUpStateProvider } from './contexts/PopupContext';
+import MyRoutes from './routes/Routes';
 
 import './App.scss';
-
-import Header from './components/Header/AppHeader';
-import Navigation from './components/Navigation/AppNavigation';
-import Footer from './components/Footer/AppFooter';
-import Map from './components/Map/AppMap';
-import List from './components/List/AppList';
-import { PopUpStateProvider } from './contexts/PopupContext';
-import { MapsStateProvider } from './contexts/MapsContext';
+import './index.css';
 
 const App = () => {
   return (
     <MapsStateProvider>
       <PopUpStateProvider>
-        <div className="app-container">
-          <Header />
-          <Navigation />
-          <section className="app-map">        
-            <Map />
-            <List />
-          </section>
-          <Footer/>
-        </div>  
+        <div className='app-container'>
+          <Router>
+            <Header />
+            <MyRoutes />
+            <Footer />
+          </Router>
+        </div>
       </PopUpStateProvider>
-    </MapsStateProvider> 
+    </MapsStateProvider>
   );
-}
+};
 
 export default App;
