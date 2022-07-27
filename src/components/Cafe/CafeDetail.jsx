@@ -39,12 +39,12 @@ const CafeDetail = () => {
 
   return (
     <div className='detail'>
-      <h1>{name}</h1>
       {image && (
         <div className='detail-header'>
           <img src={image[0]} alt={name} />
         </div>
       )}
+      <h2>{name}</h2>
       <div className='detail-wrapper'>
         <div className='detail-wrapper-info'>
           <div className='detail-wrapper__address'>{address}</div>
@@ -75,8 +75,8 @@ const CafeDetail = () => {
           </div>
           <div className='detail-wrapper-box__images'>
             {
-              image.map(item => {
-                return <img alt={ name } src={ item } />
+              image.map((item, index) => {
+                return <img key={ index } alt={ name } src={ item } />
               })
             }
           </div>

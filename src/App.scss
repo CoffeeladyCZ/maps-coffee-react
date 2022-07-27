@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import './scss/colors.scss';
 
-$coffee-color: #9f2b1f;
 $track-color: darken(#fff, 3%);
 $track-color-out: rgba($track-color, 0.5);
-$thumb-color: $coffee-color;
-$thumb-color-out: rgba($thumb-color, 0.5);
+// $thumb-color-out: rgba($thumb-color, 0.5);
 
 *,
 *::before,
@@ -20,25 +18,10 @@ body,
 }
 
 * {
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: $track-color-out;
-    border-radius: 5px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: $thumb-color-out;
-    border-radius: 5px;
-    opacity: 0.5;
-  }
-
   &:hover {
-    &::-webkit-scrollbar-thumb {
-      background-color: $thumb-color;
-    }
+    // &::-webkit-scrollbar-thumb {
+    //   background-color: $thumb-color;
+    // }
 
     &::-webkit-scrollbar-track {
       background-color: $track-color;

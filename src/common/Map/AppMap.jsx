@@ -39,8 +39,6 @@ const Map = (height) => {
     secret,
     style,
   } = settings;
-  console.log('height', height)
-
 
   return (
     <div className='map' style={{height: `${height.height}px`}}>
@@ -62,7 +60,7 @@ const Map = (height) => {
                 onCloseClick={onHideWindow}
                 data={coffeehouse}
                 icon={coffeePin}
-                animation={i === currentWindowVisibleIndex || coffeehouse.name === coffeeHouse ? 1 : null}
+                animation={i === currentWindowVisibleIndex || coffeehouse.name === coffeeHouse ? 2 : null}
                 position={{
                   lat: coffeehouse.lat,
                   lng: coffeehouse.lng

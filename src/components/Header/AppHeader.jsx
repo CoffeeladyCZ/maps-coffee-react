@@ -9,8 +9,6 @@ import PopUp from '../PopUp/PopUp';
 
 import './AppHeader.scss';
 
-import coffeeCup from './coffee-cup.png';
-
 const Header = () => {
   const popUpSubmited = usePopUp();
   const togglePopUp = useTogglePopup();
@@ -25,9 +23,10 @@ const Header = () => {
         onClick={togglePopUp}
       />
       {popUpSubmited && <PopUp />}
-      <h1>Mapa kaváren</h1>
-      <p className='claim'>... tady se jede jenom výběrovka</p>
-      <img className='coffee-cup' src={coffeeCup} alt='coffee cup' />
+      <div className='header__wrapper'>
+        <h1>Mapa kaváren</h1>
+        <p className='claim'>... tady se jede jenom výběrovka</p>
+      </div>      
     </header>
   );
 };

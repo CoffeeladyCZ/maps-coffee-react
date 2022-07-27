@@ -15,10 +15,10 @@ $gap: 30px;
     margin: 0;
   }
 
-  .map {
-    flex: 1 1 calc(100% - #{$list-width} - #{$gap});
-    width: calc(100% - #{$list-width} - #{$gap});
-  }
+  // .map {
+  //   flex: 1 1 calc(100% - #{$list-width} - #{$gap});
+  //   width: calc(100% - #{$list-width} - #{$gap});
+  // }
 
   .app-list {
     flex: 1 1 $list-width;
@@ -30,10 +30,10 @@ $gap: 30px;
 
 @media (max-width: 1020px) {
   .app-map {
-    .map {
-      flex: 1 1 calc(100% - #{$list-width-tablet} - #{$gap});
-      width: calc(100% - #{$list-width-tablet} - #{$gap});
-    }
+    // .map {
+    //   flex: 1 1 calc(100% - #{$list-width-tablet} - #{$gap});
+    //   width: calc(100% - #{$list-width-tablet} - #{$gap});
+    // }
 
     .app-list {
       flex: 1 1 $list-width-tablet;
@@ -43,17 +43,17 @@ $gap: 30px;
 }
 
 @media (max-width: 768px) {
-  .app-map {
-    width: 100%;
-    margin: 0;
-    padding: 0 15px;
-    max-width: none;
-    justify-content: center;
+  // .app-map {
+  //   width: 100%;
+  //   margin: 0;
+  //   padding: 0 15px;
+  //   max-width: none;
+  //   justify-content: center;
 
     .map,
     .navigation .app-list {
       width: 100%;
       flex: 1 1 100%;
     }
-  }
+  // }
 }
