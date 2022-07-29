@@ -5,21 +5,31 @@ import { Link } from "react-router-dom";
 import { useTogglePopup, usePopUpContextSubmitted } from '../../contexts/PopupContext';
 import './PopUp.scss';
   
-const PopUpContent = () => {
+type SignFormType = {
+  name: string;
+  value: string;
+  type: string;
+}
+
+type FormikType = {
+  userName: string;
+  password: string;
+}
+const PopUpContent: React.FC = () => {
   const [signIt, setSignIt] = useState(false)
   const togglePopUp = useTogglePopup();
   const submit = usePopUpContextSubmitted();
-  const formik = useFormik({
+  const formik = useFormik<{[key:string]: string}>({
     initialValues: {
       userName: '',
       password: '',
     },
-    onSubmit: values => {
+    onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
 
-  const signForm = [
+  const signForm: SignFormType[] = [
     { name: 'Uživatelské jméno', value: 'userName', type: 'text' },
     { name: 'Heslo', value: 'password', type: 'password' },
   ]
@@ -59,11 +69,11 @@ const PopUpContent = () => {
   )
 }
 
-const PopUp = () => {
+const PopUp: React.FC = () => {
   const selectBody = useRef(null);
   return (
     <div className='pop-up'>
-      <div ref={selectBody}  tabIndex='1'>
+      <div ref={selectBody} tabIndex={1}>
         <PopUpContent />
       </div>
     </div>

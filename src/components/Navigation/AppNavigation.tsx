@@ -1,13 +1,17 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 
-import './AppNavigation.scss';
 import { useActiveMarkerContext, useActualDistrictContent, useMarkerDistrictContext } from '../../contexts/MapsContext';
+import './AppNavigation.scss';
 
+type CityDistrict = {
+  name: string
+}
 
-const cityDistrict = [
+type CityDistricts = CityDistrict[];
+
+const cityDistrict: CityDistricts = [
   { name: 'All' },
   { name: 'Letná' },
   { name: 'Karlín' },
@@ -28,7 +32,7 @@ const Navigation = () => {
         {
           cityDistrict.map((item) =>
           <li 
-            className={active && item.name === district ? 'active' : ''} 
+            className={active() && item.name === district ? 'active' : ''} 
             key={item.name} 
             onClick={() => actualDistrict(item.name)}>
             {item.name}

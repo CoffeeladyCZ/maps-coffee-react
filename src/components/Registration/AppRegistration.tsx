@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AppRegistration = () => {
+const AppRegistration: React.FC = () => {
   return (
     <div>
       Zatím tu nic není

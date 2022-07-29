@@ -1,17 +1,34 @@
 import React from "react"; 
 import { Link } from "react-router-dom";
-import { useFormik } from 'formik';
+import { FormikErrors, useFormik } from 'formik';
 
 import './FormCafe.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SizeProp } from '@fortawesome/fontawesome-svg-core';
+
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import AppSelect from '../SelectItem/AppSelect';
 
 import { formItems, cityDistrict, selectItems } from '../../data/data';
 
-const validate = values => {
-  const errors = {};
+interface FormType {
+  [key:string]: string;
+  nameCafe: string;
+  addressCafe: string;
+  location: string;
+  openTime: string;
+  web: string;
+  info: string;
+}
+
+type FormItems = {
+  name: string;
+  value: string;
+}
+
+const validate = (values: FormType) => {
+  const errors: {[key:string]: string} = {};
   if (!values.nameCafe) {
     errors.nameCafe = 'Required';
   }
@@ -27,8 +44,8 @@ const validate = values => {
   return errors;
 };
 
-const FormCafe = () => {
-  const formik = useFormik({
+const FormCafe: React.FC = () => {
+  const formik = useFormik<{[key:string]: string}>({
      initialValues: {
        nameCafe: '',
        addressCafe: '',
@@ -37,7 +54,7 @@ const FormCafe = () => {
        web: '',
        info: '',
      },
-     onSubmit: values => {
+     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
      },
   });
@@ -46,7 +63,7 @@ const FormCafe = () => {
     <form className="form"  onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
     <div className="form-head">
       <Link to="/" className='form-head__icon'>
-        <FontAwesomeIcon icon={faArrowLeft} size="xl"/>
+        <FontAwesomeIcon icon={faArrowLeft} size={"xl" as SizeProp}/>
       </Link>
       <h1 className="form-title">Zadej údaje o nové kavárně</h1>
     </div>
@@ -55,7 +72,7 @@ const FormCafe = () => {
           <AppSelect selectItems={cityDistrict} selectName={selectItems} value={formik.values.location} name='lokalita' />
         </div>
         { 
-          formItems.map(item => {
+          formItems.map((item: FormItems) => {
             return (
               <div key={item.value}>
                 <div className="form-body-row">
@@ -71,7 +88,7 @@ const FormCafe = () => {
                   <label htmlFor={item.value} className="placeholder">{item.name}</label>
                 </div>
                 <div className="errorMessage">
-                  {formik[item.value] && formik.errors[item.value] ? formik.errors[item.value] : null}
+                  {formik.errors[item.value] ? formik.errors[item.value] : null}
                 </div>
               </div>
             )
@@ -79,7 +96,7 @@ const FormCafe = () => {
         }
         <div className="form-body-btn">
           <button type="reset" className="btn btn-clean">Clean</button>
-          <button type="submit" className="btn btn-submit" onClick={validate}>Submit</button>
+          <button type="submit" className="btn btn-submit">Submit</button>
         </div>
       </div>
      </form>

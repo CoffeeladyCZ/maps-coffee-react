@@ -4,7 +4,7 @@ import Navigation from '../Navigation/AppNavigation';
 
 import './index.scss';
 
-const Home = () => <>
+const Home: React.FC = () => <>
     <Navigation />
     <Map height='350' />
     <CafeList />

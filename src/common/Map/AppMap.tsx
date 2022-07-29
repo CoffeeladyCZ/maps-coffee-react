@@ -1,24 +1,19 @@
-import React, { useState } from "react"; 
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import  MarkerComponent from '../../components/Marker/AppMarker';
+import React, { useState } from "react";
+import MarkerComponent from '../../components/Marker/AppMarker';
 
-import coffeePin from '../../img/coffee-shop.png';
+import * as coffeePin from '../../img/coffee-shop.png';
 
-import './AppMap.scss';
+import { useActualCoffeeHouseContext, useMarkerDistrictContext } from '../../contexts/MapsContext';
 import { listCoffeehouse } from "../../data/data";
-import { useMarkerDistrictContext, useActualCoffeeHouseContext } from '../../contexts/MapsContext';
+import './AppMap.scss';
 
-type MapProps = {
-  height: number;
+interface MapProps {
+  height: string;
 }
 
-type ShowWindowFunction = {
-  index: number,
-  name: string,
-}
-
-const Map = (height: MapProps ) => {
-  const [currentWindowVisibleIndex, setCurrentWindowVisibleIndex] = useState(null);
+const Map: React.FC<MapProps> = ({ height }) => {
+  const [currentWindowVisibleIndex, setCurrentWindowVisibleIndex] = useState<null | number>(null);
 
   const district = useMarkerDistrictContext();
   const { coffeeHouse, setCoffeeHouse } = useActualCoffeeHouseContext();
@@ -27,7 +22,7 @@ const Map = (height: MapProps ) => {
     setCurrentWindowVisibleIndex(null);
   }
 
-  const showWindow = (index: ShowWindowFunction, name: ShowWindowFunction) => {
+  const showWindow = (index: number, name: string) => {
     setCurrentWindowVisibleIndex(index);
     setCoffeeHouse(name);
   }
@@ -50,7 +45,7 @@ const Map = (height: MapProps ) => {
   } = settings;
 
   return (
-    <div className='map' style={{height: `${height.height}px`}}>
+    <div className='map' style={{height: `${height}px`}}>
       <LoadScript
         googleMapsApiKey={secret}
       >
@@ -69,7 +64,7 @@ const Map = (height: MapProps ) => {
                 onCloseClick={onHideWindow}
                 data={coffeehouse}
                 icon={coffeePin}
-                animation={i === currentWindowVisibleIndex || coffeehouse.name === coffeeHouse ? 2 : null}
+                animation={i === currentWindowVisibleIndex || coffeehouse.name === coffeeHouse ? 2 : undefined}
                 position={{
                   lat: coffeehouse.lat,
                   lng: coffeehouse.lng
