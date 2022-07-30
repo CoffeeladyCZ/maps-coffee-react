@@ -8,7 +8,16 @@ import './AppMap.scss';
 import { listCoffeehouse } from "../../data/data";
 import { useMarkerDistrictContext, useActualCoffeeHouseContext } from '../../contexts/MapsContext';
 
-const Map = (height) => {
+type MapProps = {
+  height: number;
+}
+
+type ShowWindowFunction = {
+  index: number,
+  name: string,
+}
+
+const Map = (height: MapProps ) => {
   const [currentWindowVisibleIndex, setCurrentWindowVisibleIndex] = useState(null);
 
   const district = useMarkerDistrictContext();
@@ -18,7 +27,7 @@ const Map = (height) => {
     setCurrentWindowVisibleIndex(null);
   }
 
-  const showWindow = (index, name) => {
+  const showWindow = (index: ShowWindowFunction, name: ShowWindowFunction) => {
     setCurrentWindowVisibleIndex(index);
     setCoffeeHouse(name);
   }
