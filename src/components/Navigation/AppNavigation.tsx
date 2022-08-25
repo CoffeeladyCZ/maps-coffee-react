@@ -21,7 +21,7 @@ const cityDistrict: CityDistricts = [
   { name: 'Centrum' },
 ];
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   const active = useActiveMarkerContext();
   const district = useMarkerDistrictContext();
   const actualDistrict = useActualDistrictContent();

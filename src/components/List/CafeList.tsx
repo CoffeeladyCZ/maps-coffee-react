@@ -6,7 +6,7 @@ import './CafeList.scss';
 import { listCoffeehouse } from '../../data/data';
 import { useActualCoffeeHouseContext, useMarkerDistrictContext, useCurrentCafeContext } from '../../contexts/MapsContext';
 import image from '../../img/detail/tykavo.jpg';
-import { CurrentCafeType } from '../../contexts/MapsContext'; // Předělat do jiného souboru
+import { CurrentCafeType } from '../../contexts/MapsContext'; // TODO Předělat do jiného souboru
 
 const CafeList: React.FC = () => {
   const district = useMarkerDistrictContext();

@@ -11,10 +11,6 @@ type SignFormType = {
   type: string;
 }
 
-type FormikType = {
-  userName: string;
-  password: string;
-}
 const PopUpContent: React.FC = () => {
   const [signIt, setSignIt] = useState(false)
   const togglePopUp = useTogglePopup();

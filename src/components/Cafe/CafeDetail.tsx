@@ -14,30 +14,25 @@ type ParamsType = {
   cafename: string;
 }
 
-const CafeDetail = () => {
+const CafeDetail: React.FC = () => {
   let { currentCafe } = useCurrentCafeContext();
   const params = useParams<ParamsType>();
-  let neco;
+  let isCurrentCafe;
   if (!currentCafe.name) {
     const matchedCafe = listCoffeehouse.filter(cafe => slugify(cafe.name) === params.cafename);
     if (matchedCafe && matchedCafe.length && matchedCafe.length > 0 && matchedCafe[0]) {
-      neco = false
+      isCurrentCafe = false
     }
   }
 
-  if (!neco) {
+  if (!isCurrentCafe) {
     return <h1>Tato kavárna pravděpodobně neexistuje!</h1>
   }
 
   const {
     address,
-    // content,
-    // district,
     image,
-    // lat,
-    // lng,
     name,
-    // slug,
     time,
     phone,
     web,
