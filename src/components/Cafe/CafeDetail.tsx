@@ -10,16 +10,22 @@ import { useCurrentCafeContext } from '../../contexts/MapsContext';
 import { listCoffeehouse } from '../../data/data';
 import { slugify } from '../../Utils';
 
+type ParamsType = {
+  cafename: string;
+}
+
 const CafeDetail = () => {
   let { currentCafe } = useCurrentCafeContext();
-  const params = useParams();
-
+  const params = useParams<ParamsType>();
+  let neco;
   if (!currentCafe.name) {
     const matchedCafe = listCoffeehouse.filter(cafe => slugify(cafe.name) === params.cafename);
-    currentCafe = matchedCafe && matchedCafe.length && matchedCafe.length > 0 && matchedCafe[0];
+    if (matchedCafe && matchedCafe.length && matchedCafe.length > 0 && matchedCafe[0]) {
+      neco = false
+    }
   }
 
-  if (!currentCafe) {
+  if (!neco) {
     return <h1>Tato kavárna pravděpodobně neexistuje!</h1>
   }
 
@@ -75,6 +81,7 @@ const CafeDetail = () => {
           </div>
           <div className='detail-wrapper-box__images'>
             {
+              image && 
               image.map((item, index) => {
                 return <img key={ index } alt={ name } src={ item } />
               })

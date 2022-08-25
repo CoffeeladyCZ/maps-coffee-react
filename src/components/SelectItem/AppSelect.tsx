@@ -3,8 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
 import './AppSelect.scss';
 
-const Select = (props) => {
-  const selectBody = useRef(null);
+export interface SelectItemType { 
+  name: string; 
+};
+export interface SelectNameType extends SelectItemType {
+  value: string;
+};
+
+
+interface SelectProps {
+  name: string;
+  selectItems: SelectItemType[];
+  selectName: SelectNameType[];
+  value: string;
+}
+const Select: React.FC<SelectProps> = (props) => {
+  const selectBody = useRef<HTMLDivElement>(null);
   const [isOpened, setIsOpened] = useState(false);
   const [selectedItem, setSelectedItem] = useState('Lokalita');
   const activeClass = isOpened ? ' active' : '';
@@ -21,15 +35,16 @@ const Select = (props) => {
     };
   }, []);
 
-  function handleClickOutside(event) {
-    const target = event.target;
-    const type = event.type.toLowerCase();
+  function handleClickOutside(e: MouseEvent | KeyboardEvent): void {
+    
+    const target = e.target as Element;
+    const type = e.type.toLowerCase();
     const clickedOutside = type === 'click' && !target.matches('.select, .select *');
-    const escapePressed = type === 'keyup' && event.key.toLowerCase() === 'escape';
+    const escapePressed = type === 'keyup' && (e as KeyboardEvent).key.toLowerCase() === 'escape';
     (clickedOutside || escapePressed) && setIsOpened(false);    
   }
 
-  function lastSelectItem(item) {
+  function lastSelectItem(item: SelectItemType) {
     setSelectedItem(item.name);
   }
 
@@ -51,8 +66,7 @@ const Select = (props) => {
       </div>
       <div ref={selectBody} className='select-body'>
         {props.selectItems.map((item, index) => {
-          return (
-            <div
+            return <div
               key={item.name}
               tabIndex={index}
               className={`select-item${
@@ -62,7 +76,6 @@ const Select = (props) => {
             >
               {item.name}
             </div>
-          );
         })}
       </div>
     </div>

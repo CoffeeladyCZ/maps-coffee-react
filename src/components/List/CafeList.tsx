@@ -6,13 +6,14 @@ import './CafeList.scss';
 import { listCoffeehouse } from '../../data/data';
 import { useActualCoffeeHouseContext, useMarkerDistrictContext, useCurrentCafeContext } from '../../contexts/MapsContext';
 import image from '../../img/detail/tykavo.jpg';
+import { CurrentCafeType } from '../../contexts/MapsContext'; // Předělat do jiného souboru
 
-const CafeList = () => {
+const CafeList: React.FC = () => {
   const district = useMarkerDistrictContext();
   const { setCoffeeHouse } = useActualCoffeeHouseContext();
   const { setCurrentCafe } = useCurrentCafeContext();
 
-  const setActualCafe = (item) => {
+  const setActualCafe = (item: CurrentCafeType) => {
     setCoffeeHouse(item.name);
     setCurrentCafe(item);
   }

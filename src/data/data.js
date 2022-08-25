@@ -318,6 +318,6 @@ export const listCoffeehouse = [
     content: '',
     lat: 48.97546893398027,
     lng:  14.472968162329774,
-    image: fotoCafe.dok,
+    image: [],
   },
 ];
