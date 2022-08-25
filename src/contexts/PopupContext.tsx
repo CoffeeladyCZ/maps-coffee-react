@@ -1,34 +1,24 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
-const PopUpContext = createContext();
-const TogglePopUpContext = createContext();
-const OpenPopUpContext = createContext();
-const ClosePopUpContext = createContext();
-const PopUpContextSubmit = createContext();
-const PopUpContextSubmitted = createContext();
+const defaultVoid = () => {};
 
-export function usePopUp() {
-  return useContext(PopUpContext);
-}
-export function useTogglePopup() {
-  return useContext(TogglePopUpContext);
-}
-export function useOpenPopup() {
-  return useContext(OpenPopUpContext);
-}
-export function useClosePopup() {
-  return useContext(ClosePopUpContext);
-}
-export function usePopUpContextSubmit() {
-  return useContext(PopUpContextSubmit);
-}
-export function usePopUpContextSubmitted() {
-  return useContext(PopUpContextSubmitted);
-}
+export type TogglePopUpContextSetter = (() => void | Promise<void>);
+export type OpenPopUpContextSetter = (() => void | Promise<void>);
+export type ClosePopUpContextSetter = (() => void | Promise<void>);
+export type PopUpContextSubmittedSetter = (() => void | Promise<void>);
 
-export function PopUpStateProvider({ children }) {
+const PopUpContext = createContext<boolean>(false);
+const TogglePopUpContext = createContext<TogglePopUpContextSetter>(defaultVoid);
+const OpenPopUpContext = createContext<OpenPopUpContextSetter>(defaultVoid);
+const ClosePopUpContext = createContext<ClosePopUpContextSetter>(defaultVoid);
+const PopUpContextSubmit = createContext<boolean>(false);
+const PopUpContextSubmitted = createContext<PopUpContextSubmittedSetter>(defaultVoid);
+
+
+export const PopUpStateProvider: React.FC = ({ children }) => {
   const [isOpened, setIsOpened] = useState(false);
   const [isSubmited, setIsSubmited] = useState(false);
+  
   function closePopUp() {
     setIsOpened(false);
   }
@@ -41,17 +31,18 @@ export function PopUpStateProvider({ children }) {
   function submit() {
     setIsSubmited(true);
   }
-  function closePopUpOutside(event) {
+  function closePopUpOutside(event: MouseEvent | KeyboardEvent): void {
     const type = event.type;
+    const target = event.target as Element;
     const isBodyClicked =
-      type === "click" &&
-      !event.target.matches(
-        ".app-header .sighn-icon, .app-header .sighn-icon *, .pop-up, .pop-up *"
+    type === "click" &&
+    !target.matches(
+      ".app-header .sign-icon, .app-header .sighn-icon *, .pop-up, .pop-up *"
       );
-    const isEscapePressed =
-      type === "keyup" && event.key && event.key.toLowerCase() === "escape";
-
-    if (isBodyClicked || isEscapePressed) {
+      const isEscapePressed: boolean | string =
+      type === "keyup" && (event as KeyboardEvent).key && (event as KeyboardEvent).key.toLowerCase() === "escape";
+      
+      if (isBodyClicked || isEscapePressed) {
       window.removeEventListener("click", closePopUpOutside);
       window.removeEventListener("keyup", closePopUpOutside);
       setIsOpened(false);
@@ -69,15 +60,15 @@ export function PopUpStateProvider({ children }) {
     window.removeEventListener("keyup", closePopUpOutside);
     setIsOpened(false);
   }
-
+  
   useEffect(() => unsubscribe, []);
-
+  
   useEffect(() => {
     if (isOpened) {
       subscribe();
     }
   }, [isOpened]);
-
+  
   return (
     <PopUpContext.Provider value={isOpened}>
       <TogglePopUpContext.Provider value={togglePopUp}>
@@ -94,3 +85,10 @@ export function PopUpStateProvider({ children }) {
     </PopUpContext.Provider>
   );
 }
+
+export const usePopUp = () => useContext(PopUpContext);
+export const useTogglePopup = () => useContext(TogglePopUpContext);
+export const useOpenPopup = () => useContext(OpenPopUpContext);
+export const useClosePopup = () => useContext(ClosePopUpContext);
+export const usePopUpContextSubmit = () => useContext(PopUpContextSubmit);
+export const usePopUpContextSubmitted = () => useContext(PopUpContextSubmitted);

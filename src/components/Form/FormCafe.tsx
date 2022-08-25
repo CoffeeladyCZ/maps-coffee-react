@@ -26,7 +26,7 @@ type FormItems = {
   name: string;
   value: string;
 }
-
+// TODO předělat validaci - podle docs formik
 const validate = (values: FormType) => {
   const errors: {[key:string]: string} = {};
   if (!values.nameCafe) {
