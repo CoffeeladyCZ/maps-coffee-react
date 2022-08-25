@@ -1,6 +1,6 @@
 import React from "react"; 
 import { Link } from "react-router-dom";
-import { FormikErrors, useFormik } from 'formik';
+import { useFormik } from 'formik';
 
 import './FormCafe.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

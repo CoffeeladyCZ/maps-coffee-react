@@ -5,5 +5,24 @@ This project based on Google Maps API.
 ### Tech stack: 
 - NPM
 - React
-- Sass
+- TypeSsript
 - Jest
+
+### ESlint
+
+Check and fix
+```sh
+npm run lint:fix
+```
+
+### Prettify other files
+
+```sh
+npx prettier --check .
+```
+
+Check and fix:
+
+```sh
+npx prettier --write .
+```
