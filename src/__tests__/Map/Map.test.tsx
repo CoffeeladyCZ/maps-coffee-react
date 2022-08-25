@@ -1,11 +1,11 @@
-import AppHeader from '@/components/Header/AppHeader';
+import Map from '@/common/Map/AppMap';
 import { mount } from '@testing-library/react';
 
-describe('AppFooter', () => {
+describe('Map', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<AppHeader />)
+    wrapper = mount(<Map />)
   })
 
   test('match snapshot', () => {

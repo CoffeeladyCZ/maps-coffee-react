@@ -1,14 +1,16 @@
-import Footer from '@/components/Footer/AppFooter';
+import Marker from '@/components/Marker/AppMarker';
 import { mount } from '@testing-library/react';
 
-describe('Footer', () => {
+describe('Marker', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<Footer />)
+    wrapper = mount(<Marker />)
   })
 
   test('match snapshot', () => {
     expect(wrapper.element).toMatchSnapshot();
   })
+
+  test('render with props')
 })
