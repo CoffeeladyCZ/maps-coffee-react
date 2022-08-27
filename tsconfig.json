@@ -15,7 +15,10 @@
       "isolatedModules": true,
       "noEmit": true,
       "jsx": "react-jsx",
-      "useUnknownInCatchVariables": false
+      "useUnknownInCatchVariables": false,
+      // "paths": {
+      //   "@/*": ["./src/*"]
+      // }
   },
   "include": ["src"],
   "exclude": ["src/img"]

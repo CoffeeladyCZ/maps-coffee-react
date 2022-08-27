@@ -1,4 +1,4 @@
-import React, {MouseEventHandler, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Marker} from '@react-google-maps/api';
 import MapInfoWindow from '../MapInfoWindow/MapInfoWindow';
 import { CurrentCafeType } from '../../contexts/MapsContext';

@@ -1,52 +1,46 @@
 export const coffeehouse = document.querySelector('.list-coffeehouse'),
-      markers = document.querySelectorAll('#letna, #karlin, #vinohrady, #nusle, #dejvice, #centrum'),
-      icons = [
-        {
-          name: 'CoffeeHouse',
-          icon: 'img/coffee-shop.png',
-        },
-        {
-          name: 'My location',
-          icon: '../img/pin.svg',
-        },
-      ],
-      photo = [];
-
-
-export const cityDistrict = [
+  markers = document.querySelectorAll('#letna, #karlin, #vinohrady, #nusle, #dejvice, #centrum'),
+  icons = [
+    {
+      name: 'CoffeeHouse',
+      icon: 'img/coffee-shop.png',
+    },
+    {
+      name: 'My location',
+      icon: '../img/pin.svg',
+    },
+  ],
+  photo = []
+;export const cityDistrict = [
   { name: 'Letná' },
   { name: 'Karlín' },
   { name: 'Dejvice' },
   { name: 'Vinohrady' },
   { name: 'Nusle' },
   { name: 'Centrum' },
-];
-
-export const formItems = [
+]
+;export const formItems = [
   { name: 'Název kavárny', value: 'nameCafe' },
   { name: 'Adresa kavárny', value: 'addressCafe' },
   { name: 'Otevírací doba', value: 'openTime' },
   { name: 'Informace', value: 'info' },
   { name: 'Webové stránky', value: 'web' }
-];
-
-export const selectItems = [
+]
+;export const selectItems = [
   {
-    name: 'Lokalita', 
-    value: 'location' 
+    name: 'Lokalita',
+    value: 'location'
   }
 ]
-
-export const cities = [
+;export const cities = [
   { name: 'Plzeň' },
   { name: 'Brno' },
   { name: 'Tábor' },
   { name: 'České Budějovice' },
 ]
-
-const fotoCafe = [
+;const fotoCafe = [
   { dok: 'img/detail/dok.jpg'}
-]
+];
 
 // list of coffeehouse
 export const listCoffeehouse = [
@@ -59,11 +53,11 @@ export const listCoffeehouse = [
     district: ['All', 'Centrum'],
     type: 'coffeehouse',
     content: 'Kavárna a zároveň pražírna Beansmith\'s.',
-    lat: 50.08033951568018, 
+    lat: 50.08033951568018,
     lng: 14.407263420492933,
     image: ['https://media.istockphoto.com/photos/happy-coffee-cup-picture-id508347326?k=20&m=508347326&s=612x612&w=0&h=phdf_0eKqIbCj2ayXuXRktf8JGugJqFXdi6A8gBL6vU=',
-    'https://media.istockphoto.com/photos/happy-coffee-cup-picture-id508347326?k=20&m=508347326&s=612x612&w=0&h=phdf_0eKqIbCj2ayXuXRktf8JGugJqFXdi6A8gBL6vU=',
-  ],
+      'https://media.istockphoto.com/photos/happy-coffee-cup-picture-id508347326?k=20&m=508347326&s=612x612&w=0&h=phdf_0eKqIbCj2ayXuXRktf8JGugJqFXdi6A8gBL6vU=',
+    ],
   },
   {
     name: 'format.coffee',
@@ -72,7 +66,7 @@ export const listCoffeehouse = [
     district: ['All', 'Letná'],
     type: 'coffeehouse',
     content: 'Další kavárna na Letné od Jackieho.',
-    lat: 50.099816256123965, 
+    lat: 50.099816256123965,
     lng: 14.429540195462284,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -82,17 +76,17 @@ export const listCoffeehouse = [
     district: ['All', 'Letná'],
     time: 'Po - Ne: 9:00 - 19:00',
     content: ' je nenápadná kavárna kousek od Centrum Stromovka.',
-    lat: 50.10256728584566, 
+    lat: 50.10256728584566,
     lng: 14.422197754862381,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
-  }, 
+  },
   {
     name: 'Cafe Letka',
     address:'Letohradská 44, 170 00 Praha 7-Letná',
     district: ['All', 'Letná'],
     time: 'Po - Pá: 8:00 - 18:00, So - Ne: 9:00 - 18:00',
     content: 'Legendární kavárna na Letné.',
-    lat: 50.09896095139468, 
+    lat: 50.09896095139468,
     lng: 14.425286868749494,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -112,7 +106,7 @@ export const listCoffeehouse = [
     district: ['All', 'Letná'],
     time: 'Po - Ne: 10:00 - 18:00',
     content: '',
-    lat: 50.10134293265671, 
+    lat: 50.10134293265671,
     lng: 14.42821178016424,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -122,7 +116,7 @@ export const listCoffeehouse = [
     district: ['All', 'Karlín'],
     time: 'Po - Pá: 7:30 - 17:30',
     content: ' pokud jezdíte do Karlína nesmíte ji minout.',
-    lat: 50.09300737010227, 
+    lat: 50.09300737010227,
     lng:14.445987692151286,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -132,7 +126,7 @@ export const listCoffeehouse = [
     district: ['All', 'Dejvice'],
     time: 'Po - Pá: 7:00 - 18:00, So - Ne: 9:00 - 16:00',
     content: '',
-    lat: 50.10123348075611, 
+    lat: 50.10123348075611,
     lng: 14.39239431587142,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -162,7 +156,7 @@ export const listCoffeehouse = [
     district: ['All', 'Holešovice'],
     time: 'Po - Pá: 8:00 - 18:00, So - Ne: 10:00 - 18:00',
     content: ' je netradiční kavárna, která na tomto místě chyběla.',
-    lat: 50.10782923945228, 
+    lat: 50.10782923945228,
     lng: 14.448746107986691,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -181,7 +175,7 @@ export const listCoffeehouse = [
     district: ['All', 'Vinohrady'],
     time: 'Po - So: 9:00 - 20:00, Ne: 9:00 - 19:00',
     content: '',
-    lat: 50.078230491278774, 
+    lat: 50.078230491278774,
     lng: 14.448439963363745,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -190,7 +184,7 @@ export const listCoffeehouse = [
     address: 'Moskevská 372/35, 101 00 Praha 10-Vršovice',
     district: ['All', 'Vršovice'],
     time: 'Po - Ne: 9:00 - 20:00',
-    lat: 50.069417672774016, 
+    lat: 50.069417672774016,
     lng: 14.455258250993772
   },
   {
@@ -199,7 +193,7 @@ export const listCoffeehouse = [
     district: ['All'],
     time: 'Po - Pá: 7:01 - 19:01, So - 12:01 - 17:01',
     content: '',
-    lat: 50.08459124214152, 
+    lat: 50.08459124214152,
     lng: 14.375977737345796
   },
   {
@@ -218,7 +212,7 @@ export const listCoffeehouse = [
     district: ['Nusle'],
     time: 'Po - Pá: 8:00 - 19:00, So - Ne: 10:00 - 18:00',
     content: 'Pod Nuselským mostem',
-    lat: 50.06505704895357, 
+    lat: 50.06505704895357,
     lng: 14.42893499158989,
   },
   {
@@ -227,7 +221,7 @@ export const listCoffeehouse = [
     district: ['Vinohrady'],
     time: 'Po - Pá: 8:00 - 19:00, So - Ne: 9:00 - 19:00',
     content: '',
-    lat: 50.07874384511063, 
+    lat: 50.07874384511063,
     lng: 14.451214020641554,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -237,8 +231,8 @@ export const listCoffeehouse = [
     district: ['All', 'Žižkov'],
     time: 'Po - Pá: 9:00 - 17:00',
     content: '',
-    lat: 50.082074825242515, 
-    lng: 14.459151740227787 
+    lat: 50.082074825242515,
+    lng: 14.459151740227787
   },
   {
     name: 'Megera Café',
@@ -246,8 +240,8 @@ export const listCoffeehouse = [
     district: ['All', 'Nusle'],
     time: 'Po - Pá: 8:00 - 21:00',
     content: '',
-    lat: 50.05581497709363, 
-    lng: 14.433091411718667, 
+    lat: 50.05581497709363,
+    lng: 14.433091411718667,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
@@ -256,7 +250,7 @@ export const listCoffeehouse = [
     district: ['All', 'Žižkov'],
     time: 'Po - Ne: 10:00 - 21:00',
     content: '',
-    lat: 50.08204423391477, 
+    lat: 50.08204423391477,
     lng: 14.453021796882094,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -266,7 +260,7 @@ export const listCoffeehouse = [
     district: ['All', 'Karlín'],
     time: 'Po - Pá: 9:00 - 18:00, So - Ne: 9:00 - 17:00',
     content: '',
-    lat: 50.09466086737089, 
+    lat: 50.09466086737089,
     lng: 14.457777660541346,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -276,7 +270,7 @@ export const listCoffeehouse = [
     district: ['All', 'Karlín'],
     time: 'Po - Pá: 8:00 - 22:00, So - Ne: 9:00 - 22:00',
     content: '',
-    lat: 50.091574389863545, 
+    lat: 50.091574389863545,
     lng: 14.454573908436654,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -286,7 +280,7 @@ export const listCoffeehouse = [
     district: ['All', 'Karlín'],
     time: 'Po - Pá: 8:00 - 18:00, So - Ne: 10:00 - 18:00',
     content: '',
-    lat: 50.092620419002, 
+    lat: 50.092620419002,
     lng: 14.451573565601478,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -296,7 +290,7 @@ export const listCoffeehouse = [
     district: ['Vinohrady'],
     time: 'Po - Pá: 8:00 - 18:00, So - Ne: 9:00 - 17:00',
     content: '',
-    lat: 50.075424825594816, 
+    lat: 50.075424825594816,
     lng: 14.451322566873111,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
@@ -306,7 +300,7 @@ export const listCoffeehouse = [
     district: ['Liberec'],
     time: 'Po - Ne: 8:00 - 18:00',
     content: '',
-    lat: 50.75974304434389, 
+    lat: 50.75974304434389,
     lng: 15.048204418301879,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
