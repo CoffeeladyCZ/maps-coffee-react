@@ -37,9 +37,6 @@ export const coffeehouse = document.querySelector('.list-coffeehouse'),
   { name: 'Brno' },
   { name: 'Tábor' },
   { name: 'České Budějovice' },
-]
-;const fotoCafe = [
-  { dok: 'img/detail/dok.jpg'}
 ];
 
 // list of coffeehouse
