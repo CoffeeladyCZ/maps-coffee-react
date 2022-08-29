@@ -5,6 +5,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { usePopUp, usePopUpContextSubmit, useTogglePopup } from '../../contexts/PopupContext';
 
+import LanguageSwitcher from '../Switcher/LanguageSwitcher';
 import PopUp from '../PopUp/PopUp';
 
 import './AppHeader.scss';
@@ -16,16 +17,19 @@ const Header = () => {
   const icon = isSubmited ? faRightFromBracket : faArrowRightToBracket;
   return (
     <header className='app-header'>
-      <FontAwesomeIcon
-        icon={icon}
-        size='lg'
-        className='sign-icon'
-        onClick={togglePopUp}
-      />
-      {popUpSubmited && <PopUp />}
+      <div className='icon-wrapper'>
+        <LanguageSwitcher />
+        <FontAwesomeIcon
+          icon={icon}
+          size='lg'
+          className='sign-icon'
+          onClick={togglePopUp}
+        />
+        {popUpSubmited && <PopUp />}
+      </div>
       <div className='header__wrapper'>
-        <h1>Mapa kaváren</h1>
-        <p className='claim'>... tady se jede jenom výběrovka</p>
+        <h1>t('title')</h1>
+        <p className='claim'>t('subtitle')</p>
       </div>      
     </header>
   );

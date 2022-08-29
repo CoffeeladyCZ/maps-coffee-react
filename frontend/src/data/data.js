@@ -37,7 +37,11 @@ export const coffeehouse = document.querySelector('.list-coffeehouse'),
   { name: 'Brno' },
   { name: 'Tábor' },
   { name: 'České Budějovice' },
+<<<<<<< HEAD:frontend/src/data/data.js
 ]
+=======
+];
+>>>>>>> 7037146... correction code:src/data/data.js
 
 // list of coffeehouse
 export const listCoffeehouse = [

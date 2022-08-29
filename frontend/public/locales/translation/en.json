@@ -1,5 +1,6 @@
 {
-  "title": "Welcome to react using react-i18next",
+  "title": "Coffee map",
+  "subtitle": "... tady se jede jenom výběrovka",
   "formTitle": "Zadej údaje o nové kavárně",
   "footer": "by Marcela Karafizievová",
   "validation": {

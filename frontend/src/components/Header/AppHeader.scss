@@ -37,20 +37,18 @@
     }
   }
 
-  .sign-icon {
+  .icon-wrapper {
     position: absolute;
     top: 20px;
     right: 50px;
     align-self: flex-end;
     cursor: pointer;
 
-    &:hover {
+    .sign-icon:hover {
       color: $primary-red;
       transition: all 0.25s ease;
     }
   }
-
- 
 }
 
 @media (max-width: 560px) {

@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer>
-      <p>t('')</p>
+      <p>t('footer')</p>
     </footer>
   )
 }
