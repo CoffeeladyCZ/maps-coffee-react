@@ -1,6 +1,7 @@
 import React from "react"; 
 import { Link } from "react-router-dom";
 import { useFormik } from 'formik';
+import { useTranslation } from "react-i18next";
 
 import './FormCafe.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,21 +31,23 @@ type FormItems = {
 const validate = (values: FormType) => {
   const errors: {[key:string]: string} = {};
   if (!values.nameCafe) {
-    errors.nameCafe = 'Required';
+    errors.nameCafe = t('validation:required');
   }
   if (!values.addressCafe) {
-    errors.addressCafe = 'Required';
+    errors.addressCafe = t('validation:required');
   } 
   if (!values.location) {
-    errors.location = 'Required';
+    errors.location = t('validation:required');
   }
   if (!values.openTime) {
-    errors.openTime = 'Required';
+    errors.openTime = t('validation:required');
   } 
   return errors;
 };
 
 const FormCafe: React.FC = () => {
+  const { t } = useTranslation();
+
   const formik = useFormik<{[key:string]: string}>({
      initialValues: {
        nameCafe: '',
@@ -65,7 +68,7 @@ const FormCafe: React.FC = () => {
       <Link to="/" className='form-head__icon'>
         <FontAwesomeIcon icon={faArrowLeft} size={"xl" as SizeProp}/>
       </Link>
-      <h1 className="form-title">Zadej údaje o nové kavárně</h1>
+      <h1 className="form-title">t('fformTitle')</h1>
     </div>
       <div className="form-body">
         <div className="form-body-row">

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Map from '../../common/Map/AppMap';
+import { useTranslation } from "react-i18next";
 
 import './CafeDetail.scss';
 
@@ -15,6 +16,7 @@ type ParamsType = {
 }
 
 const CafeDetail: React.FC = () => {
+  const { t } = useTranslation();
   let { currentCafe } = useCurrentCafeContext();
   const params = useParams<ParamsType>();
   let isCurrentCafe;
@@ -26,7 +28,7 @@ const CafeDetail: React.FC = () => {
   }
 
   if (!isCurrentCafe) {
-    return <h1>Tato kavárna pravděpodobně neexistuje!</h1>
+    return <h1>t("validation.error")</h1>
   }
 
   const {

@@ -1,11 +1,14 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 import './AppFooter.scss';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <footer>
-      <p>by Marcela Karafizievová</p>
+      <p>t('')</p>
     </footer>
   )
 }

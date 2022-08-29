@@ -1,0 +1,9 @@
+{
+  "title": "Welcome to react using react-i18next",
+  "formTitle": "Zadej údaje o nové kavárně",
+  "footer": "by Marcela Karafizievová",
+  "validation": {
+    "required": "Povinné pole",
+    "error": "Tato kavárna pravděpodobně neexistuje!"
+  }
+}
