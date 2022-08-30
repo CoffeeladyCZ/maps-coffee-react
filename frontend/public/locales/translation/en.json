@@ -6,5 +6,10 @@
   "validation": {
     "required": "Required",
     "error": "The café doesn't exit!"
+  },
+  "modal": {
+    "rate": "Rate",
+    "card": "Benefit card",
+    "beans": "Beans"
   }
 }

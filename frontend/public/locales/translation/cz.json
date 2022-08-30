@@ -6,5 +6,10 @@
   "validation": {
     "required": "Povinné pole",
     "error": "Tato kavárna pravděpodobně neexistuje!"
+  },
+  "modal": {
+    "rate": "Hodnocení",
+    "card": "Věrnostní karta",
+    "beans": "Zrnka na mlýnku"
   }
 }
