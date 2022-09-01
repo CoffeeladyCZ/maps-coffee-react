@@ -11,7 +11,7 @@ export const coffeehouse = document.querySelector('.list-coffeehouse'),
     },
   ],
   photo = []
-;export const cityDistrict = [
+export const cityDistrict = [
   { name: 'Letná' },
   { name: 'Karlín' },
   { name: 'Dejvice' },
@@ -19,20 +19,20 @@ export const coffeehouse = document.querySelector('.list-coffeehouse'),
   { name: 'Nusle' },
   { name: 'Centrum' },
 ]
-;export const formItems = [
+export const formItems = [
   { name: 'Název kavárny', value: 'nameCafe' },
   { name: 'Adresa kavárny', value: 'addressCafe' },
   { name: 'Otevírací doba', value: 'openTime' },
   { name: 'Informace', value: 'info' },
   { name: 'Webové stránky', value: 'web' }
 ]
-;export const selectItems = [
+export const selectItems = [
   {
     name: 'Lokalita',
     value: 'location'
   }
 ]
-;export const cities = [
+export const cities = [
   { name: 'Plzeň' },
   { name: 'Brno' },
   { name: 'Tábor' },
