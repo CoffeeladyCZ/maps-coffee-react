@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { useTogglePopup, usePopUpContextSubmitted } from '../../contexts/PopupContext';
 import './PopUp.scss';
-  
+
 type SignFormType = {
   name: string;
   value: string;
@@ -43,11 +43,11 @@ const PopUpContent: React.FC = () => {
       {signForm.map(item => {
         return (
           <div key={item.value} className="pop-up-body-row">
-            <input 
-              id={item.value} 
+            <input
+              id={item.value}
               name={item.value}
               type={item.type}
-              required 
+              required
               className={formik.errors[item.value] ? 'errorInput' : ''}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -55,7 +55,7 @@ const PopUpContent: React.FC = () => {
             />
             <label htmlFor={item.value} className="placeholder">{item.name}</label>
           </div>
-        ) 
+        )
       })}
       <div className='pop-up-body-btn'>
         <button type="submit" className="btn-submit">Submit</button>

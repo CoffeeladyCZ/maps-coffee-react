@@ -1,13 +1,14 @@
 import { createContext, useContext, useState } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 const defaultVoid = () => {};
 const defaultCafeType = {
   address: '',
   content: '',
   district: [],
   lat: 0,
-  lng: 0, 
-  name: '', 
+  lng: 0,
+  name: '',
   time: ''
 }
 
@@ -54,7 +55,7 @@ const ActiveMarkerContext = createContext<ActiveDistrictContextSetter>(defaultVo
 const ActualDistrictContext = createContext<ActualDistrictContextSetter>(defaultVoid);
 const ActualCoffeeHouseContext = createContext<ActualCoffeeHouseContextType>({
   coffeeHouse: '',
-  setCoffeeHouse: (value) => {}
+  setCoffeeHouse: defaultVoid
 });
 const ModalOpenedContext = createContext<ModalOpenedContextType>({
   isOpened: false,

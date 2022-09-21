@@ -10,15 +10,15 @@ import AppRegistration from '../components/Registration/AppRegistration';
  * @param sortOrder Enumerable SortOrder
  * @returns
  */
- const sortRoutes = (routes, sortBy, sortOrder) => {
-    const by = !sortBy || sortBy === null ? 'order' : sortBy;
-    const order = !sortOrder || sortOrder === null ? 'asc' : sortOrder;
-    if (order === 'asc') {
-        return routes.sort((a, b) => (a[ by ] > b[ by ] ? 1 : a[ by ] === b[ by ] ? 0 : -1));
-    } else if (order === 'desc') {
-        return routes.sort((a, b) => (a[ by ] < b[ by ] ? 1 : a[ by ] === b[ by ] ? 0 : -1));
-    }
-    return routes;
+const sortRoutes = (routes, sortBy, sortOrder) => {
+  const by = !sortBy || sortBy === null ? 'order' : sortBy;
+  const order = !sortOrder || sortOrder === null ? 'asc' : sortOrder;
+  if (order === 'asc') {
+    return routes.sort((a, b) => (a[ by ] > b[ by ] ? 1 : a[ by ] === b[ by ] ? 0 : -1));
+  } else if (order === 'desc') {
+    return routes.sort((a, b) => (a[ by ] < b[ by ] ? 1 : a[ by ] === b[ by ] ? 0 : -1));
+  }
+  return routes;
 };
 
 /**
@@ -42,18 +42,18 @@ import AppRegistration from '../components/Registration/AppRegistration';
  * @type {Route[]}
  */
 
- const errorRoutes = [
-    {
-        path: '*',
-        label: '404',
-        route: (
-            <>
-                <h1>404</h1>
-                <div>Tato stránka neexistuje!</div>    
-            </>
-        ),
-        order: 999999999999
-    },
+const errorRoutes = [
+  {
+    path: '*',
+    label: '404',
+    route: (
+      <>
+        <h1>404</h1>
+        <div>Tato stránka neexistuje!</div>
+      </>
+    ),
+    order: 999999999999
+  },
 ];
 
 /**
@@ -63,35 +63,35 @@ import AppRegistration from '../components/Registration/AppRegistration';
  */
 
 const routes = [
-    {
-        exact: true,
-        path: '/',
-        label: 'Domů',
-        order: 1,
-        route: <Home />,
-        additionalClass: 'app-map'
-    },
-    {
-        exact: false,
-        path: '/form',
-        label: 'Formulář',
-        order: 2,
-        route: <FormCafe />
-    },
-    {
-        exact: false,
-        path: '/registration',
-        label: 'Registrace',
-        order: 3,
-        route: <AppRegistration />
-    },
-    {
-        exact: false,
-        path: '/cafe/:cafename',
-        label: 'Detail',
-        order: 4,
-        route: <CafeDetail />
-    },
+  {
+    exact: true,
+    path: '/',
+    label: 'Domů',
+    order: 1,
+    route: <Home />,
+    additionalClass: 'app-map'
+  },
+  {
+    exact: false,
+    path: '/form',
+    label: 'Formulář',
+    order: 2,
+    route: <FormCafe />
+  },
+  {
+    exact: false,
+    path: '/registration',
+    label: 'Registrace',
+    order: 3,
+    route: <AppRegistration />
+  },
+  {
+    exact: false,
+    path: '/cafe/:cafename',
+    label: 'Detail',
+    order: 4,
+    route: <CafeDetail />
+  },
 ];
 
 // zde se meguji a sortuji vsechn pole s routami

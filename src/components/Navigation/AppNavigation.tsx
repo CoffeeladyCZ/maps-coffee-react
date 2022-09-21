@@ -31,17 +31,17 @@ const Navigation: React.FC = () => {
       <ul className='navigation-menu'>
         {
           cityDistrict.map((item) =>
-          <li 
-            className={active() && item.name === district ? 'active' : ''} 
-            key={item.name} 
-            onClick={() => actualDistrict(item.name)}>
-            {item.name}
-          </li>
+            <li
+              className={active() && item.name === district ? 'active' : ''}
+              key={item.name}
+              onClick={() => actualDistrict(item.name)}>
+              {item.name}
+            </li>
           )
         }
         <Link to="form" className='navigation-menu__icon'>
           <FontAwesomeIcon icon={faPlus} size="lg"/>
-            <span className='navigation-menu__icon-text'>New</span>
+          <span className='navigation-menu__icon-text'>New</span>
         </Link>
       </ul>
     </div>

@@ -15,7 +15,7 @@ type ParamsType = {
 }
 
 const CafeDetail: React.FC = () => {
-  let { currentCafe } = useCurrentCafeContext();
+  const { currentCafe } = useCurrentCafeContext();
   const params = useParams<ParamsType>();
   let isCurrentCafe;
   if (!currentCafe.name) {
@@ -76,7 +76,7 @@ const CafeDetail: React.FC = () => {
           </div>
           <div className='detail-wrapper-box__images'>
             {
-              image && 
+              image &&
               image.map((item, index) => {
                 return <img key={ index } alt={ name } src={ item } />
               })
