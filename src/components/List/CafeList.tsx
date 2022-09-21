@@ -22,18 +22,18 @@ const CafeList: React.FC = () => {
     <div className='listCafe'>
       {
         listCoffeehouse.filter(coffeehouse => coffeehouse.district.includes(district))
-        .map(item => {
-          return (
-            <div key={ item.name } className="listCafe__cafe" onClick={() => setActualCafe(item)}>
-              <Link to={`/cafe/${item.name}`} className='list-name'>
-                <img alt={ item.name } src={ image } className='listCafe__cafe-img' />
-                <div className='listCafe__cafe-title'>
-                  <p>{ item.name }</p>
-                </div>
-              </Link>
-            </div>
-          )
-        })
+          .map(item => {
+            return (
+              <div key={ item.name } className="listCafe__cafe" onClick={() => setActualCafe(item)}>
+                <Link to={`/cafe/${item.name}`} className='list-name'>
+                  <img alt={ item.name } src={ image } className='listCafe__cafe-img' />
+                  <div className='listCafe__cafe-title'>
+                    <p>{ item.name }</p>
+                  </div>
+                </Link>
+              </div>
+            )
+          })
       }
     </div>
   )

@@ -26,7 +26,7 @@ const Header = () => {
       <div className='header__wrapper'>
         <h1>Mapa kaváren</h1>
         <p className='claim'>... tady se jede jenom výběrovka</p>
-      </div>      
+      </div>
     </header>
   );
 };

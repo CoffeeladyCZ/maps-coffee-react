@@ -16,13 +16,13 @@ function ModalContent ({ name, address, time, content, image }) {
       const larger = rating <= hovered ? hovered : rating;
       const isActive = i <= larger;
       stars.push(
-        <FontAwesomeIcon 
+        <FontAwesomeIcon
           icon={faStar}
           key={i}
           size='lg'
           onMouseOver={() => setHovered(i)}
-          className={isActive ? 'content-icon__active' : 'content-icon'} 
-          onClick={() => setRating(i)} 
+          className={isActive ? 'content-icon__active' : 'content-icon'}
+          onClick={() => setRating(i)}
         />
       )
     }
@@ -40,7 +40,7 @@ function ModalContent ({ name, address, time, content, image }) {
           {
             getStars()
           }
-        </div>       
+        </div>
         <table className='content-table'>
           <tbody>
             <tr>
@@ -58,7 +58,7 @@ function ModalContent ({ name, address, time, content, image }) {
         </table>
       </div>
       <div className='content-images'>
-        { !image ? null : <img src={image} alt='imagecoffee' className='img' />}      
+        { !image ? null : <img src={image} alt='imagecoffee' className='img' />}
       </div>
     </div>
   )

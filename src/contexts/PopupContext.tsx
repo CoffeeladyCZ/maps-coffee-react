@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 const defaultVoid = () => {};
 
 export type TogglePopUpContextSetter = (() => void | Promise<void>);
@@ -18,7 +19,7 @@ const PopUpContextSubmitted = createContext<PopUpContextSubmittedSetter>(default
 export const PopUpStateProvider: React.FC = ({ children }) => {
   const [isOpened, setIsOpened] = useState(false);
   const [isSubmited, setIsSubmited] = useState(false);
-  
+
   function closePopUp() {
     setIsOpened(false);
   }
@@ -38,11 +39,11 @@ export const PopUpStateProvider: React.FC = ({ children }) => {
     type === "click" &&
     !target.matches(
       ".app-header .sign-icon, .app-header .sighn-icon *, .pop-up, .pop-up *"
-      );
-      const isEscapePressed: boolean | string =
+    );
+    const isEscapePressed: boolean | string =
       type === "keyup" && (event as KeyboardEvent).key && (event as KeyboardEvent).key.toLowerCase() === "escape";
-      
-      if (isBodyClicked || isEscapePressed) {
+
+    if (isBodyClicked || isEscapePressed) {
       window.removeEventListener("click", closePopUpOutside);
       window.removeEventListener("keyup", closePopUpOutside);
       setIsOpened(false);
@@ -60,15 +61,15 @@ export const PopUpStateProvider: React.FC = ({ children }) => {
     window.removeEventListener("keyup", closePopUpOutside);
     setIsOpened(false);
   }
-  
+
   useEffect(() => unsubscribe, []);
-  
+
   useEffect(() => {
     if (isOpened) {
       subscribe();
     }
   }, [isOpened]);
-  
+
   return (
     <PopUpContext.Provider value={isOpened}>
       <TogglePopUpContext.Provider value={togglePopUp}>

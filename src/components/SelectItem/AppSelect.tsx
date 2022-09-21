@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
 import './AppSelect.scss';
 
-export interface SelectItemType { 
-  name: string; 
+export interface SelectItemType {
+  name: string;
 };
 export interface SelectNameType extends SelectItemType {
   value: string;
@@ -36,12 +36,12 @@ const Select: React.FC<SelectProps> = (props) => {
   }, []);
 
   function handleClickOutside(e: MouseEvent | KeyboardEvent): void {
-    
+
     const target = e.target as Element;
     const type = e.type.toLowerCase();
     const clickedOutside = type === 'click' && !target.matches('.select, .select *');
     const escapePressed = type === 'keyup' && (e as KeyboardEvent).key.toLowerCase() === 'escape';
-    (clickedOutside || escapePressed) && setIsOpened(false);    
+    (clickedOutside || escapePressed) && setIsOpened(false);
   }
 
   function lastSelectItem(item: SelectItemType) {
@@ -66,16 +66,16 @@ const Select: React.FC<SelectProps> = (props) => {
       </div>
       <div ref={selectBody} className='select-body'>
         {props.selectItems.map((item, index) => {
-            return <div
-              key={item.name}
-              tabIndex={index}
-              className={`select-item${
-                item.name === selectedItem ? ' active' : ''
-              }`}
-              onClick={() => lastSelectItem(item)}
-            >
-              {item.name}
-            </div>
+          return <div
+            key={item.name}
+            tabIndex={index}
+            className={`select-item${
+              item.name === selectedItem ? ' active' : ''
+            }`}
+            onClick={() => lastSelectItem(item)}
+          >
+            {item.name}
+          </div>
         })}
       </div>
     </div>

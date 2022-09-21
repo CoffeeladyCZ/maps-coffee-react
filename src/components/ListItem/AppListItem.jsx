@@ -11,9 +11,9 @@ const ListItem = ({ activeCoffee, coffeeHouseObject }) => {
   const { setCurrentCafe } = useCurrentCafeContext();
   const { isOpened } = useModalOpenedContext();
   const open = useOpenModalContext();
-  
+
   const showModal = () => {
-    open();    
+    open();
   }
 
   const setActualCafe = (name) => {
@@ -24,7 +24,7 @@ const ListItem = ({ activeCoffee, coffeeHouseObject }) => {
   const { address, name, time, image, content, slug } = coffeeHouseObject;
 
   const contentModal = <ModalContent name={name} address={address} time={time} image={image} />
-  
+
   let modal;
   if (isOpened && name === coffeeHouse) {
     modal = <ModalWindow contentModal={contentModal} />

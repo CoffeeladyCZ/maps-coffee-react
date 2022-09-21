@@ -15,21 +15,21 @@ const List = () => {
     <div className='app-list'>
       {
         listCoffeehouse.filter(cafe => cafe.district.includes(district))
-        .map(cafe => {
-          const {name, address, time, image, content } = cafe;
-          const slug = name && slugify(name);
-          return <ListItem
-            key={ name }
-            activeCoffee={ coffeeHouse === name ? 'active-class' : '' }
-            coffeeHouseObject={{
-              ...cafe,
-              slug: slug,
-              phone: cafe.phone,
-              web: cafe.web
-            }}
-          />
-        }
-      )}
+          .map(cafe => {
+            const {name } = cafe;
+            const slug = name && slugify(name);
+            return <ListItem
+              key={ name }
+              activeCoffee={ coffeeHouse === name ? 'active-class' : '' }
+              coffeeHouseObject={{
+                ...cafe,
+                slug: slug,
+                phone: cafe.phone,
+                web: cafe.web
+              }}
+            />
+          }
+          )}
     </div>
   )
 }

@@ -37,20 +37,20 @@ const ModalWindow = ({className, contentModal}) => {
   const currentClass = `${className} modal-window`
 
   return (
-    isOpened ? 
-    <div className={currentClass}>
-      <div className='modal-window-base'>
-        <a 
-          role='button' 
-          href='www.' 
-          className='modal-window-close'
-          onClick={e => closeModal(e)} 
-        >&times;</a>
-        <div className='modal-window-content'>
-          {contentModal}
+    isOpened ?
+      <div className={currentClass}>
+        <div className='modal-window-base'>
+          <a
+            role='button'
+            href='www.'
+            className='modal-window-close'
+            onClick={e => closeModal(e)}
+          >&times;</a>
+          <div className='modal-window-content'>
+            {contentModal}
+          </div>
         </div>
-    </div>
-  </div> : null
+      </div> : null
   );
 }
 
