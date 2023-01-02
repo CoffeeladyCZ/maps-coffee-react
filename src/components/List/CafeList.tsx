@@ -1,31 +1,33 @@
-import React from 'react';
 import { Link } from "react-router-dom";
 
 import './CafeList.scss';
 
-import { listCoffeehouse } from '../../data/data';
-import { useActualCoffeeHouseContext, useMarkerDistrictContext, useCurrentCafeContext } from '../../contexts/MapsContext';
+import { useMarkerDistrictContext, useCurrentCafeContext, CurrentCafeType, useListCafesContext } from '../../contexts/MapsContext';
 import image from '../../img/detail/tykavo.jpg';
-import { CurrentCafeType } from '../../contexts/MapsContext'; // TODO Předělat do jiného souboru
+import { slugify } from '../../Utils';
+
 
 const CafeList: React.FC = () => {
-  const district = useMarkerDistrictContext();
-  const { setCoffeeHouse } = useActualCoffeeHouseContext();
+  const location = useMarkerDistrictContext();
   const { setCurrentCafe } = useCurrentCafeContext();
+  const { listCafes } = useListCafesContext();
 
   const setActualCafe = (item: CurrentCafeType) => {
-    setCoffeeHouse(item.name);
     setCurrentCafe(item);
+  }
+
+  if (!listCafes) {
+    return (<div>Nic tu není</div>)
   }
 
   return (
     <div className='listCafe'>
       {
-        listCoffeehouse.filter(coffeehouse => coffeehouse.district.includes(district))
-          .map(item => {
+        listCafes && listCafes.filter(coffeehouse => coffeehouse.location.includes(location))
+          .map((item: CurrentCafeType) => {
             return (
               <div key={ item.name } className="listCafe__cafe" onClick={() => setActualCafe(item)}>
-                <Link to={`/cafe/${item.name}`} className='list-name'>
+                <Link to={`/cafe/${slugify(item.name)}`} className='list-name'>
                   <img alt={ item.name } src={ image } className='listCafe__cafe-img' />
                   <div className='listCafe__cafe-title'>
                     <p>{ item.name }</p>

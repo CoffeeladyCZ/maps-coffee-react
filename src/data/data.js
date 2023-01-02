@@ -11,7 +11,7 @@ export const coffeehouse = document.querySelector('.list-coffeehouse'),
     },
   ],
   photo = []
-export const cityDistrict = [
+export const cityLocations = [
   { name: 'Letná' },
   { name: 'Karlín' },
   { name: 'Dejvice' },
@@ -19,12 +19,15 @@ export const cityDistrict = [
   { name: 'Nusle' },
   { name: 'Centrum' },
 ]
+
 export const formItems = [
-  { name: 'Název kavárny', value: 'nameCafe' },
-  { name: 'Adresa kavárny', value: 'addressCafe' },
-  { name: 'Otevírací doba', value: 'openTime' },
-  { name: 'Informace', value: 'info' },
-  { name: 'Webové stránky', value: 'web' }
+  { name: 'Název kavárny', value: 'name' },
+  { name: 'Adresa kavárny', value: 'address' },
+  { name: 'Lat', value: 'lat' },
+  { name: 'Lng', value: 'lng' },
+  { name: 'Otevírací doba', value: 'time' },
+  { name: 'Webové stránky', value: 'web' },
+  { name: 'Informace', value: 'description' },
 ]
 export const selectItems = [
   {
@@ -45,7 +48,7 @@ export const listCoffeehouse = [
     name: 'Kofárna',
     time: 'Po - Ne: 8:00 - 19:00',
     address: 'Zborovská 60, Malá Strana',
-    phone:' 797795678',
+    phone: '797795678',
     web: 'https://www.facebook.com/kofarna',
     district: ['All', 'Centrum'],
     type: 'coffeehouse',
@@ -165,6 +168,7 @@ export const listCoffeehouse = [
     content: '',
     lat: 50.076046307224324,
     lng: 14.440395740961378,
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'],
   },
   {
     name: 'Cafefin',
@@ -182,7 +186,8 @@ export const listCoffeehouse = [
     district: ['All', 'Vršovice'],
     time: 'Po - Ne: 9:00 - 20:00',
     lat: 50.069417672774016,
-    lng: 14.455258250993772
+    lng: 14.455258250993772,
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: '20m2',
@@ -191,7 +196,8 @@ export const listCoffeehouse = [
     time: 'Po - Pá: 7:01 - 19:01, So - 12:01 - 17:01',
     content: '',
     lat: 50.08459124214152,
-    lng: 14.375977737345796
+    lng: 14.375977737345796,
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'],
   },
   {
     name: 'The Flat Café',
@@ -201,7 +207,7 @@ export const listCoffeehouse = [
     content: 'Anglie v Praze',
     lat: 50.071209365923345,
     lng: 14.451311520864516,
-    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg'],
   },
   {
     name: 'Mamacoffee Jaromírova',
@@ -211,6 +217,7 @@ export const listCoffeehouse = [
     content: 'Pod Nuselským mostem',
     lat: 50.06505704895357,
     lng: 14.42893499158989,
+    image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
   {
     name: 'Mamacoffee Jiřího z Poděbrad',
@@ -222,6 +229,7 @@ export const listCoffeehouse = [
     lng: 14.451214020641554,
     image: ['https://thumbs.dreamstime.com/b/cup-cappuccino-caffee-coffee-latte-art-old-wooden-table-173832323.jpg']
   },
+  // až sem
   {
     name: 'Coffe Imrvére',
     address: 'Olšanské nám. 1785, 130 00 Praha 3-Žižkov',

@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/user-event": "^12.1.10",
     "@types/react": "^17.0.2",
+    "axios": "^0.27.2",
     "formik": "^2.2.9",
     "jest": "26.6.0",
     "react": "^17.0.2",
@@ -17,9 +18,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",
     "react-scripts-ts": "4.0.3",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.11"
   },
-  "proxy": "http://localhost:5000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -58,5 +59,6 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "sass": "^1.45.2"
-  }
+  },
+  "proxy": "http://localhost:5000/"
 }

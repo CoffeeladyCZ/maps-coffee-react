@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import { useActiveMarkerContext, useActualDistrictContent, useMarkerDistrictContext } from '../../contexts/MapsContext';
 import './AppNavigation.scss';
 
-type CityDistrict = {
+type cityLocations = {
   name: string
 }
 
-type CityDistricts = CityDistrict[];
+type cityLocationss = cityLocations[];
 
-const cityDistrict: CityDistricts = [
+const cityLocations: cityLocationss = [
   { name: 'All' },
   { name: 'Letná' },
   { name: 'Karlín' },
@@ -30,7 +30,7 @@ const Navigation: React.FC = () => {
     <div className='navigation'>
       <ul className='navigation-menu'>
         {
-          cityDistrict.map((item) =>
+          cityLocations.map((item) =>
             <li
               className={active() && item.name === district ? 'active' : ''}
               key={item.name}

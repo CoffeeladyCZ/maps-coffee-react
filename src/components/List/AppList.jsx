@@ -8,13 +8,13 @@ import { listCoffeehouse } from '../../data/data';
 import { slugify } from '../../Utils';
 
 const List = () => {
-  const district = useMarkerDistrictContext();
+  const location = useMarkerDistrictContext();
   const { coffeeHouse } = useActualCoffeeHouseContext();
 
   return (
     <div className='app-list'>
       {
-        listCoffeehouse.filter(cafe => cafe.district.includes(district))
+        listCoffeehouse.filter(cafe => cafe.location.includes(location))
           .map(cafe => {
             const {name } = cafe;
             const slug = name && slugify(name);

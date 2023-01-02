@@ -20,9 +20,10 @@ export const buildClass = (...classes) => {
  * @param string - string to be slugified
  * @returns
  */
-export const slugify = (string) =>
-  string
+export const slugify = (string) => {
+  return string
     .toLowerCase()
     .replace(/\s/gim, '-')
     .normalize('NFKD')
     .replace(/[^\w-]/g, '');
+}
