@@ -1,31 +1,42 @@
 import { faClock, faGlobe, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Map from '../../common/Map/AppMap';
 
+import axios from 'axios';
+
 import './CafeDetail.scss';
 
-import { useCurrentCafeContext } from '../../contexts/MapsContext';
-import { listCoffeehouse } from '../../data/data';
-import { slugify } from '../../Utils';
+import { CurrentCafeType } from '../../contexts/MapsContext';
 
 type ParamsType = {
-  cafename: string;
+cafename: string;
 }
 
 const CafeDetail: React.FC = () => {
-  const { currentCafe } = useCurrentCafeContext();
-  const params = useParams<ParamsType>();
-  let isCurrentCafe;
-  if (!currentCafe.name) {
-    const matchedCafe = listCoffeehouse.filter(cafe => slugify(cafe.name) === params.cafename);
-    if (matchedCafe && matchedCafe.length && matchedCafe.length > 0 && matchedCafe[0]) {
-      isCurrentCafe = false
-    }
-  }
+  const [cafeDetail, setCafeDetail] = useState<CurrentCafeType | null>(null);
+  const { cafename } = useParams<ParamsType>();
 
-  if (!isCurrentCafe) {
+  const baseURL = `http://localhost:5000/api/cafe/${cafename}/`
+
+  useEffect(() => {
+    const getCafeDetail = async () => {
+      let response
+      try {
+        response = await axios.get(baseURL);
+        const fetchData: CurrentCafeType = await response.data;
+        setCafeDetail(fetchData);
+      }
+      catch (error) {
+        console.log(error.message);
+      }
+    }
+    getCafeDetail();
+  }, [setCafeDetail, baseURL]);
+
+
+  if (!cafeDetail) {
     return <h1>Tato kavárna pravděpodobně neexistuje!</h1>
   }
 
@@ -36,7 +47,7 @@ const CafeDetail: React.FC = () => {
     time,
     phone,
     web,
-  } = currentCafe;
+  } = cafeDetail;
 
   return (
     <div className='detail'>

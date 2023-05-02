@@ -47,7 +47,7 @@ const MarkerComponent: React.FC<MarkerProps>  = (props) => {
       ...markerState,
       infoVisible: props.infoVisible
     })
-  }, [markerState, props.infoVisible])
+  }, [setMarkerState, props.infoVisible])
   return (
     <Marker zIndex={zIndex} {...props} onMouseOver={() => push(1)} onMouseOut={() => push(-1)} >
       { infoVisible ? <MapInfoWindow toggleClose={closeInfo} {...props} /> : null }

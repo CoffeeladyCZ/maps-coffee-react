@@ -5,12 +5,14 @@ const defaultVoid = () => {};
 const defaultCafeType = {
   address: '',
   content: '',
-  district: [],
+  location: [],
   lat: 0,
   lng: 0,
   name: '',
   time: ''
-}
+};
+
+const defaultCafesListType: CurrentCafeType[] = [];
 
 export type CurrentCafeType = {
   name: string;
@@ -18,7 +20,7 @@ export type CurrentCafeType = {
   time: string;
   phone?: string;
   web?: string;
-  district: string[];
+  location: string[];
   image?: string[];
   type?: string;
   content?: string;
@@ -49,6 +51,11 @@ export type CurrentCafeContextType = {
   setCurrentCafe: React.Dispatch<React.SetStateAction<CurrentCafeType>>;
 };
 
+export type ListCafesContextType = {
+  listCafes: CurrentCafeType[];
+  setListCafes: React.Dispatch<React.SetStateAction<CurrentCafeType[]>>;
+};
+
 const MarkerContext = createContext<boolean>(false);
 const MarkerDistrictContext = createContext<string>('');
 const ActiveMarkerContext = createContext<ActiveDistrictContextSetter>(defaultVoid);
@@ -66,13 +73,18 @@ const CurrentCafeContext = createContext<CurrentCafeContextType>({
   currentCafe: defaultCafeType,
   setCurrentCafe: defaultVoid
 });
+const ListCafesContext = createContext<ListCafesContextType>({
+  listCafes: defaultCafesListType,
+  setListCafes: defaultVoid
+});
 
 export const MapsStateProvider: React.FC = ({ children }) => {
   const [isActive, setActive] = useState(false);
-  const [district, setDistrict] = useState('All');
+  const [location, setLocation] = useState('All');
   const [coffeeHouse, setCoffeeHouse] = useState<string>('');
   const [isOpened, setIsOpened] = useState(false);
   const [currentCafe, setCurrentCafe] = useState<CurrentCafeType>(defaultCafeType);
+  const [listCafes, setListCafes] = useState<CurrentCafeType[]>([]);
 
   function active() {
     setActive(true);
@@ -83,31 +95,34 @@ export const MapsStateProvider: React.FC = ({ children }) => {
   }
 
   function actualDistrict(name: string) {
-    setDistrict(name);
+    setLocation(name);
     setActive(true);
   }
 
   return (
-    <MarkerContext.Provider value={isActive}>
-      <ActiveMarkerContext.Provider value={active}>
-        <MarkerDistrictContext.Provider value={district}>
-          <ActualDistrictContext.Provider value={actualDistrict}>
-            <ActualCoffeeHouseContext.Provider value={{ coffeeHouse, setCoffeeHouse }}>
-              <ModalOpenedContext.Provider value={{ isOpened, setIsOpened }}>
-                <OpenModalContent.Provider value={open}>
-                  <CurrentCafeContext.Provider value={{ currentCafe, setCurrentCafe }}>
-                    {children}
-                  </CurrentCafeContext.Provider>
-                </OpenModalContent.Provider>
-              </ModalOpenedContext.Provider>
-            </ActualCoffeeHouseContext.Provider>
-          </ActualDistrictContext.Provider>
-        </MarkerDistrictContext.Provider>
-      </ActiveMarkerContext.Provider>
-    </MarkerContext.Provider>
+    <ListCafesContext.Provider value={{ listCafes, setListCafes }}>
+      <MarkerContext.Provider value={isActive}>
+        <ActiveMarkerContext.Provider value={active}>
+          <MarkerDistrictContext.Provider value={location}>
+            <ActualDistrictContext.Provider value={actualDistrict}>
+              <ActualCoffeeHouseContext.Provider value={{ coffeeHouse, setCoffeeHouse }}>
+                <ModalOpenedContext.Provider value={{ isOpened, setIsOpened }}>
+                  <OpenModalContent.Provider value={open}>
+                    <CurrentCafeContext.Provider value={{ currentCafe, setCurrentCafe }}>
+                      {children}
+                    </CurrentCafeContext.Provider>
+                  </OpenModalContent.Provider>
+                </ModalOpenedContext.Provider>
+              </ActualCoffeeHouseContext.Provider>
+            </ActualDistrictContext.Provider>
+          </MarkerDistrictContext.Provider>
+        </ActiveMarkerContext.Provider>
+      </MarkerContext.Provider>
+    </ListCafesContext.Provider>
   );
 };
 
+export const useListCafesContext = () => useContext(ListCafesContext);
 export const useMarkerContext = () => useContext(MarkerContext);
 export const useMarkerDistrictContext = () => useContext(MarkerDistrictContext);
 export const useActiveMarkerContext = () => useContext(ActiveMarkerContext);
