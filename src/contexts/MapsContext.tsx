@@ -56,9 +56,13 @@ export type ListCafesContextType = {
   setListCafes: React.Dispatch<React.SetStateAction<CurrentCafeType[]>>;
 };
 
+export type ActiveMarkerContextType = {
+  active: ActiveDistrictContextSetter;
+};
+
 const MarkerContext = createContext<boolean>(false);
 const MarkerDistrictContext = createContext<string>('');
-const ActiveMarkerContext = createContext<ActiveDistrictContextSetter>(defaultVoid);
+const ActiveMarkerContext = createContext<ActiveMarkerContextType>({active: defaultVoid});
 const ActualDistrictContext = createContext<ActualDistrictContextSetter>(defaultVoid);
 const ActualCoffeeHouseContext = createContext<ActualCoffeeHouseContextType>({
   coffeeHouse: '',
@@ -99,10 +103,14 @@ export const MapsStateProvider: React.FC = ({ children }) => {
     setActive(true);
   }
 
+  const activeContextValue: ActiveMarkerContextType = {
+    active: active,
+  };
+
   return (
     <ListCafesContext.Provider value={{ listCafes, setListCafes }}>
       <MarkerContext.Provider value={isActive}>
-        <ActiveMarkerContext.Provider value={active}>
+        <ActiveMarkerContext.Provider value={activeContextValue}>
           <MarkerDistrictContext.Provider value={location}>
             <ActualDistrictContext.Provider value={actualDistrict}>
               <ActualCoffeeHouseContext.Provider value={{ coffeeHouse, setCoffeeHouse }}>

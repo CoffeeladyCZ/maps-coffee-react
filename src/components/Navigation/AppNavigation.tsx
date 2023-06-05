@@ -22,7 +22,7 @@ const cityLocations: cityLocationss = [
 ];
 
 const Navigation: React.FC = () => {
-  const active = useActiveMarkerContext();
+  const activeContextValue = useActiveMarkerContext();
   const district = useMarkerDistrictContext();
   const actualDistrict = useActualDistrictContent();
 
@@ -30,15 +30,18 @@ const Navigation: React.FC = () => {
     <div className='navigation'>
       <ul className='navigation-menu'>
         {
-          cityLocations.map((item) =>
-            <li
-              className={active() && item.name === district ? 'active' : ''}
-              key={item.name}
-              onClick={() => actualDistrict(item.name)}>
-              {item.name}
-            </li>
-          )
-        }
+          cityLocations.map((item) => {
+            const isActive = activeContextValue && item.name === district;
+
+            return (
+              <li
+                className={isActive ? 'active' : ''}
+                key={item.name}
+                onClick={() => actualDistrict(item.name)}>
+                {item.name}
+              </li>
+            );
+          })}
         <Link to="form" className='navigation-menu__icon'>
           <FontAwesomeIcon icon={faPlus} size="lg"/>
           <span className='navigation-menu__icon-text'>New</span>
