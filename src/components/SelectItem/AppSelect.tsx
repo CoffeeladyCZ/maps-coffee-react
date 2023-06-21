@@ -1,7 +1,8 @@
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { useEffect, useRef, useState } from 'react';
 import './AppSelect.scss';
+
+import { KeyboardArrowDown } from '@mui/icons-material';
 
 export interface SelectItemType {
   name: string;
@@ -62,7 +63,7 @@ const Select: React.FC<SelectProps> = (props) => {
     <div onClick={toggle} className={`select${activeClass}`}>
       <div className='select-header' onClick={toggle}>
         <input readOnly type='text' value={selectedItem} name={props.name} />
-        <FontAwesomeIcon icon={faAngleDown} size='lg' className='select-icon' />
+        <KeyboardArrowDown fontSize='large' className='select-icon' />
       </div>
       <div ref={selectBody} className='select-body'>
         {props.selectItems.map((item, index) => {

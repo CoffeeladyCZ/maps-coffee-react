@@ -8,9 +8,8 @@ import Navigation from '../Navigation/AppNavigation';
 import { useListCafesContext, CurrentCafeType } from '../../contexts/MapsContext';
 
 import './index.scss';
+import { RotateLeft } from '@mui/icons-material';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner} from '@fortawesome/free-solid-svg-icons';
 
 interface MapProps {
   height: string;
@@ -41,9 +40,8 @@ const Home: React.FC<MapProps> = () => {
   if (!isLoading) {
     return (
       <div>Nic tu zatím není
-        <FontAwesomeIcon
-          icon={faSpinner}
-          size='sm'
+        <RotateLeft
+          fontSize='small'
           className='loadIcon'
         />
       </div>

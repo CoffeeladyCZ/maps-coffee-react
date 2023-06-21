@@ -1,12 +1,21 @@
+@mixin information-row() {
+  padding-bottom: 20px;
+  display: flex;
+  align-content: center;
+}
+
 .detail {
+  text-align: start;
+
+  .title {
+    font-size: 30px;
+    padding: 12px 24px;
+  }
+
   &-header {
     margin: 0;
     height: 350px;
     overflow: hidden;
-
-    h1 {
-      font-size: 30px;
-    }
 
     img {
       width: 100%;
@@ -16,41 +25,19 @@
   }
 
   &-wrapper {
-    padding: 22px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-    &__address {
-      font-size: 20px;
-      padding-bottom: 20px;
-    }
+    padding: 0 24px;
 
     &-info {
-      display: flex;
-      flex-direction: column;
-      align-items:flex-start;
-
       &__time {
-        padding-bottom: 20px;
-
-        .clock-icon {
-          padding-right: 10px;
-        }
+        @include information-row();
       }
 
       &__phone {
-        padding-bottom: 20px;
-
-        .icon {
-          padding-right: 10px;
-        }
+        @include information-row();
       }
 
       &__web {
-        .icon {
-          padding-right: 10px;
-        }
+        @include information-row();
       }
     }
 
@@ -80,4 +67,7 @@
       }
     }
   }
+}
+.icon {
+  margin-right: 12px;
 }

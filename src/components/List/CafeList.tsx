@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 
-import './CafeList.scss';
-
 import { useMarkerDistrictContext, useCurrentCafeContext, CurrentCafeType, useListCafesContext } from '../../contexts/MapsContext';
-import image from '../../img/detail/tykavo.jpg';
 import { slugify } from '../../Utils';
+
+import { ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 
 
 const CafeList: React.FC = () => {
@@ -21,23 +20,23 @@ const CafeList: React.FC = () => {
   }
 
   return (
-    <div className='listCafe'>
-      {
-        listCafes && listCafes.filter(coffeehouse => coffeehouse.location.includes(location))
-          .map((item: CurrentCafeType) => {
-            return (
-              <div key={ item.name } className="listCafe__cafe" onClick={() => setActualCafe(item)}>
-                <Link to={`/cafe/${slugify(item.name)}`} className='list-name'>
-                  <img alt={ item.name } src={ image } className='listCafe__cafe-img' />
-                  <div className='listCafe__cafe-title'>
-                    <p>{ item.name }</p>
-                  </div>
-                </Link>
-              </div>
-            )
-          })
-      }
-    </div>
+    <ImageList cols={4} rowHeight={200} gap={8}>
+      { listCafes && listCafes.filter(coffeehouse => coffeehouse.location.includes(location)).map((item) => (
+        <ImageListItem key={item.name}  onClick={() => setActualCafe(item)}>
+          <img
+            alt={ item.name }
+            src={`${item.image}?w=200&fit=crop&auto=format`}
+            srcSet={`${item.image}?w=200&fit=crop&auto=format&dpr=2 2x`}
+            loading='lazy'
+          />
+          <Link to={`/cafe/${slugify(item.name)}`}>
+            <ImageListItemBar
+              title={item.name}
+            />
+          </Link>
+        </ImageListItem>
+      ))}
+    </ImageList>
   )
 }
 

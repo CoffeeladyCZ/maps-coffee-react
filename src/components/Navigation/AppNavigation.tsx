@@ -1,6 +1,5 @@
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from "react-router-dom";
+import AddIcon from '@mui/icons-material/Add';
 
 import { useActiveMarkerContext, useActualDistrictContent, useMarkerDistrictContext } from '../../contexts/MapsContext';
 import './AppNavigation.scss';
@@ -43,7 +42,7 @@ const Navigation: React.FC = () => {
             );
           })}
         <Link to="form" className='navigation-menu__icon'>
-          <FontAwesomeIcon icon={faPlus} size="lg"/>
+          <AddIcon fontSize="large" />
           <span className='navigation-menu__icon-text'>New</span>
         </Link>
       </ul>
