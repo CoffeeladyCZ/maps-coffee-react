@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import Map from "../../common/Map/AppMap";
-import CafeList from "../List/CafeList";
+import Map from '../../common/Map/AppMap';
+import CafeList from '../List/CafeList';
 import Navigation from '../Navigation/AppNavigation';
 
 import { useListCafesContext, CurrentCafeType } from '../../contexts/MapsContext';
@@ -50,7 +50,7 @@ const Home: React.FC<MapProps> = () => {
   return (
     <>
       <Navigation />
-      <Map height="350" />
+      <Map height='350' />
       <CafeList />
     </>
   )

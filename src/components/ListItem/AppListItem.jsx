@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import ModalWindow from '../../common/ModalWindow/ModalWindow';
 import { useActualCoffeeHouseContext, useCurrentCafeContext, useModalOpenedContext, useOpenModalContext } from '../../contexts/MapsContext';
 import ModalContent from '../ModalContent/ModalContent';

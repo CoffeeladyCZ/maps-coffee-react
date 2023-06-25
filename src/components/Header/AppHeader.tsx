@@ -19,15 +19,15 @@ const Header = () => {
   };
   return (
     <header className='app-header'>
-      <Grid container className="container">
-        <Grid item className="header-m">
-          <Tooltip title="Log In">
+      <Grid container className='container'>
+        <Grid item className='header-m'>
+          <Tooltip title='Log In'>
             <IconButton
               onClick={handleClick}
-              size="small"
+              size='small'
               sx={{ ml: 2 }}
               aria-controls={open ? 'account-menu' : undefined}
-              aria-haspopup="true"
+              aria-haspopup='true'
               aria-expanded={open ? 'true' : undefined}
             >
               <Avatar color='primary' />
@@ -35,7 +35,7 @@ const Header = () => {
           </Tooltip>
           <Menu
             anchorEl={anchorEl}
-            id="account-menu"
+            id='account-menu'
             open={open}
             onClose={handleClose}
             onClick={handleClose}
@@ -77,7 +77,7 @@ const Header = () => {
             <Divider />
             <MenuItem onClick={handleClose}>
               <ListItemIcon>
-                <Logout fontSize="small" />
+                <Logout fontSize='small' />
               </ListItemIcon>
               Logout
             </MenuItem>

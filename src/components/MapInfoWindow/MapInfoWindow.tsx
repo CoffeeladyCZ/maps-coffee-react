@@ -3,11 +3,6 @@ import React from 'react';
 import { CurrentCafeType } from '../../contexts/MapsContext';
 import './MapInfoWindow.scss'
 
-// type ToggleCloseType = {
-//   zIndex: number;
-//   infoVisible: boolean;
-// }
-
 interface MapInfoWindowProps {
   toggleClose: () => void;
   infoVisible: boolean;
