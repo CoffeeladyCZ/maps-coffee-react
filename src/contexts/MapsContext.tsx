@@ -17,6 +17,7 @@ const defaultCafesListType: CurrentCafeType[] = [];
 export type CurrentCafeType = {
   name: string;
   address?: string;
+  description: string;
   time: string;
   phone?: string;
   web?: string;

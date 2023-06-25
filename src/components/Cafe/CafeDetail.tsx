@@ -1,5 +1,3 @@
-import { faClock, faGlobe, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Map from '../../common/Map/AppMap';
@@ -9,6 +7,8 @@ import axios from 'axios';
 import './CafeDetail.scss';
 
 import { CurrentCafeType } from '../../contexts/MapsContext';
+import { Grid, Typography } from '@mui/material';
+import { AccessTime, Public, Phone } from '@mui/icons-material';
 
 type ParamsType = {
 cafename: string;
@@ -42,6 +42,7 @@ const CafeDetail: React.FC = () => {
 
   const {
     address,
+    description,
     image,
     name,
     time,
@@ -50,52 +51,64 @@ const CafeDetail: React.FC = () => {
   } = cafeDetail;
 
   return (
-    <div className='detail'>
+    <Grid container rowSpacing={1} className='detail'>
       {image && (
-        <div className='detail-header'>
+        <Grid item xs={12} className='detail-header'>
           <img src={image[0]} alt={name} />
-        </div>
+        </Grid>
       )}
-      <h2>{name}</h2>
-      <div className='detail-wrapper'>
-        <div className='detail-wrapper-info'>
-          <div className='detail-wrapper__address'>{address}</div>
-          {time && (
-            <div className='detail-wrapper-info__time'>
-              <FontAwesomeIcon
-                icon={faClock}
-                size='sm'
-                className='clock-icon'
-              />
-              {time}
+      <Grid item xs={12}>
+        <Typography variant="h1" className="title">{name}</Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <Grid container spacing={2} className='detail-wrapper'>
+          <Grid item xs={12} sm={6}>
+            <div className='detail-wrapper-info'>
+              <div className='detail-wrapper__address'>{address}</div>
+              {time && (
+                <div className='detail-wrapper-info__time'>
+                  <AccessTime fontSize='small' className="icon" />
+
+                  {time}
+                </div>
+              )}
+              <span className='detail-wrapper-info__phone'>
+                <Phone fontSize='small' className='icon' />
+                {phone}
+              </span>
+              {web && (
+                <span className='detail-wrapper-info__web'>
+                  <Public fontSize='small' className='icon' />
+                  <a href={web}>{web}</a>
+                </span>
+              )}
+              {description && (
+                <span className='detail-wrapper-info__web'>
+                  <Public fontSize='small' className='icon' />
+                  {description}
+                </span>
+              )}
             </div>
-          )}
-          <div className='detail-wrapper-info__phone'>
-            <FontAwesomeIcon icon={faPhone} size='sm' className='icon' />
-            {phone}
-          </div>
-          {web && (
-            <div className='detail-wrapper-info__web'>
-              <FontAwesomeIcon icon={faGlobe} size='sm' className='icon' />
-              <a href={web}>{web}</a>
-            </div>
-          )}
-        </div>
-        <div className='detail-wrapper-box'>
-          <div className='detail-wrapper-box__map'>
-            <Map height='300' />
-          </div>
-          <div className='detail-wrapper-box__images'>
-            {
-              image &&
-              image.map((item, index) => {
-                return <img key={ index } alt={ name } src={ item } />
-              })
-            }
-          </div>
-        </div>
-      </div>
-    </div>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} className='detail-wrapper-box__map'>
+                <Map height='300' />
+              </Grid>
+              <Grid item xs={12} className='detail-wrapper-box__images'>
+                {
+                  image &&
+                  image.map((item, index) => {
+                    return <img key={ index } alt={ name } src={ item } />
+                  })
+                }
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+
+      </Grid>
+    </Grid>
   );
 };
 

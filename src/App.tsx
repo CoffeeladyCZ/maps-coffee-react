@@ -6,6 +6,8 @@ import { PopUpStateProvider } from './contexts/PopupContext';
 import { MapsStateProvider } from './contexts/MapsContext';
 import MyRoutes from './routes/Routes';
 
+import { Container } from '@mui/material';
+
 import './App.scss';
 import './index.css';
 
@@ -13,13 +15,13 @@ const App = () => {
   return (
     <MapsStateProvider>
       <PopUpStateProvider>
-        <div className='app-container'>
+        <Container>
           <Router>
             <Header />
             <MyRoutes />
             <Footer />
           </Router>
-        </div>
+        </Container>
       </PopUpStateProvider>
     </MapsStateProvider>
   );

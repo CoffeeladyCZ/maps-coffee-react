@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
 import './FormCafe.scss';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { KeyboardBackspace } from '@mui/icons-material';
 
 import AppSelect from '../SelectItem/AppSelect';
 
@@ -87,22 +85,22 @@ const FormCafe: React.FC = () => {
   }
 
   return (
-    <form className="form"  onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
-      <div className="form-head">
-        <Link to="/" className='form-head__icon'>
-          <FontAwesomeIcon icon={faArrowLeft} size={"xl" as SizeProp}/>
+    <form className='form'  onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
+      <div className='form-head'>
+        <Link to='/' className='form-head__icon'>
+          <KeyboardBackspace fontSize='large' />
         </Link>
-        <h1 className="form-title">Zadej údaje o nové kavárně</h1>
+        <h1 className='form-title'>Zadej údaje o nové kavárně</h1>
       </div>
-      <div className="form-body">
-        <div className="form-body-row">
+      <div className='form-body'>
+        <div className='form-body-row'>
           <AppSelect selectItems={cityLocations} selectName={selectItems} value={formik.values.location} name='lokalita' />
         </div>
         {
           formItems.map((item: FormItems) => {
             return (
               <div key={item.value}>
-                <div className="form-body-row">
+                <div className='form-body-row'>
                   <input
                     id={item.value}
                     name={item.value}
@@ -112,18 +110,18 @@ const FormCafe: React.FC = () => {
                     onBlur={formik.handleBlur}
                     value={formik.values[item.value]}
                   />
-                  <label htmlFor={item.value} className="placeholder">{item.name}</label>
+                  <label htmlFor={item.value} className='placeholder'>{item.name}</label>
                 </div>
-                <div className="errorMessage">
+                <div className='errorMessage'>
                   {formik.errors[item.value] ? formik.errors[item.value] : null}
                 </div>
               </div>
             )
           })
         }
-        <div className="form-body-btn">
-          <button type="reset" className="btn btn-clean">Clean</button>
-          <button type="submit" className="btn btn-submit">Submit</button>
+        <div className='form-body-btn'>
+          <button type='reset' className='btn btn-clean'>Clean</button>
+          <button type='submit' className='btn btn-submit'>Submit</button>
         </div>
       </div>
     </form>
