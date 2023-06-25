@@ -30,7 +30,7 @@ const Select: React.FC<SelectProps> = (props) => {
     window.addEventListener('keyup', handleClickOutside);
 
     return () => {
-      // componetn unmounted
+      // component unmounted
       window.removeEventListener('click', handleClickOutside);
       window.removeEventListener('keyup', handleClickOutside);
     };

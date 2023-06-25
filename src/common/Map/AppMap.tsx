@@ -1,5 +1,5 @@
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 import MarkerComponent from '../../components/Marker/AppMarker';
 

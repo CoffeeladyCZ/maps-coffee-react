@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import { useRef, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import { useTogglePopup, usePopUpContextSubmitted } from '../../contexts/PopupContext';
 import './PopUp.scss';
@@ -42,7 +42,7 @@ const PopUpContent: React.FC = () => {
       <p>Zadejte své přihlašovací údaje</p>
       {signForm.map(item => {
         return (
-          <div key={item.value} className="pop-up-body-row">
+          <div key={item.value} className='pop-up-body-row'>
             <input
               id={item.value}
               name={item.value}
@@ -53,14 +53,14 @@ const PopUpContent: React.FC = () => {
               onBlur={formik.handleBlur}
               value={formik.values[item.value]}
             />
-            <label htmlFor={item.value} className="placeholder">{item.name}</label>
+            <label htmlFor={item.value} className='placeholder'>{item.name}</label>
           </div>
         )
       })}
       <div className='pop-up-body-btn'>
-        <button type="submit" className="btn-submit">Submit</button>
+        <button type='submit' className='btn-submit'>Submit</button>
       </div>
-      <Link to="/registration" className='link'>Zaregistrovat se</Link>
+      <Link to='/registration' className='link'>Zaregistrovat se</Link>
     </form>
   )
 }

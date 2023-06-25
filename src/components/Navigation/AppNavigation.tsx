@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 
 import { useActiveMarkerContext, useActualDistrictContent, useMarkerDistrictContext } from '../../contexts/MapsContext';
@@ -41,8 +41,8 @@ const Navigation: React.FC = () => {
               </li>
             );
           })}
-        <Link to="form" className='navigation-menu__icon'>
-          <AddIcon fontSize="large" />
+        <Link to='form' className='navigation-menu__icon'>
+          <AddIcon fontSize='large' />
           <span className='navigation-menu__icon-text'>New</span>
         </Link>
       </ul>

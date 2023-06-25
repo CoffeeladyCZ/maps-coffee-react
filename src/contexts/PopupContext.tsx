@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const defaultVoid = () => {};
@@ -36,29 +36,29 @@ export const PopUpStateProvider: React.FC = ({ children }) => {
     const type = event.type;
     const target = event.target as Element;
     const isBodyClicked =
-    type === "click" &&
+    type === 'click' &&
     !target.matches(
-      ".app-header .sign-icon, .app-header .sighn-icon *, .pop-up, .pop-up *"
+      '.app-header .sign-icon, .app-header .sighn-icon *, .pop-up, .pop-up *'
     );
     const isEscapePressed: boolean | string =
-      type === "keyup" && (event as KeyboardEvent).key && (event as KeyboardEvent).key.toLowerCase() === "escape";
+      type === 'keyup' && (event as KeyboardEvent).key && (event as KeyboardEvent).key.toLowerCase() === 'escape';
 
     if (isBodyClicked || isEscapePressed) {
-      window.removeEventListener("click", closePopUpOutside);
-      window.removeEventListener("keyup", closePopUpOutside);
+      window.removeEventListener('click', closePopUpOutside);
+      window.removeEventListener('keyup', closePopUpOutside);
       setIsOpened(false);
     }
   }
 
   function subscribe() {
     // při otevření popup zaregistrujeme odposlech kliku a keyup s moznost once: true t.j. eventHandler se muze spusit pouze jednou
-    window.addEventListener("click", closePopUpOutside, { once: true });
-    window.addEventListener("keyup", closePopUpOutside, { once: true });
+    window.addEventListener('click', closePopUpOutside, { once: true });
+    window.addEventListener('keyup', closePopUpOutside, { once: true });
   }
 
   function unsubscribe() {
-    window.removeEventListener("click", closePopUpOutside);
-    window.removeEventListener("keyup", closePopUpOutside);
+    window.removeEventListener('click', closePopUpOutside);
+    window.removeEventListener('keyup', closePopUpOutside);
     setIsOpened(false);
   }
 

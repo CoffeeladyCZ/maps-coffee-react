@@ -58,7 +58,7 @@ const CafeDetail: React.FC = () => {
         </Grid>
       )}
       <Grid item xs={12}>
-        <Typography variant="h1" className="title">{name}</Typography>
+        <Typography variant='h1' className='title'>{name}</Typography>
       </Grid>
       <Grid item xs={12}>
         <Grid container spacing={2} className='detail-wrapper'>
@@ -67,7 +67,7 @@ const CafeDetail: React.FC = () => {
               <div className='detail-wrapper__address'>{address}</div>
               {time && (
                 <div className='detail-wrapper-info__time'>
-                  <AccessTime fontSize='small' className="icon" />
+                  <AccessTime fontSize='small' className='icon' />
 
                   {time}
                 </div>
