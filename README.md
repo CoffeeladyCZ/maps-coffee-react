@@ -6,23 +6,6 @@ This project based on Google Maps API.
 - NPM
 - React
 - TypeSsript
-- Jest
 
-### ESlint
-
-Check and fix
-```sh
-npm run lint:fix
-```
-
-### Prettify other files
-
-```sh
-npx prettier --check .
-```
-
-Check and fix:
-
-```sh
-npx prettier --write .
-```
+### Backend
+- [maps-coffee-api](https://github.com/CoffeeladyCZ/maps-coffee-api)
