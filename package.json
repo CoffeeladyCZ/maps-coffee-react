@@ -24,12 +24,14 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:frontend": "set PORT=3006 && react-scripts start",
     "build": "react-scripts build",
+    "start:server": "cd ../maps-coffee-api && npm run devstart",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:server\""
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +58,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
+    "concurrently": "^8.2.0",
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
