@@ -16,9 +16,9 @@
       "noEmit": true,
       "jsx": "react-jsx",
       "useUnknownInCatchVariables": false,
-      // "paths": {
-      //   "@/*": ["./src/*"]
-      // }
+      "paths": {
+        "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
+      }
   },
   "include": ["src"],
   "exclude": ["src/img"]

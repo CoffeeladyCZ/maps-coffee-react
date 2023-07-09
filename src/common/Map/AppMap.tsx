@@ -10,9 +10,10 @@ import './AppMap.scss';
 
 interface MapProps {
   height: string;
+  detailCafe: boolean;
 }
 
-const Map: React.FC<MapProps> = ({ height }) => {
+const Map: React.FC<MapProps> = ({ height, detailCafe }) => {
   const [currentWindowVisibleIndex, setCurrentWindowVisibleIndex] = useState<null | number>(null);
 
   const location = useMarkerDistrictContext();
@@ -59,24 +60,46 @@ const Map: React.FC<MapProps> = ({ height }) => {
           mapContainerStyle={style}
         >
           {
-            cafes && cafes.filter(cafe => cafe.location.includes(location))
-              .map((cafe, i) => {
-                return <MarkerComponent
-                  className='coffee-marker'
-                  infoVisible={i === currentWindowVisibleIndex}
-                  onClick={() => showWindow(i, cafe)}
-                  onCloseClick={onHideWindow}
-                  data={cafe}
-                  icon={coffeePin}
-                  animation={i === currentWindowVisibleIndex || cafe.name === currentCafe.name ? 2 : undefined}
-                  position={{
-                    lat: cafe.lat,
-                    lng: cafe.lng
-                  }}
-                  key={cafe.name}
-                  title={cafe.name}
-                />
-              })
+            detailCafe && (
+              <MarkerComponent
+                className='coffee-marker'
+                infoVisible={1 === currentWindowVisibleIndex}
+                onClick={() => showWindow(1, currentCafe)}
+                onCloseClick={onHideWindow}
+                data={currentCafe}
+                icon={coffeePin}
+                animation={1 === currentWindowVisibleIndex || currentCafe.name === currentCafe.name ? 2 : undefined}
+                position={{
+                  lat: currentCafe.lat,
+                  lng: currentCafe.lng
+                }}
+                key={currentCafe.name}
+                title={currentCafe.name}
+              />
+            )
+          }
+          {
+            !detailCafe && cafes &&
+                cafes.filter(cafe => cafe.location.includes(location))
+                  .map((cafe, i) => {
+                    return (
+                      <MarkerComponent
+                        className='coffee-marker'
+                        infoVisible={i === currentWindowVisibleIndex}
+                        onClick={() => showWindow(i, cafe)}
+                        onCloseClick={onHideWindow}
+                        data={cafe}
+                        icon={coffeePin}
+                        animation={i === currentWindowVisibleIndex || cafe.name === currentCafe.name ? 2 : undefined}
+                        position={{
+                          lat: cafe.lat,
+                          lng: cafe.lng
+                        }}
+                        key={cafe.name}
+                        title={cafe.name}
+                      />
+                    )
+                  })
           }
         </GoogleMap>
       </LoadScript>
