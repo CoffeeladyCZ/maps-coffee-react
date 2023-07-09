@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMarkerDistrictContext, useCurrentCafeContext, CurrentCafeType, useListCafesContext } from '../../contexts/MapsContext';
 import { slugify } from '../../Utils';
 
-import { ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
+import { CircularProgress, ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 
 
 const CafeList: React.FC = () => {
@@ -16,7 +16,7 @@ const CafeList: React.FC = () => {
   }
 
   if (!listCafes) {
-    return (<div>Nic tu není</div>)
+    return ( <CircularProgress color='primary' />)
   }
 
   return (

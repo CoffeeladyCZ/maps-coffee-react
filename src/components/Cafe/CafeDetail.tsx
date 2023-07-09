@@ -93,7 +93,7 @@ const CafeDetail: React.FC = () => {
           <Grid item xs={12} sm={6}>
             <Grid container spacing={2}>
               <Grid item xs={12} className='detail-wrapper-box__map'>
-                <Map height='300' />
+                <Map height='300' detailCafe />
               </Grid>
               <Grid item xs={12} className='detail-wrapper-box__images'>
                 {

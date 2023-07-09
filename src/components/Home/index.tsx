@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import Map from '../../common/Map/AppMap';
-import CafeList from '../List/CafeList';
+import CafeList from '../Cafe/CafeList';
 import Navigation from '../Navigation/AppNavigation';
 
 import { useListCafesContext, CurrentCafeType } from '../../contexts/MapsContext';
 
 import './index.scss';
-import { RotateLeft } from '@mui/icons-material';
+import { CircularProgress } from '@mui/material';
 
 
 interface MapProps {
@@ -38,19 +38,12 @@ const Home: React.FC<MapProps> = () => {
   }, [setListCafes]);
 
   if (!isLoading) {
-    return (
-      <div>Nic tu zatím není
-        <RotateLeft
-          fontSize='small'
-          className='loadIcon'
-        />
-      </div>
-    )
+    return <CircularProgress color='primary' />
   }
   return (
     <>
       <Navigation />
-      <Map height='350' />
+      <Map height='350' detailCafe={false} />
       <CafeList />
     </>
   )

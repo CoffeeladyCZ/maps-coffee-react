@@ -1,97 +1,14 @@
 @import '../../scss/colors.scss';
 
 .app-header {
-  display: flex;
-  justify-content: space-evenly;
-  position: relative;
-  flex-direction: column;
-  width: 100%;
-
-  img {
-    height: 100%;
-    width: auto;
-
-    &:focus {
-      outline: 0;
-    }
+  h1 {
+    font-size: 1.5rem;
+    color: $primary-red;
+    margin: 0;
   }
-
-  .header__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    // margin: 50px 0 0 30px;
-
-    h1 {
-      font-size: 43px;
-      color: $primary-red;
-      margin: 0;
-    }
-
-     .claim {
-      color: $primary-red;
-      align-self: flex-end;
-      font-size: 22px;
-      padding-left: 20px;
-      margin: 0;
-    }
-  }
-
-  .sign-icon {
-    position: absolute;
-    top: 20px;
-    right: 50px;
-    align-self: flex-end;
-    cursor: pointer;
-
-    &:hover {
-      color: $primary-red;
-      transition: all 0.25s ease;
-    }
-  }
-
- 
 }
 
 .container {
   padding: 12px 24px;
   justify-content: end;
-}
-
-@media (max-width: 560px) {
-  h1 {
-    font-size: 32px;
-  }
-  .claim {
-    font-size: 25px;
-  }
-}
-
-@media (max-width: 1130px) {
-  .coffee-cup {
-    display: none;
-  }
-}
-// TODO smazat?
-@media (min-width: 680px) {
-  .App-header .navigation {
-    margin-bottom: 20px;
-  }
-  .App-header ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:flex-start;
-    align-items: center;
-    margin-left: 50px;
-  }
-  .App-header li {
-    margin-right: 50px;
-    display: flex;
-    justify-content: center;
-  }
-  .App-header .menu-icon {
-    display: none;
-  }
-  .App-header .navigation-menu {
-    max-height: 100%;
-  }
 }
