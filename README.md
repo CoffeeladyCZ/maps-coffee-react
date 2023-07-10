@@ -6,7 +6,6 @@ This project based on Google Maps API.
 - NPM
 - React
 - TypeSsript
-- Jest
 
 ### ESlint
 
