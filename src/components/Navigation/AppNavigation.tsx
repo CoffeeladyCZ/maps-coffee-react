@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { slugify } from '../../Utils';
 
-import {Autocomplete, Grid, TextField, InputAdornment } from '@mui/material';
+import { Alert, Autocomplete, IconButton, Grid, TextField, Tooltip, InputAdornment, Snackbar } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { Search } from '@mui/icons-material';
 
@@ -13,14 +13,13 @@ import {
   useListCafesContext,
   useCurrentCafeContext,
 } from '../../contexts/MapsContext';
+import { usePostApi } from '../hooks/apiCalls';
+
+import AddCafeForm from '../Form/AddCafeForm';
 
 import './AppNavigation.scss';
 
-type districtType = {
-  name: string
-}
-
-type cityLocations = districtType[];
+import { FormValues, cityLocations } from '../../types';
 
 const districts: cityLocations = [
   { name: 'All' },
@@ -30,6 +29,7 @@ const districts: cityLocations = [
   { name: 'Vinohrady' },
   { name: 'Nusle' },
   { name: 'Centrum' },
+  { name: 'Berlín' }
 ];
 
 const SearchCafe = () => {
@@ -89,40 +89,72 @@ const Navigation: React.FC = () => {
   const activeContextValue = useActiveMarkerContext();
   const district = useMarkerDistrictContext();
   const actualDistrict = useActualDistrictContent();
+  const [openDialog, setOpenDialog] = useState(false);
+  const { isLoading, error, addNewData } = usePostApi();
+
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+  }
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+
+  const addCreateCafe = async (data: FormValues) => {
+    try {
+      console.log('create', data)
+      await addNewData(data, '/create');
+    } catch (error) {
+      console.error(error.message);
+      return null;
+    }
+  };
 
   return (
-    <Grid
-      container
-      direction='row'
-      justifyContent='flex-start'
-      alignItems='center'
-      className='navigation'
-    >
-      <Grid item sx={{ width: 250 }}>
-        <SearchCafe />
+    <>
+      { error && (
+        <Snackbar autoHideDuration={6000}  anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}>
+          <Alert severity="error">
+            Something is wrong.
+          </Alert>
+        </Snackbar>
+      )}
+      <Grid
+        container
+        direction='row'
+        justifyContent='space-between'
+        alignItems='center'
+        className='navigation'
+      >
+        <Grid item sx={{ width: 250 }}>
+          <SearchCafe />
+        </Grid>
+        <Grid item>
+          <ul className='navigation-menu'>
+            {
+              districts.map((item) => {
+                const isActive = activeContextValue && item.name === district;
+                return (
+                  <li
+                    className={isActive ? 'active' : ''}
+                    key={item.name}
+                    onClick={() => actualDistrict(item.name)}>
+                    {item.name}
+                  </li>
+                );
+              })}
+          </ul>
+        </Grid>
+        <Grid item>
+          <Tooltip title="Přidat novou kavárnu" placement='top'>
+            <IconButton onClick={handleOpenDialog}>
+              <AddIcon fontSize='medium' />
+            </IconButton>
+          </Tooltip>
+          <AddCafeForm districts={districts} openDialog={openDialog} onClose={handleCloseDialog} isLoading={isLoading} onFormData={addCreateCafe} />
+        </Grid>
       </Grid>
-      <Grid item>
-        <ul className='navigation-menu'>
-          {
-            districts.map((item) => {
-              const isActive = activeContextValue && item.name === district;
-              return (
-                <li
-                  className={isActive ? 'active' : ''}
-                  key={item.name}
-                  onClick={() => actualDistrict(item.name)}>
-                  {item.name}
-                </li>
-              );
-            })}
-        </ul>
-      </Grid>
-      <Grid item sx={{ paddingLeft: 24 }}>
-        <Link to='form'>
-          <AddIcon fontSize='large' />
-        </Link>
-      </Grid>
-    </Grid>
+    </>
   );
 }
 

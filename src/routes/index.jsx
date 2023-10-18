@@ -1,10 +1,10 @@
 import CafeDetail from '../components/Cafe/CafeDetail';
-import FormCafe from '../components/Form/FormCafe';
 import Home from '../components/Home';
 import AppRegistration from '../components/Registration/AppRegistration';
 
 /**
- * Sortuje routes
+ * Sorts routes
+ *
  * @param routes Array<RouteConfig> i.e. routes
  * @param sortBy sort by named string of RouteConfig propery
  * @param sortOrder Enumerable SortOrder
@@ -70,13 +70,6 @@ const routes = [
     order: 1,
     route: <Home />,
     additionalClass: 'app-map'
-  },
-  {
-    exact: false,
-    path: '/form',
-    label: 'Formulář',
-    order: 2,
-    route: <FormCafe />
   },
   {
     exact: false,

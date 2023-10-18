@@ -18,6 +18,7 @@ export const cityLocations = [
   { name: 'Vinohrady' },
   { name: 'Nusle' },
   { name: 'Centrum' },
+  { name: 'Berlín' }
 ]
 
 export const formItems = [
