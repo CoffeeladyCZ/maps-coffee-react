@@ -3,6 +3,7 @@ import { buildClass } from '../Utils';
 import { AllRoutes } from './';
 
 const MyRoutes = () => (
+
   <Switch>
     {AllRoutes.map((route, key) => (
       <Route
