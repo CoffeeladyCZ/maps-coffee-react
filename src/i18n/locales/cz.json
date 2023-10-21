@@ -26,5 +26,9 @@
   "notExist": "Tato kavárna pravděpodobně neexistuje!",
   "profile": "Profil",
   "account": "Můj účet",
-  "logout": "Odhlásit"
+  "logout": "Odhlásit",
+  "login": "Přihlásit se",
+  "language": {
+    "english": "English"
+  }
 }

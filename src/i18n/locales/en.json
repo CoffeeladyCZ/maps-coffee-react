@@ -26,5 +26,9 @@
   "notExist": "This cafe probably doesn't exist!",
   "profile": "Profil",
   "account": "My account",
-  "logout": "Logout"
+  "logout": "Logout",
+  "login": "Login",
+  "language": {
+    "czech":  "Česky"
+  }
 }

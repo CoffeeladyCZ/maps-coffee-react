@@ -3,7 +3,7 @@
  * @param string
  * @returns
  */
-export const buildClass = (...classes) => {
+export const buildClass = (...classes: any[]) => {
   const builtClass = classes
     .join(' ')
     .split(' ')
@@ -20,10 +20,18 @@ export const buildClass = (...classes) => {
  * @param string - string to be slugified
  * @returns
  */
-export const slugify = (string) => {
+export const slugify = (string: string) => {
   return string
     .toLowerCase()
     .replace(/\s/gim, '-')
     .normalize('NFKD')
     .replace(/[^\w-]/g, '');
 }
+
+export const saveLanguageToLocalStorage = (language: string) => {
+  localStorage.setItem('language', language);
+};
+
+export const getLanguageFromLocalStorage = () => {
+  return localStorage.getItem('language');
+};

@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Avatar, Divider, IconButton, Menu, MenuItem, ListItemIcon, Tooltip } from '@mui/material';
 import { Logout } from '@mui/icons-material';
 
+import LanguageSwitch from '../common/LanguageSwitch';
+
 const Login: React.FC = () => {
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -20,7 +22,7 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <Tooltip title='Přihlásit se'>
+      <Tooltip title={t('login')}>
         <IconButton
           onClick={handleClick}
           size='small'
@@ -71,6 +73,9 @@ const Login: React.FC = () => {
           <Avatar />{ t('account') }
         </MenuItem>
         <Divider />
+        <MenuItem onClick={handleClose}>
+          <LanguageSwitch />
+        </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Logout fontSize='small' />
