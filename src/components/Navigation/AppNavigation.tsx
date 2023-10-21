@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { slugify } from '../../Utils';
+import { useTranslation } from 'react-i18next';
 
 import { Alert, Autocomplete, IconButton, Grid, TextField, Tooltip, InputAdornment, Snackbar } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -33,6 +34,8 @@ const districts: cityLocations = [
 ];
 
 const SearchCafe = () => {
+  const { t } = useTranslation();
+
   const { listCafes } = useListCafesContext();
   const [ searchCafe, setSearchCafe ] = useState<string>('');
   const { setCurrentCafe } = useCurrentCafeContext();
@@ -67,7 +70,7 @@ const SearchCafe = () => {
       renderInput={(params) => (
         <TextField
           {...params}
-          label='Hledat kavárnu'
+          label={t('searchCafe')}
           size='small'
           onKeyDown={showChooseCafe}
           InputProps={{
@@ -86,6 +89,8 @@ const SearchCafe = () => {
 }
 
 const Navigation: React.FC = () => {
+  const { t } = useTranslation();
+
   const activeContextValue = useActiveMarkerContext();
   const district = useMarkerDistrictContext();
   const actualDistrict = useActualDistrictContent();
@@ -115,7 +120,7 @@ const Navigation: React.FC = () => {
       { error && (
         <Snackbar autoHideDuration={6000}  anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}>
           <Alert severity="error">
-            Something is wrong.
+            { t('errors.somethingWrong')}
           </Alert>
         </Snackbar>
       )}

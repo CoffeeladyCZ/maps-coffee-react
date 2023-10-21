@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import Map from '../../common/Map/AppMap';
 
 import axios from 'axios';
@@ -15,6 +17,7 @@ cafename: string;
 }
 
 const CafeDetail: React.FC = () => {
+  const { t } = useTranslation();
   const [cafeDetail, setCafeDetail] = useState<CurrentCafeType | null>(null);
   const { cafename } = useParams<ParamsType>();
 
@@ -37,7 +40,7 @@ const CafeDetail: React.FC = () => {
 
 
   if (!cafeDetail) {
-    return <h1>Tato kavárna pravděpodobně neexistuje!</h1>
+    return <h1>{ t('notExist')}</h1>
   }
 
   const {

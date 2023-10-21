@@ -1,0 +1,30 @@
+{
+  "author": "by Marcela Karafizievová",
+  "mapCafes": "Mapa kaváren",
+  "nothing": "Zatím tu nic není",
+  "dialog": {
+    "newCafe": "Přidat novou kavárnu",
+    "cancel": "Zrušit",
+    "submit": "Odeslat",
+    "street": "Název ulice",
+    "location": "Lokalita",
+    "nameCafe": "Název kavárny",
+    "city": "Město",
+    "postCode": "PSČ",
+    "lat": "Lat",
+    "lng": "Lng",
+    "opened": "Otevírací doba",
+    "web": "Webová stránka",
+    "description": "Popis"
+  },
+  "searchCafe": "Hledat kavárnu",
+  "errors": {
+    "required": "Položka je povinná",
+    "somethingWrong": "Něco je špatně.",
+    "404": "Tato stránka neexistuje!"
+  },
+  "notExist": "Tato kavárna pravděpodobně neexistuje!",
+  "profile": "Profil",
+  "account": "Můj účet",
+  "logout": "Odhlásit"
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Controller } from "react-hook-form";
+import { useTranslation } from 'react-i18next';
+
 import TextField from "@mui/material/TextField";
 import { FieldErrors } from '../../../types';
 
@@ -12,6 +14,8 @@ type FormTextFieldPropsType = {
 }
 
 const FormTextField: React.FC<FormTextFieldPropsType> = ({ name, control, errors, label, required }) => {
+  const { t } = useTranslation();
+
   return (
     <Controller
       name={name}
@@ -21,7 +25,7 @@ const FormTextField: React.FC<FormTextFieldPropsType> = ({ name, control, errors
       render={({ field }) => (
         <TextField
           error={Boolean(errors[name])}
-          helperText={errors[name] ? 'Položka je povinná' : ''}
+          helperText={errors[name] ? t('errors.required') : ''}
           fullWidth
           type='text'
           label={label}

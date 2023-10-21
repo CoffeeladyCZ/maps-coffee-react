@@ -1,6 +1,7 @@
 import React from 'react';
 import { SubmitHandler, useForm, FormProvider } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Dialog, DialogContent, DialogTitle, Grid, DialogActions } from '@mui/material';
 import { LoadingButton } from '@mui/lab/';
@@ -34,6 +35,7 @@ const StyledDialogActions = styled(DialogActions)`
 `;
 
 const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose, onFormData, isLoading }) => {
+  const { t } = useTranslation();
 
   const methods = useForm<FormValues>({
     defaultValues: {
@@ -80,25 +82,25 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
     <Dialog open={openDialog} onClose={handleCloseDialog}>
       <FormProvider {...methods}>
         <StyledForm onSubmit={handleSubmit(onSubmit)} noValidate>
-          <StyledDialogTitle>Přidat novou kavárnu</StyledDialogTitle>
+          <StyledDialogTitle>{ t('dialog.newCafe') }</StyledDialogTitle>
           <DialogContent>
             <Grid container spacing={2}>
               <Grid  item xs={12}>
                 <FormTextField
                   name='name'
-                  label='Název kavárny'
+                  label={t('dialog.nameCafe')}
                   errors={fieldErrors}
                   control={control}
                   required={true}
                 />
               </Grid>
               <Grid item xs={6}>
-                <FormSelect name="location" label="Lokalita" options={districts} control={control} required={true} />
+                <FormSelect name="location" label={t('dialog.location')} options={districts} control={control} required={true} />
               </Grid>
               <Grid item xs={6}>
                 <FormTextField
                   name='street'
-                  label='Název ulice'
+                  label={t('dialog.street')}
                   errors={fieldErrors}
                   control={control}
                   required={true}
@@ -107,7 +109,7 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
               <Grid item xs={6}>
                 <FormTextField
                   name='city'
-                  label='Město'
+                  label={t('dialog.city')}
                   errors={fieldErrors}
                   control={control}
                   required={true}
@@ -116,7 +118,7 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
               <Grid item xs={6}>
                 <FormTextField
                   name='postCode'
-                  label='PSČ'
+                  label={t('dialog.postCode')}
                   errors={fieldErrors}
                   control={control}
                   required={true}
@@ -125,7 +127,7 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
               <Grid item xs={6}>
                 <FormTextField
                   name='lat'
-                  label='Lat'
+                  label={t('dialog.lat')}
                   errors={fieldErrors}
                   control={control}
                   required={true}
@@ -134,7 +136,7 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
               <Grid  item xs={6}>
                 <FormTextField
                   name='lng'
-                  label='Lng'
+                  label={t('dialog.lng')}
                   errors={fieldErrors}
                   control={control}
                   required={true}
@@ -143,7 +145,7 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
               <Grid  item xs={6}>
                 <FormTextField
                   name='time'
-                  label='Otevírací doba'
+                  label={t('dialog.opened')}
                   errors={fieldErrors}
                   control={control}
                   required={false}
@@ -152,7 +154,7 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
               <Grid  item xs={6}>
                 <FormTextField
                   name='web'
-                  label='Webová stránka'
+                  label={t('dialog.web')}
                   errors={fieldErrors}
                   control={control}
                   required={false}
@@ -161,7 +163,7 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
               <Grid  item xs={12}>
                 <FormTextField
                   name='description'
-                  label='Popis'
+                  label={t('dialog.description')}
                   errors={fieldErrors}
                   control={control}
                   required={false}
@@ -170,8 +172,8 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
             </Grid>
           </DialogContent>
           <StyledDialogActions>
-            <Button variant='outlined' onClick={handleCloseDialog}>Cancel</Button>
-            <LoadingButton type="submit" variant="contained" disabled={!isValid} loading={isLoading}>Odeslat</LoadingButton>
+            <Button variant='outlined' onClick={handleCloseDialog}>{ t('dialog.cancel') }</Button>
+            <LoadingButton type="submit" variant="contained" disabled={!isValid} loading={isLoading}>{ t('dialog.submit') }</LoadingButton>
           </StyledDialogActions>
         </StyledForm>
       </FormProvider>

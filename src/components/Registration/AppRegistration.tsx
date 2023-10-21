@@ -1,9 +1,12 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 const AppRegistration: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div>
-      Zatím tu nic není
+      { t('nothing')}
     </div>
   )
 }

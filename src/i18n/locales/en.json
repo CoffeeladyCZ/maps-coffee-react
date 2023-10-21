@@ -1,0 +1,30 @@
+{
+  "author": "by Marcela Karafizievová",
+  "mapCafes": "Map of cafes",
+  "nothing": "Nothing",
+  "dialog": {
+    "newCafe": "Add new cafe",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "street": "Street",
+    "location": "Location",
+    "nameCafe": "Name of cafe",
+    "city": "City",
+    "postCode": "Post code",
+    "lat": "Lat",
+    "lng": "Lng",
+    "opened": "Opened time",
+    "web": "Website",
+    "description": "Description"
+  },
+  "searchCafe": "Search cafe",
+  "errors": {
+    "required": "Item is required",
+    "somethingWrong": "Something is wrong.",
+    "404": "This page is doesn't exist!"
+  },
+  "notExist": "This cafe probably doesn't exist!",
+  "profile": "Profil",
+  "account": "My account",
+  "logout": "Logout"
+}

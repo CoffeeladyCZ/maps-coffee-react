@@ -36,27 +36,6 @@ const sortRoutes = (routes, sortBy, sortOrder) => {
  */
 
 /**
- * errorRoutes
- * chybove routy
- * pole Route
- * @type {Route[]}
- */
-
-const errorRoutes = [
-  {
-    path: '*',
-    label: '404',
-    route: (
-      <>
-        <h1>404</h1>
-        <div>Tato stránka neexistuje!</div>
-      </>
-    ),
-    order: 999999999999
-  },
-];
-
-/**
  * Routes
  * pole Route
  * @type {Route[]}
@@ -88,7 +67,7 @@ const routes = [
 ];
 
 // zde se meguji a sortuji vsechn pole s routami
-export const AllRoutes = sortRoutes([ ...routes, ...errorRoutes ].filter(route => !route.disabled));
+export const AllRoutes = sortRoutes(routes.filter(route => !route.disabled));
 // toto je treba pro navigaci v headeru
 export const HeaderNavItems = AllRoutes.filter(route => route.inHeader);
 // toto je treba pro navigaci ve footeru

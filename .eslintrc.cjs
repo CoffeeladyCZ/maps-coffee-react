@@ -10,11 +10,13 @@ module.exports = {
         'extensions': ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
+    'i18next/languages': ['en', 'cz']
   },
   'extends': [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:i18next/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -24,6 +26,7 @@ module.exports = {
   },
   'plugins': [
     'react-hooks',
+    'i18next',
   ],
   'rules': {
     'react-hooks/rules-of-hooks': 'error',
@@ -37,5 +40,6 @@ module.exports = {
     'no-var':               ['warn'],                   // Don't allow var
     'prefer-const':         ['warn', { 'ignoreReadBeforeAssign': true }],  // If let is not assigned to, prefer const
     'no-return-assign':     ['error', 'always'],        // Don't allow assingment in return statement
+    'i18next/no-literal-string': 2
   },
 };
