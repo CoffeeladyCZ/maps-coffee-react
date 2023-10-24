@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import './i18n/config';
 import store from './store'
 
+
 import Footer from './components/Footer/AppFooter';
 import Header from './components/Header/AppHeader';
 

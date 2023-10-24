@@ -37,9 +37,9 @@ const Home: React.FC<MapProps> = () => {
     getCafeList();
   }, [setListCafes]);
 
-  if (!isLoading) {
-    return <CircularProgress color='primary' />
-  }
+  // if (!isLoading) {
+  //   return <CircularProgress color='primary' />
+  // }
   return (
     <>
       <Navigation />

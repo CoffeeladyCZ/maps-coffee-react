@@ -3,7 +3,7 @@ import { Controller } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
 
 import TextField from "@mui/material/TextField";
-import { FieldErrors } from '../../../types';
+import { FieldErrors } from '../../../types/cafe';
 
 type FormTextFieldPropsType = {
   name: string,
@@ -31,6 +31,7 @@ const FormTextField: React.FC<FormTextFieldPropsType> = ({ name, control, errors
           label={label}
           required={required}
           variant='outlined'
+          size="small"
           margin='dense'
           {...field}
         />

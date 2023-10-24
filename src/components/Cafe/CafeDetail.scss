@@ -9,7 +9,8 @@
 
   .title {
     font-size: 30px;
-    padding: 12px 24px;
+    padding: 12px 0;
+    font-weight: 500;
   }
 
   &-header {
@@ -29,7 +30,7 @@
 
     &-info {
       &__time {
-        @include information-row();
+        padding-bottom: 32px;
       }
 
       &__phone {

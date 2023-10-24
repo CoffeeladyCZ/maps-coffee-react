@@ -1,7 +1,7 @@
 import React from 'react';
 import { Controller } from "react-hook-form";
 import { Select, MenuItem, InputLabel, FormControl } from "@mui/material/";
-import { cityLocations } from '../../../types';
+import { cityLocations } from '../../../types/cafe';
 
 type FormSelectPropsType = {
   name: string,
@@ -16,7 +16,7 @@ const FormSelect: React.FC<FormSelectPropsType> = ({ name, control, label, requi
     <FormControl fullWidth required={required} margin='dense'>
       <Controller
         name={name}
-        defaultValue=""
+        defaultValue="All"
         control={control}
         rules={{ required: required }}
         render={({ field: { onChange, value } }) => (
@@ -26,6 +26,7 @@ const FormSelect: React.FC<FormSelectPropsType> = ({ name, control, label, requi
               labelId="select"
               label={label}
               value={value}
+              size="small"
               onChange={onChange}
             >
               {
