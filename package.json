@@ -75,7 +75,8 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-i18next": "^6.0.3",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "sass": "^1.45.2"
+    "sass": "^1.45.2",
+    "typescript": "^5.2.2"
   },
   "proxy": "http://localhost:5000/"
 }
