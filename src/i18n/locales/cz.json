@@ -2,7 +2,34 @@
   "author": "by Marcela Karafizievová",
   "mapCafes": "Mapa kaváren",
   "nothing": "Zatím tu nic není",
+  "days": {
+    "monday": "Pondělí",
+    "tuesday": "Úterý",
+    "wednesday": "Středa",
+    "thursday": "Čtvrtek",
+    "friday": "Pátek",
+    "saturday": "Sobota",
+    "sunday": "Neděle"
+  },
+  "detail": {
+    "openTime": "Otevírací doba",
+    "days": {
+      "monday": "Pondělí",
+      "tuesday": "Úterý",
+      "wednesday": "Středa",
+      "thursday": "Čtvrtek",
+      "friday": "Pátek",
+      "saturday": "Sobota",
+      "sunday": "Neděle"
+    },
+    "contacts": "Kontaktní údaje",
+    "address": "Adresa",
+    "description": "Popis kavárny",
+    "phone": "Tel",
+    "location": "Lokalita kavárny"
+  },
   "dialog": {
+    "address": "Adresa kavárny",
     "newCafe": "Přidat novou kavárnu",
     "cancel": "Zrušit",
     "submit": "Odeslat",
@@ -10,12 +37,22 @@
     "location": "Lokalita",
     "nameCafe": "Název kavárny",
     "city": "Město",
+    "contacts": "Kontaktní údaje",
+    "email": "E-mail",
     "postCode": "PSČ",
+    "phone": "Telefon",
     "lat": "Lat",
     "lng": "Lng",
     "opened": "Otevírací doba",
     "web": "Webová stránka",
-    "description": "Popis"
+    "description": "Popis",
+    "openedTime": "Otevírací doba",
+    "addOpenedTime": "Zadat otevírací dobu",
+    "from": "Od",
+    "to": "Do",
+    "monday": "Pondělí",
+    "tuesday": "Úterý",
+    "wednesday": "Středa"
   },
   "searchCafe": "Hledat kavárnu",
   "errors": {

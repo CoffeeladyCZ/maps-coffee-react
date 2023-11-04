@@ -59,7 +59,7 @@ const routes = [
   },
   {
     exact: false,
-    path: '/cafe/:cafename',
+    path: '/cafe/:id',
     label: 'Detail',
     order: 4,
     route: <CafeDetail />

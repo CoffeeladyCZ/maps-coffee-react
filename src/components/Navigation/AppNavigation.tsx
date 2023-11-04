@@ -20,7 +20,7 @@ import AddCafeForm from '../Form/AddCafeForm';
 
 import './AppNavigation.scss';
 
-import { FormValues, cityLocations } from '../../types';
+import { FormValues, cityLocations } from '../../types/cafe';
 
 const districts: cityLocations = [
   { name: 'All' },

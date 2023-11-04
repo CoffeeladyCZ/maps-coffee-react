@@ -4,30 +4,45 @@ import { createContext, useContext, useState } from 'react';
 const defaultVoid = () => {};
 const defaultCafeType = {
   name: '',
+  address: {},
   description: '',
-  address: '',
-  content: '',
+  opening_time: [],
+  contact: {},
+  phone: '',
   location: [],
-  lat: 0,
-  lng: 0,
-  time: ''
+  image: [],
+  coordinates: {}
 };
 
-const defaultCafesListType: CurrentCafeType[] = [];
+const defaultCafesListType: CafeDetailResponse[] = [];
 
-export type CurrentCafeType = {
+type openTime = {
+  day_of_week: string;
+  open_time: string;
+  close_time: string;
+}
+
+type addressType = {
+  street: string;
+  city: string;
+  post_code: string;
+}
+
+type coordintesType = {
+  lat: string;
+  lng: string;
+}
+
+export type CafeDetailResponse = {
   name: string;
-  address?: string;
+  address?: addressType[];
   description: string;
-  time: string;
+  opening_hours: openTime[];
   phone?: string;
   web?: string;
   location: string[];
   image?: string[];
-  type?: string;
-  content?: string;
-  lat: number;
-  lng: number;
+  coordinates: coordintesType;
 };
 
 
@@ -44,13 +59,13 @@ export type ModalOpenedContextType = {
 };
 
 export type CurrentCafeContextType = {
-  currentCafe: CurrentCafeType;
-  setCurrentCafe: React.Dispatch<React.SetStateAction<CurrentCafeType>>;
+  currentCafe: CafeDetailResponse;
+  setCurrentCafe: React.Dispatch<React.SetStateAction<CafeDetailResponse>>;
 };
 
 export type ListCafesContextType = {
-  listCafes: CurrentCafeType[];
-  setListCafes: React.Dispatch<React.SetStateAction<CurrentCafeType[]>>;
+  listCafes: CafeDetailResponse[];
+  setListCafes: React.Dispatch<React.SetStateAction<CafeDetailResponse[]>>;
 };
 
 export type ActiveMarkerContextType = {
@@ -79,8 +94,8 @@ export const MapsStateProvider: React.FC = ({ children }) => {
   const [isActive, setActive] = useState(false);
   const [location, setLocation] = useState('All');
   const [isOpened, setIsOpened] = useState(false);
-  const [currentCafe, setCurrentCafe] = useState<CurrentCafeType>(defaultCafeType);
-  const [listCafes, setListCafes] = useState<CurrentCafeType[]>([]);
+  const [currentCafe, setCurrentCafe] = useState<CafeDetailResponse>(defaultCafeType);
+  const [listCafes, setListCafes] = useState<CafeDetailResponse[]>([]);
 
   function active() {
     setActive(true);

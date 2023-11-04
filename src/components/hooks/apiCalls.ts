@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { FormValues } from '../../types';
+import { FormValues } from '../../types/cafe';
 
 export const usePostApi = () => {
   const [data, setData] = useState();

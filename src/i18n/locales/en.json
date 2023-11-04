@@ -2,7 +2,25 @@
   "author": "by Marcela Karafizievová",
   "mapCafes": "Map of cafes",
   "nothing": "Nothing",
+  "detail": {
+    "openTime": "Opening time",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "contacts": "Contacts",
+    "address": "Address",
+    "description": "Description",
+    "phone": "Phone",
+    "location": "Cafe location"
+  },
   "dialog": {
+    "address": "Address of cafe",
     "newCafe": "Add new cafe",
     "cancel": "Cancel",
     "submit": "Submit",
@@ -10,12 +28,22 @@
     "location": "Location",
     "nameCafe": "Name of cafe",
     "city": "City",
+    "contacts": "Contacts",
+    "email": "E-mail",
     "postCode": "Post code",
+    "phone": "Telephone",
     "lat": "Lat",
     "lng": "Lng",
     "opened": "Opened time",
     "web": "Website",
-    "description": "Description"
+    "description": "Description",
+    "openedTime": "Opened time",
+    "addOpenedTime": "Add opened time",
+    "from": "From",
+    "to": "To",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday"
   },
   "searchCafe": "Search cafe",
   "errors": {
