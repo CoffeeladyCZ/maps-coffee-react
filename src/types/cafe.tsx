@@ -14,12 +14,12 @@ export type FormValues = {
   description: string;
   mondayOpen: string;
   mondayClose: string;
-  phone?: string;
-  web?: string;
+  phone: string;
+  web: string;
+  email: string;
   location: string;
-  image?: string[];
-  type?: string;
-  content?: string;
+  // image?: string[];
+  // type: string;
   lat: number;
   lng: number;
 }
@@ -30,8 +30,8 @@ export type FieldErrors = {
 
 export type openTime = {
   day_of_week: string;
-  open_time: string;
-  close_time: string;
+  open_time: string | null;
+  close_time: string | null;
 }
 
 type addressType = {
@@ -55,7 +55,7 @@ export type CafeDetailResponse = {
   name: string;
   location: string[],
   address?: addressType;
-  description: string;
+  description: string | null;
   opening_hours: openTime[];
   phone?: string;
   web?: string;

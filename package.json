@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@hookform/resolvers": "^3.3.2",
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.147",
     "@mui/material": "^5.13.4",

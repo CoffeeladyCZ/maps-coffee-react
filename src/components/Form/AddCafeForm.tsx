@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { SubmitHandler, useForm, FormProvider } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 import { useTranslation } from 'react-i18next';
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from 'yup';
 
 import { Button, Dialog, Divider, DialogContent, DialogTitle, Grid, DialogActions, Typography } from '@mui/material';
 import { Edit } from '@mui/icons-material';
@@ -79,17 +81,35 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
     }
   ]
 
-  const methods = useForm<FormValues>({
+  const formSchema = yup.object().shape({
+    name: yup.string().required(),
+    street: yup.string(),
+    city: yup.string(),
+    postCode: yup.string(),
+    description: yup.string(),
+    mondayOpen: yup.string(),
+    mondayClose: yup.string(),
+    web: yup.string(),
+    phone: yup.string(),
+    email: yup.string().email(),
+    location: yup.string().required(),
+    lat: yup.number().required(),
+    lng: yup.number().required(),
+  });
+
+  const methods = useForm({
+    resolver: yupResolver<FormValues>(formSchema),
     defaultValues: {
-      location: '',
       name: '',
+      street: '',
       web: '',
       phone: '',
+      email: '',
       mondayOpen: '',
       mondayClose: '',
-      street: '',
       city: '',
       postCode: '',
+      location: '',
       lat: 0,
       lng: 0,
       description: '',
@@ -108,6 +128,7 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
     web: errors.web,
     phone: errors.phone,
     description: errors.description,
+    location: errors.location,
   };
 
   const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
@@ -128,15 +149,15 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
       opening_hours: [
         {
           day_of_week: 'monday',
-          open_time: data.mondayOpen,
-          close_time: data.mondayClose
+          open_time: data.mondayOpen || null,
+          close_time: data.mondayClose || null
         }
       ],
       coordinates: {
         lat: data.lat,
         lng: data.lng,
       },
-      description: data.description,
+      description: data.description || null,
     }
     if (isValid) {
       onFormData(apiData);
