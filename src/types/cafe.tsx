@@ -54,7 +54,7 @@ type contactType = {
 export type CafeDetailResponse = {
   name: string;
   location: string[],
-  address?: addressType;
+  address: addressType;
   description: string;
   opening_hours: openTime[];
   phone?: string;

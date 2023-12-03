@@ -1,45 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Map from '../../common/Map/AppMap';
 import CafeList from '../Cafe/CafeList';
 import Navigation from '../Navigation/AppNavigation';
 
-import { useListCafesContext, CurrentCafeType } from '../../contexts/MapsContext';
+import { getCafeList } from '../../Utils/apiUtils';
+import { setCafes } from '../../store/cafeList';
 
 import './index.scss';
-import { CircularProgress } from '@mui/material';
-
 
 interface MapProps {
   height: string;
 }
 
 const Home: React.FC<MapProps> = () => {
-  const { setListCafes} = useListCafesContext();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const baseURL = 'http://localhost:5000/api/cafe/list';
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const getCafeList = async () => {
-      let response
-      try {
-        response = await axios.get(baseURL);
-        const fetchData: CurrentCafeType[] = await response.data;
-        setListCafes(fetchData);
-        setIsLoading(true);
-      }
-      catch (error) {
-        console.log(error.message);
-      }
-    }
-    getCafeList();
-  }, [setListCafes]);
+    setCafeList();
+  }, []);
 
-  // if (!isLoading) {
-  //   return <CircularProgress color='primary' />
-  // }
+  const setCafeList = async() => {
+    try {
+      const response = await getCafeList('/cafe/list');
+      if (response) {
+        dispatch(setCafes(response));
+      }
+    } catch(err) {
+      console.error(err);
+    }
+  };
+
   return (
     <>
       <Navigation />
