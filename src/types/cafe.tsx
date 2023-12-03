@@ -20,8 +20,8 @@ export type FormValues = {
   image?: string[];
   type?: string;
   content?: string;
-  lat: number;
-  lng: number;
+  lat: string;
+  lng: string;
 }
 
 export type FieldErrors = {
