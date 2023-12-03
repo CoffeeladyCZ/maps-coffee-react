@@ -1,14 +1,13 @@
 import React from 'react';
 import { Controller } from "react-hook-form";
 import { Select, MenuItem, InputLabel, FormControl } from "@mui/material/";
-import { cityLocations } from '../../../types/cafe';
 
 type FormSelectPropsType = {
   name: string,
   label: string,
   control: any,
   required: boolean,
-  options: cityLocations,
+  options: string[] | null,
 }
 
 const FormSelect: React.FC<FormSelectPropsType> = ({ name, control, label, required, options }) => {
@@ -30,8 +29,8 @@ const FormSelect: React.FC<FormSelectPropsType> = ({ name, control, label, requi
               onChange={onChange}
             >
               {
-                options && options.map((item, index) => {
-                  return <MenuItem key={index} value={item.name}>{item.name}</MenuItem>
+                options && options.map((item: string, index) => {
+                  return <MenuItem key={index} value={item}>{item}</MenuItem>
                 })
               }
             </Select>

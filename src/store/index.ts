@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { settingsSlice } from './settings';
 import { cafeDetailSlice } from './cafeDetail';
+import { cafeListSlice } from './cafeList';
+import { locationsSlice } from './locations';
 import { getLanguageFromLocalStorage } from '../Utils';
 
 const persistedLanguage = getLanguageFromLocalStorage();
@@ -9,7 +11,9 @@ const persistedLanguage = getLanguageFromLocalStorage();
 const store = configureStore({
   reducer: {
     cafeDetail: cafeDetailSlice.reducer,
+    cafeList: cafeListSlice.reducer,
     settings: settingsSlice.reducer,
+    locations: locationsSlice.reducer,
   },
   preloadedState: {
     settings: {

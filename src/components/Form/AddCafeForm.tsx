@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { SubmitHandler, useForm, FormProvider } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 import { Button, Dialog, Divider, DialogContent, DialogTitle, Grid, DialogActions, Typography } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 import { LoadingButton } from '@mui/lab/';
 
-import { cityLocations, FormValues, CafeDetailResponse } from '../../types/cafe';
+import { RootState } from '../../store';
+import { FormValues, CafeDetailResponse } from '../../types/cafe';
 
 import { styled } from '@mui/material/styles';
 import FormTextField from './FormComponets/FormTextField';
@@ -18,7 +20,6 @@ type FormNewCafeType ={
   openDialog: boolean;
   onClose: () => void;
   onFormData: (data: CafeDetailResponse) => void;
-  districts: cityLocations;
   isLoading: boolean;
 };
 
@@ -37,9 +38,11 @@ const StyledDialogActions = styled(DialogActions)`
   padding: 16px 24px;
 `;
 
-const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose, onFormData, isLoading }) => {
+const AddCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormData, isLoading }) => {
   const [isEditTime, setIsEditTime] = useState(false);
   const { t } = useTranslation();
+
+  const locations = useSelector((state: RootState) => state.locations.locations);
 
   const days = [
     {
@@ -181,7 +184,7 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ districts, openDialog, onClose
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <FormSelect name="location" label={t('dialog.location')} options={districts} control={control} required={true} />
+                  <FormSelect name="location" label={t('dialog.location')} options={locations} control={control} required={true} />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <FormTextField

@@ -30,7 +30,7 @@ const CafeDetail: React.FC = () => {
   const getCafeDetail = async() => {
     setIsLoading(true);
     try {
-      const detail = await getCafeDetailData(id);
+      const detail = await getCafeDetailData(`/cafe/${id}`);
       if (detail) {
         dispatch(setCafeDetail(detail));
       }
@@ -91,7 +91,7 @@ const CafeDetail: React.FC = () => {
               <Grid item xs={12}>
                 <Typography variant="h6" className="pb-2 mb-8">{ t('detail.openTime') }</Typography>
               </Grid>
-              {opening_hours && opening_hours.map((item: openTime, index: string) => {
+              {opening_hours && opening_hours.map((item: openTime, index: number) => {
                 return (
                   <Grid container gap={1} className="flex-row" key={index}>
                     <Grid item xs={12} sm={2} md={1}>

@@ -1,55 +1,48 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { slugify } from '../../Utils';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { Alert, Autocomplete, IconButton, Grid, TextField, Tooltip, InputAdornment, Snackbar } from '@mui/material';
+
+import { Alert, Autocomplete, IconButton, Grid, TextField, Tooltip, CircularProgress, InputAdornment, Snackbar } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { Search } from '@mui/icons-material';
 
+import { slugify } from '../../Utils';
+import { getLocationsData, addNewData } from '../../Utils/apiUtils';
 import {
   useActiveMarkerContext,
   useActualDistrictContent,
   useMarkerDistrictContext,
-  useListCafesContext,
-  useCurrentCafeContext,
 } from '../../contexts/MapsContext';
-import { usePostApi } from '../hooks/apiCalls';
+import { CafeDetailResponse } from '../../types/cafe';
+import { RootState } from '../../store';
+import { setLocations } from '../../store/locations';
+import { setActualCafe } from '../../store/cafeDetail';
+
 
 import AddCafeForm from '../Form/AddCafeForm';
 
 import './AppNavigation.scss';
 
-import { FormValues, cityLocations } from '../../types/cafe';
-
-const districts: cityLocations = [
-  { name: 'All' },
-  { name: 'Letná' },
-  { name: 'Karlín' },
-  { name: 'Dejvice' },
-  { name: 'Vinohrady' },
-  { name: 'Nusle' },
-  { name: 'Centrum' },
-  { name: 'Berlín' }
-];
-
 const SearchCafe = () => {
   const { t } = useTranslation();
 
-  const { listCafes } = useListCafesContext();
   const [ searchCafe, setSearchCafe ] = useState<string>('');
-  const { setCurrentCafe } = useCurrentCafeContext();
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const cafeList = useSelector((state: RootState) => state.cafeList.cafeList);
 
   const showChooseCafe = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && cafeList) {
       const value =  (e.target as HTMLInputElement).value;
       const slug = slugify(value);
       history.push(`/cafe/${slug}`)
 
-      for (const item of listCafes) {
+      for (const item of cafeList) {
         if (item.name === value) {
-          setCurrentCafe(item);
+          dispatch(setActualCafe(item));
         }
       }
     }
@@ -59,13 +52,17 @@ const SearchCafe = () => {
     setSearchCafe(cafe);
   }
 
+  if (!cafeList) {
+    return ( <CircularProgress color='primary' />)
+  }
+
   return (
     <Autocomplete
       freeSolo
       id='search-cafes'
       disableClearable
       value={searchCafe}
-      options={listCafes.map((option) => option.name)}
+      options={cafeList.map((option) => option.name)}
       onChange={(e, value) => chooseCafe(value)}
       renderInput={(params) => (
         <TextField
@@ -94,8 +91,32 @@ const Navigation: React.FC = () => {
   const activeContextValue = useActiveMarkerContext();
   const district = useMarkerDistrictContext();
   const actualDistrict = useActualDistrictContent();
+  const dispatch = useDispatch();
+
   const [openDialog, setOpenDialog] = useState(false);
-  const { isLoading, error, addNewData } = usePostApi();
+  const [isLoading, setIsLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
+
+  const locations = useSelector((state: RootState) => state.locations.locations);
+
+  const getLocations = async() => {
+    setIsLoading(true);
+    try {
+      const response = await getLocationsData();
+      if (response) {
+        dispatch(setLocations(response));
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(()=> {
+    getLocations();
+  }, []);
+
 
   const handleOpenDialog = () => {
     setOpenDialog(true);
@@ -105,19 +126,18 @@ const Navigation: React.FC = () => {
     setOpenDialog(false);
   };
 
-  const addCreateCafe = async (data: FormValues) => {
+  const addCreateCafe = async (data: CafeDetailResponse) => {
     try {
-      console.log('create', data)
       await addNewData(data, '/create');
     } catch (error) {
-      console.error(error.message);
+      setShowError(true);
       return null;
     }
   };
 
   return (
     <>
-      { error && (
+      { showError && (
         <Snackbar autoHideDuration={6000}  anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}>
           <Alert severity="error">
             { t('errors.somethingWrong')}
@@ -137,14 +157,14 @@ const Navigation: React.FC = () => {
         <Grid item>
           <ul className='navigation-menu'>
             {
-              districts.map((item) => {
-                const isActive = activeContextValue && item.name === district;
+              locations && locations.map((item) => {
+                const isActive = activeContextValue && item === district;
                 return (
                   <li
                     className={isActive ? 'active' : ''}
-                    key={item.name}
-                    onClick={() => actualDistrict(item.name)}>
-                    {item.name}
+                    key={item}
+                    onClick={() => actualDistrict(item)}>
+                    {item}
                   </li>
                 );
               })}
@@ -156,7 +176,7 @@ const Navigation: React.FC = () => {
               <AddIcon fontSize='medium' />
             </IconButton>
           </Tooltip>
-          <AddCafeForm districts={districts} openDialog={openDialog} onClose={handleCloseDialog} isLoading={isLoading} onFormData={addCreateCafe} />
+          <AddCafeForm openDialog={openDialog} onClose={handleCloseDialog} isLoading={isLoading} onFormData={addCreateCafe} />
         </Grid>
       </Grid>
     </>
