@@ -93,8 +93,8 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormDat
       street: '',
       city: '',
       postCode: '',
-      lat: 0,
-      lng: 0,
+      lat: '',
+      lng: '',
       description: '',
     },
     mode: 'onSubmit',
@@ -136,8 +136,8 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormDat
         }
       ],
       coordinates: {
-        lat: data.lat,
-        lng: data.lng,
+        lat: parseInt(data.lat),
+        lng: parseInt(data.lng),
       },
       description: data.description,
     }
