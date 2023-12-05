@@ -21,8 +21,7 @@ const Map: React.FC<MapProps> = ({ height, detailCafe }) => {
 
   const dispatch = useDispatch();
 
-  const cafeDetail = useSelector((state: RootState) => state.cafeDetail.cafeDetail);
-
+  const cafeList = useSelector((state: RootState) => state.cafeList.cafeList);
 
   const onHideWindow = () => {
     setCurrentWindowVisibleIndex(null);
@@ -37,7 +36,7 @@ const Map: React.FC<MapProps> = ({ height, detailCafe }) => {
   const settings = {
     center: { lat: 50.08033951568018, lng: 14.407263420492933 },
     zoom: 12,
-    secret: 'AIzaSyBmh8Jp0cdEFCQ2N5wsXy6Hu6xBOtm9lfU',
+    secret: import.meta.env.VITE_APP_MAP_KEY,
     style: {
       width: '100%',
       height: '100%'
@@ -62,23 +61,24 @@ const Map: React.FC<MapProps> = ({ height, detailCafe }) => {
           mapContainerStyle={style}
         >
           {
-            detailCafe && cafeDetail && (
-              <MarkerComponent
-                className='coffee-marker'
-                infoVisible={1 === currentWindowVisibleIndex}
-                onClick={() => showWindow(1, cafeDetail)}
-                onCloseClick={onHideWindow}
-                data={cafeDetail}
-                icon={coffeePin}
-                animation={1 === currentWindowVisibleIndex || cafeDetail.name === cafeDetail.name ? 2 : undefined}
-                position={{
-                  lat: cafeDetail.coordinates.lat,
-                  lng: cafeDetail.coordinates.lng
-                }}
-                key={cafeDetail.name}
-                title={cafeDetail.name}
-              />
-            )
+            detailCafe && cafeList && cafeList.map((item) => {
+              return (
+                <MarkerComponent
+                  className='coffee-marker'
+                  infoVisible={1 === currentWindowVisibleIndex}
+                  onClick={() => showWindow(1, item)}
+                  onCloseClick={onHideWindow}
+                  data={item}
+                  icon={coffeePin}
+                  animation={1 === currentWindowVisibleIndex || item.name === item.name ? 2 : undefined}
+                  position={{
+                    lat: item.coordinates.lat,
+                    lng: item.coordinates.lng
+                  }}
+                  key={item.name}
+                  title={item.name}
+                />
+              )})
           }
         </GoogleMap>
       </LoadScript>

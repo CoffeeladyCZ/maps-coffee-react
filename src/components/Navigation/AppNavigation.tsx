@@ -10,14 +10,10 @@ import { Search } from '@mui/icons-material';
 
 import { slugify } from '../../Utils';
 import { getLocationsData, addNewData } from '../../Utils/apiUtils';
-import {
-  useActiveMarkerContext,
-  useActualDistrictContent,
-  useMarkerDistrictContext,
-} from '../../contexts/MapsContext';
+import {  useActiveMarkerContext } from '../../contexts/MapsContext';
 import { CafeDetailResponse } from '../../types/cafe';
 import { RootState } from '../../store';
-import { setLocations } from '../../store/locations';
+import { setLocations, setCurrentLocation } from '../../store/locations';
 import { setActualCafe } from '../../store/cafeDetail';
 
 
@@ -89,14 +85,13 @@ const Navigation: React.FC = () => {
   const { t } = useTranslation();
 
   const activeContextValue = useActiveMarkerContext();
-  const district = useMarkerDistrictContext();
-  const actualDistrict = useActualDistrictContent();
   const dispatch = useDispatch();
 
   const [openDialog, setOpenDialog] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showError, setShowError] = useState(false);
 
+  const currentLocation = useSelector((state: RootState) => state.locations.currentLocation);
   const locations = useSelector((state: RootState) => state.locations.locations);
 
   const getLocations = async() => {
@@ -158,12 +153,13 @@ const Navigation: React.FC = () => {
           <ul className='navigation-menu'>
             {
               locations && locations.map((item) => {
-                const isActive = activeContextValue && item === district;
+                const isActive = activeContextValue && item === currentLocation;
                 return (
                   <li
                     className={isActive ? 'active' : ''}
                     key={item}
-                    onClick={() => actualDistrict(item)}>
+                    onClick={() => dispatch(setCurrentLocation(item))}
+                  >
                     {item}
                   </li>
                 );
