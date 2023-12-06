@@ -144,6 +144,7 @@ const Navigation: React.FC = () => {
         direction='row'
         justifyContent='space-between'
         alignItems='center'
+        rowGap={2}
         className='navigation'
       >
         <Grid item sx={{ width: 250 }}>
