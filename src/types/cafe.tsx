@@ -38,6 +38,7 @@ type addressType = {
   street: string;
   city: string;
   post_code: string;
+  location: string;
 }
 
 type coordintesType = {
