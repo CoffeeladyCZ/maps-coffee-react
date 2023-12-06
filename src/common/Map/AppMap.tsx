@@ -16,7 +16,7 @@ interface MapProps {
   detailCafe: boolean;
 }
 
-const Map: React.FC<MapProps> = ({ height, detailCafe }) => {
+const Map: React.FC<MapProps> = ({ height }) => {
   const [currentWindowVisibleIndex, setCurrentWindowVisibleIndex] = useState<null | number>(null);
 
   const dispatch = useDispatch();
@@ -61,7 +61,7 @@ const Map: React.FC<MapProps> = ({ height, detailCafe }) => {
           mapContainerStyle={style}
         >
           {
-            detailCafe && cafeList && cafeList.map((item) => {
+            cafeList && cafeList.map((item) => {
               return (
                 <MarkerComponent
                   className='coffee-marker'
@@ -70,7 +70,6 @@ const Map: React.FC<MapProps> = ({ height, detailCafe }) => {
                   onCloseClick={onHideWindow}
                   data={item}
                   icon={coffeePin}
-                  animation={1 === currentWindowVisibleIndex || item.name === item.name ? 2 : undefined}
                   position={{
                     lat: item.coordinates.lat,
                     lng: item.coordinates.lng

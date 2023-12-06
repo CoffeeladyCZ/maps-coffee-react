@@ -120,6 +120,7 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormDat
         street: data.street,
         city: data.city,
         post_code: data.postCode,
+        location: data.location,
       },
       location: [
         data.location
