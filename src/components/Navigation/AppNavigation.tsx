@@ -167,7 +167,7 @@ const Navigation: React.FC = () => {
           </ul>
         </Grid>
         <Grid item>
-          <Tooltip title="Přidat novou kavárnu" placement='top'>
+          <Tooltip title='Přidat novou kavárnu' placement='top'>
             <IconButton onClick={handleOpenDialog}>
               <AddIcon fontSize='medium' />
             </IconButton>

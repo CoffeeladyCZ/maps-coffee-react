@@ -21,10 +21,8 @@ const MapInfoWindow: React.FC<MapInfoWindowProps> = (props) => {
   const { name } = props.data;
   return (
     <InfoWindow onCloseClick={props.toggleClose} {...props}>
-      <div className='map-info-window'>
-        <div>
-          <p className='text-red-900 text-sm font-bold border-b border-red-900 px-2 my-2'>{name}</p>
-        </div>
+      <div>
+        <p className='text-red-900 text-sm font-bold border-b border-red-900 px-2 my-2 uppercase'>{name}</p>
       </div>
     </InfoWindow>
   )
