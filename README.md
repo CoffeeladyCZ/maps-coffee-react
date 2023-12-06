@@ -3,25 +3,10 @@
 This project based on Google Maps API.
 
 ### Tech stack: 
-- NPM
-- React
-- TypeSsript
+- NPM, Vite
+- React 18, TypeSsript, Redux, Axios
+- MUI, Tailwind, SCSS (I trying to rewrite it)
+- Prettier, ESLint, i18next
 
-### ESlint
-
-Check and fix
-```sh
-npm run lint:fix
-```
-
-### Prettify other files
-
-```sh
-npx prettier --check .
-```
-
-Check and fix:
-
-```sh
-npx prettier --write .
-```
+### Future feature:
+- Login section for users, possibility to add new cafes after login
