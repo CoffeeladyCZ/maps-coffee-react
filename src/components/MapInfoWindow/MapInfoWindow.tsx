@@ -1,14 +1,13 @@
 import { InfoWindow } from '@react-google-maps/api';
 import React from 'react';
-import { CurrentCafeType } from '../../contexts/MapsContext';
 import './MapInfoWindow.scss'
+import { CafeDetailResponse } from '../../types/cafe';
 
 interface MapInfoWindowProps {
   toggleClose: () => void;
   infoVisible: boolean;
-  data: CurrentCafeType;
+  data: CafeDetailResponse;
   icon: string;
-  animation: google.maps.Animation | undefined;
   position: {
     lat: number, lng: number
   };
@@ -19,14 +18,12 @@ interface MapInfoWindowProps {
 }
 
 const MapInfoWindow: React.FC<MapInfoWindowProps> = (props) => {
-  const { name, content, address, time } = props.data;
+  const { name } = props.data;
   return (
     <InfoWindow onCloseClick={props.toggleClose} {...props}>
       <div className='map-info-window'>
         <div>
-          <h4 className='map-info-title'>{name}</h4>
-          <p className='map-info-content'>{content}</p>
-          <address className='map-info-address'>{address}<br />{time}</address>
+          <p className='text-red-900 text-sm font-bold border-b border-red-900 px-2 my-2'>{name}</p>
         </div>
       </div>
     </InfoWindow>

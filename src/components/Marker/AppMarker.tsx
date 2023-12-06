@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import { Marker} from '@react-google-maps/api';
+import { useSelector } from 'react-redux';
+
 import MapInfoWindow from '../MapInfoWindow/MapInfoWindow';
-import { CurrentCafeType } from '../../contexts/MapsContext';
+import { CafeDetailResponse } from '../../types/cafe';
+import { RootState } from '../../store';
 
 interface MarkerProps {
   infoVisible: boolean;
-  data: CurrentCafeType;
+  data: CafeDetailResponse;
   icon: string;
   position: {
     lat: number, lng: number
@@ -13,7 +16,6 @@ interface MarkerProps {
   title: string;
   key: string;
   className: string;
-  animation: google.maps.Animation | undefined;
   onClick: () => void;
   onCloseClick: () => void;
 }
@@ -23,6 +25,8 @@ const MarkerComponent: React.FC<MarkerProps>  = (props) => {
     infoVisible: props.infoVisible,
     zIndex: props.infoVisible ? 9999 : 1
   });
+
+  const actualCafe = useSelector((state: RootState) => state.cafeDetail.actualCafe);
 
   const closeInfo = () => setMarkerState({
     infoVisible: false,
@@ -50,7 +54,7 @@ const MarkerComponent: React.FC<MarkerProps>  = (props) => {
   }, [setMarkerState, props.infoVisible])
   return (
     <Marker zIndex={zIndex} {...props} onMouseOver={() => push(1)} onMouseOut={() => push(-1)} >
-      { infoVisible ? <MapInfoWindow toggleClose={closeInfo} {...props} /> : null }
+      { infoVisible && actualCafe && actualCafe.name === props.data.name ? <MapInfoWindow toggleClose={closeInfo} {...props} /> : null }
     </Marker>
   )
 }
