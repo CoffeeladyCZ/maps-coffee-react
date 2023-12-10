@@ -4,13 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { Alert, Autocomplete, IconButton, Grid, TextField, Tooltip, CircularProgress, InputAdornment, Snackbar } from '@mui/material';
+import { Alert, Autocomplete, Button, IconButton, Grid, TextField, Tooltip, CircularProgress, InputAdornment, Snackbar } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { Search } from '@mui/icons-material';
 
 import { slugify } from '../../Utils';
 import { getLocationsData, addNewData } from '../../Utils/apiUtils';
-import {  useActiveMarkerContext } from '../../contexts/MapsContext';
 import { CafeDetailResponse } from '../../types/cafe';
 import { RootState } from '../../store';
 import { setLocations, setCurrentLocation } from '../../store/locations';
@@ -18,8 +17,6 @@ import { setActualCafe } from '../../store/cafeDetail';
 
 
 import AddCafeForm from '../Form/AddCafeForm';
-
-import './AppNavigation.scss';
 
 const SearchCafe = () => {
   const { t } = useTranslation();
@@ -84,7 +81,6 @@ const SearchCafe = () => {
 const Navigation: React.FC = () => {
   const { t } = useTranslation();
 
-  const activeContextValue = useActiveMarkerContext();
   const dispatch = useDispatch();
 
   const [openDialog, setOpenDialog] = useState(false);
@@ -145,27 +141,27 @@ const Navigation: React.FC = () => {
         justifyContent='space-between'
         alignItems='center'
         rowGap={2}
-        className='navigation'
       >
         <Grid item sx={{ width: 250 }}>
           <SearchCafe />
         </Grid>
         <Grid item>
-          <ul className='navigation-menu'>
+          <div className='flex-1 m-0'>
             {
               locations && locations.map((item) => {
-                const isActive = activeContextValue && item === currentLocation;
+                const isActive = item === currentLocation;
                 return (
-                  <li
-                    className={isActive ? 'active' : ''}
+                  <Button
+                    color={isActive ? 'primary' : 'secondary'}
+                    className='cursor-pointer underline uppercase font-semibold text-lg p-2 text-center'
                     key={item}
                     onClick={() => dispatch(setCurrentLocation(item))}
                   >
                     {item}
-                  </li>
+                  </Button>
                 );
               })}
-          </ul>
+          </div>
         </Grid>
         <Grid item>
           <Tooltip title='Přidat novou kavárnu' placement='top'>

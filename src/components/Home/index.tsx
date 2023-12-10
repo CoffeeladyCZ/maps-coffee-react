@@ -8,8 +8,6 @@ import Navigation from '../Navigation/AppNavigation';
 import { getCafeList } from '../../Utils/apiUtils';
 import { setCafes } from '../../store/cafeList';
 
-import './index.scss';
-
 interface MapProps {
   height: string;
 }

@@ -1,6 +1,5 @@
 import { InfoWindow } from '@react-google-maps/api';
 import React from 'react';
-import './MapInfoWindow.scss'
 import { CafeDetailResponse } from '../../types/cafe';
 
 interface MapInfoWindowProps {
@@ -13,7 +12,6 @@ interface MapInfoWindowProps {
   };
   title: string;
   key: string;
-  className: string;
   onClick: () => void;
 }
 

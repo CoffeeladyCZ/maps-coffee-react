@@ -7,7 +7,7 @@ export const coffeehouse = document.querySelector('.list-coffeehouse'),
     },
     {
       name: 'My location',
-      icon: '../img/pin.svg',
+      icon: '../img/newPin.svg',
     },
   ],
   photo = []
