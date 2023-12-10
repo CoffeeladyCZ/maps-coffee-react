@@ -48,7 +48,6 @@ const routes = [
     label: 'Domů',
     order: 1,
     route: <Home />,
-    additionalClass: 'app-map'
   },
   {
     exact: false,

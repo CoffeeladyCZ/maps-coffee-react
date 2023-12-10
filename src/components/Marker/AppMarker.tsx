@@ -15,7 +15,6 @@ interface MarkerProps {
   };
   title: string;
   key: string;
-  className: string;
   onClick: () => void;
   onCloseClick: () => void;
 }

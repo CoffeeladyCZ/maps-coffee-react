@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import MarkerComponent from '../../components/Marker/AppMarker';
 
-import coffeePin from '../../img/coffee-shop.png';
+import coffeePin from '../../img/newPin.svg';
 
-import './AppMap.scss';
 import { RootState } from '../../store';
 import { CafeDetailResponse } from '../../types/cafe';
 import { setActualCafe } from '../../store/cafeDetail';
@@ -51,7 +50,7 @@ const Map: React.FC<MapProps> = ({ height }) => {
   } = settings;
 
   return (
-    <div className='map' style={{height: `${height}px`}}>
+    <div className='w-full my-12' style={{height: `${height}px`}}>
       <LoadScript
         googleMapsApiKey={secret}
       >
@@ -64,7 +63,6 @@ const Map: React.FC<MapProps> = ({ height }) => {
             cafeList && cafeList.map((item) => {
               return (
                 <MarkerComponent
-                  className='coffee-marker'
                   infoVisible={1 === currentWindowVisibleIndex}
                   onClick={() => showWindow(1, item)}
                   onCloseClick={onHideWindow}
