@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Typography, Grid, Skeleton } from '@mui/material';
-import { LocalCafeOutlined } from '@mui/icons-material';
+import { LocalCafeOutlined, CoffeeMakerOutlined } from '@mui/icons-material';
 
 import { getCafeDetailData } from '../../Utils/apiUtils';
 import { setCafeDetail } from '../../store/cafeDetail';
@@ -48,6 +48,18 @@ const CafeDetail: React.FC = () => {
     };
   }, [id]);
 
+  const cafeServicesObject = {
+    espresso,
+    bathBrew,
+    officeFriendly,
+    DogFriendly,
+    kidsFriendly,
+    garden,
+    onlyCard,
+    onlyCash,
+    withoutCoffeine,
+  }
+
   if (!cafeDetail) {
     return <h1>{ t('notExist')}</h1>
   }
@@ -81,7 +93,7 @@ const CafeDetail: React.FC = () => {
               </Grid>
               <Grid item>
                 <div className="bg-slate-100 rounded-md w-20 h-20 flex justify-center items-center">
-                  <LocalCafeOutlined fontSize="large" />
+                  <CoffeeMakerOutlined fontSize="large" />
                 </div>
               </Grid>
             </Grid>
