@@ -16,19 +16,20 @@ const Home: React.FC<MapProps> = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setCafeList();
-  }, []);
-
-  const setCafeList = async() => {
-    try {
-      const response = await getCafeList('/cafe/list');
-      if (response) {
-        dispatch(setCafes(response));
+    const setCafeList = async () => {
+      try {
+        const response = await getCafeList('/cafe/list');
+        if (response) {
+          dispatch(setCafes(response));
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch(err) {
-      console.error(err);
-    }
-  };
+    };
+
+    setCafeList();
+  }, [dispatch]);
+
 
   return (
     <>

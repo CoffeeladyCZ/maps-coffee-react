@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -90,7 +90,7 @@ const Navigation: React.FC = () => {
   const currentLocation = useSelector((state: RootState) => state.locations.currentLocation);
   const locations = useSelector((state: RootState) => state.locations.locations);
 
-  const getLocations = async() => {
+  const getLocations = useCallback(async() => {
     setIsLoading(true);
     try {
       const response = await getLocationsData();
@@ -102,12 +102,11 @@ const Navigation: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [dispatch]);
 
   useEffect(()=> {
     getLocations();
-  }, []);
-
+  }, [getLocations]);
 
   const handleOpenDialog = () => {
     setOpenDialog(true);

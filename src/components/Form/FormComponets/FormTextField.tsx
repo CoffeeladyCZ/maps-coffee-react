@@ -1,5 +1,5 @@
 import React from 'react';
-import { Controller } from "react-hook-form";
+import { Controller, Control } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
 
 import TextField from "@mui/material/TextField";
@@ -8,7 +8,7 @@ import { FieldErrors } from '../../../types/cafe';
 type FormTextFieldPropsType = {
   name: string,
   label: string,
-  control: any,
+  control: Control,
   required: boolean,
   errors: FieldErrors,
 }

@@ -3,7 +3,7 @@
  * @param string
  * @returns
  */
-export const buildClass = (...classes: any[]) => {
+export const buildClass = (...classes: string[]) => {
   const builtClass = classes
     .join(' ')
     .split(' ')
@@ -11,8 +11,8 @@ export const buildClass = (...classes: any[]) => {
     .sort()
     .join(' ')
     .replace(/\s+/g, ' ')
-    .trimEnd()
-;return builtClass.length > 0 ? builtClass : null;
+    .trimEnd();
+  return builtClass.length > 0 ? builtClass : null;
 };
 
 /**
