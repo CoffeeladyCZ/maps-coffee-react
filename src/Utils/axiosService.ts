@@ -26,3 +26,8 @@ export const httpGet = async <T>(url: string): Promise<AxiosResponse<T>> => {
 export const httpDelete = async (url: string): Promise<void> => {
   await axios.delete(`${baseURL}${url}`);
 };
+
+export const httpPatch = async <T>(url: string, data = {}): Promise<AxiosResponse<T>> => {
+  const response = await axios.patch(`${baseURL}${url}`, data);
+  return response;
+}

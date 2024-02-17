@@ -8,10 +8,11 @@ import { FieldErrors } from '../../../types/cafe';
 type FormTextFieldPropsType = {
   name: string,
   label: string,
-  control: Control,
+  control: Control<any>,
   required: boolean,
   errors: FieldErrors,
 }
+
 
 const FormTextField: React.FC<FormTextFieldPropsType> = ({ name, control, errors, label, required }) => {
   const { t } = useTranslation();

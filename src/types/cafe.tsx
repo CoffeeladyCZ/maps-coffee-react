@@ -14,8 +14,21 @@ export type FormValues = {
   description: string;
   mondayOpen: string;
   mondayClose: string;
+  tuesdayOpen: string;
+  tuesdayClose: string;
+  wednesdayOpen: string;
+  wednesdayClose: string;
+  thursdayOpen: string;
+  thursdayClose: string;
+  fridayOpen: string;
+  fridayClose: string;
+  saturdayOpen: string;
+  saturdayClose: string;
+  sundayOpen: string;
+  sundayClose: string;
   phone?: string;
   web?: string;
+  email?: string;
   location: string;
   image?: string[];
   type?: string;
@@ -54,7 +67,6 @@ type contactType = {
 
 export type CafeDetailResponse = {
   name: string;
-  location: string[],
   address: addressType;
   description: string;
   opening_hours: openTime[];
@@ -63,4 +75,22 @@ export type CafeDetailResponse = {
   image?: string[];
   coordinates: coordintesType;
   contact: contactType;
+  slug?: string;
 };
+
+export type TOpeningHours = {
+  mondayOpen: string;
+  mondayClose: string;
+  tuesdayOpen: string;
+  tuesdayClose: string;
+  wednesdayOpen: string;
+  wednesdayClose: string;
+  thursdayOpen: string;
+  thursdayClose: string;
+  fridayOpen: string;
+  fridayClose: string;
+  saturdayOpen: string;
+  saturdayClose: string;
+  sundayOpen: string;
+  sundayClose: string;
+}

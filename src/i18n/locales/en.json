@@ -16,12 +16,14 @@
     "contacts": "Contacts",
     "address": "Address",
     "description": "Description",
+    "edit": "Edit Cafe",
     "phone": "Phone",
     "location": "Cafe location"
   },
   "dialog": {
     "address": "Address of cafe",
     "newCafe": "Add new cafe",
+    "editCafe": "Edit cafe",
     "cancel": "Cancel",
     "submit": "Submit",
     "street": "Street",

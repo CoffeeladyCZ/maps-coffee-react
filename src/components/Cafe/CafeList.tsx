@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { slugify } from '../../Utils';
 import { RootState } from '../../store';
 import { setActualCafe } from '../../store/cafeDetail';
 
@@ -29,7 +28,7 @@ const CafeList: React.FC = () => {
               srcSet={`${item.image}?w=200&fit=crop&auto=format&dpr=2 2x`}
               loading='lazy'
             />
-            <Link to={`/cafe/${slugify(item.name)}`}>
+            <Link to={`/cafe/${item.slug}`}>
               <ImageListItemBar
                 title={item.name}
               />

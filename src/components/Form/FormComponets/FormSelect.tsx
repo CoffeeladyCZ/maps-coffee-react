@@ -5,7 +5,7 @@ import { Select, MenuItem, InputLabel, FormControl } from "@mui/material/";
 type FormSelectPropsType = {
   name: string,
   label: string,
-  control: Control,
+  control: Control<any>,
   required: boolean,
   options: string[] | null,
 }

@@ -12,9 +12,9 @@ import { RootState } from '../../store';
 import { FormValues, CafeDetailResponse } from '../../types/cafe';
 
 import { styled } from '@mui/material/styles';
-import FormTextField from './FormComponets/FormTextField';
-import FormSelect from './FormComponets/FormSelect';
-import FormTimeField from './FormComponets/FormTimeField';
+import FormTextField from '../Form/FormComponets/FormTextField';
+import FormSelect from '../Form/FormComponets/FormSelect';
+import FormTimeField from '../Form/FormComponets/FormTimeField';
 
 type FormNewCafeType ={
   openDialog: boolean;
@@ -122,9 +122,6 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormDat
         post_code: data.postCode,
         location: data.location,
       },
-      location: [
-        data.location
-      ],
       contact: {
         web: data.web,
         phone: data.phone,
@@ -137,8 +134,8 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormDat
         }
       ],
       coordinates: {
-        lat: parseInt(data.lat),
-        lng: parseInt(data.lng),
+        lat: parseFloat(data.lat),
+        lng: parseFloat(data.lng),
       },
       description: data.description,
     }
@@ -287,7 +284,12 @@ const AddCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormDat
                               <Typography variant="body2">{ day.label}</Typography>
                             </Grid>
                             <Grid item xs={12} sm={4}>
-                              <FormTimeField label={t('dialog.from')} name={t(`${day.openValue}`)} control={control} required={false} />
+                              <FormTimeField
+                                label={t('dialog.from')}
+                                name={t(`${day.openValue}`)}
+                                control={control}
+                                required={false}
+                              />
                             </Grid>
                             <Grid item xs={12} sm={4}>
                               <FormTimeField label={t('dialog.to')} name={t(`${day.closeValue}`)} control={control} required={false} />

@@ -25,12 +25,14 @@
     "contacts": "Kontaktní údaje",
     "address": "Adresa",
     "description": "Popis kavárny",
+    "edit": "Upravit kavárnu",
     "phone": "Tel",
     "location": "Lokalita kavárny"
   },
   "dialog": {
     "address": "Adresa kavárny",
     "newCafe": "Přidat novou kavárnu",
+    "editCafe": "Upravit kavárnu",
     "cancel": "Zrušit",
     "submit": "Odeslat",
     "street": "Název ulice",
@@ -52,7 +54,8 @@
     "to": "Do",
     "monday": "Pondělí",
     "tuesday": "Úterý",
-    "wednesday": "Středa"
+    "wednesday": "Středa",
+    "chooseDays": "Zadat konkrétní dny"
   },
   "searchCafe": "Hledat kavárnu",
   "errors": {
