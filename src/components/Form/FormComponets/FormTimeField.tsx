@@ -1,6 +1,5 @@
 import React from 'react';
-import { Controller } from "react-hook-form";
-import { useTranslation } from 'react-i18next';
+import { Controller, Control } from "react-hook-form";
 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -10,13 +9,11 @@ import { TimeField } from '@mui/x-date-pickers/TimeField';
 type FormTextFieldPropsType = {
   name: string,
   label: string,
-  control: any,
+  control: Control,
   required: boolean,
 }
 
 const FormTextField: React.FC<FormTextFieldPropsType> = ({ name, control, label, required }) => {
-  const { t } = useTranslation();
-
   return (
     <Controller
       name={name}

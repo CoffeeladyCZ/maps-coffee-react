@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,7 +27,7 @@ const CafeDetail: React.FC = () => {
   const dispatch = useDispatch();
   const cafeDetail = useSelector((state: RootState) => state.cafeDetail.cafeDetail);
 
-  const getCafeDetail = async() => {
+  const getCafeDetail = useCallback(async() => {
     setIsLoading(true);
     try {
       const detail = await getCafeDetailData(`/cafe/${id}`);
@@ -39,14 +39,14 @@ const CafeDetail: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [dispatch, id]);
 
   useEffect(() => {
     getCafeDetail();
     return () => {
       setIsLoading(false);
     };
-  }, [id]);
+  }, [getCafeDetail]);
 
   if (!cafeDetail) {
     return <h1>{ t('notExist')}</h1>

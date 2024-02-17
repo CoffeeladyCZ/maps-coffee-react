@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useCallback, useEffect, useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const defaultVoid = () => {};
@@ -32,7 +32,7 @@ export const PopUpStateProvider: React.FC = ({ children }) => {
   function submit() {
     setIsSubmited(true);
   }
-  function closePopUpOutside(event: MouseEvent | KeyboardEvent): void {
+  const closePopUpOutside = useCallback((event: MouseEvent | KeyboardEvent): void => {
     const type = event.type;
     const target = event.target as Element;
     const isBodyClicked =
@@ -48,27 +48,26 @@ export const PopUpStateProvider: React.FC = ({ children }) => {
       window.removeEventListener('keyup', closePopUpOutside);
       setIsOpened(false);
     }
-  }
+  }, [])
 
-  function subscribe() {
-    // při otevření popup zaregistrujeme odposlech kliku a keyup s moznost once: true t.j. eventHandler se muze spusit pouze jednou
+  const subscribe = useCallback(() => {
     window.addEventListener('click', closePopUpOutside, { once: true });
     window.addEventListener('keyup', closePopUpOutside, { once: true });
-  }
+  }, [closePopUpOutside])
 
-  function unsubscribe() {
+  const unsubscribe = useCallback(() => {
     window.removeEventListener('click', closePopUpOutside);
     window.removeEventListener('keyup', closePopUpOutside);
     setIsOpened(false);
-  }
+  }, [closePopUpOutside])
 
-  useEffect(() => unsubscribe, []);
+  useEffect(() => unsubscribe, [unsubscribe]);
 
   useEffect(() => {
     if (isOpened) {
       subscribe();
     }
-  }, [isOpened]);
+  }, [isOpened, subscribe]);
 
   return (
     <PopUpContext.Provider value={isOpened}>

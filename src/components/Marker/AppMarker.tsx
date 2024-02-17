@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import { Marker} from '@react-google-maps/api';
 import { useSelector } from 'react-redux';
 
@@ -45,12 +45,17 @@ const MarkerComponent: React.FC<MarkerProps>  = (props) => {
     infoVisible
   } = markerState;
 
+  const setMarker = useCallback((visible: boolean) => {
+    setMarkerState((prevState) => ({
+      ...prevState,
+      infoVisible: visible
+    }));
+  }, [setMarkerState])
+
   useEffect(() => {
-    setMarkerState({
-      ...markerState,
-      infoVisible: props.infoVisible
-    })
-  }, [setMarkerState, props.infoVisible])
+    setMarker(props.infoVisible);
+  }, [props.infoVisible, setMarker]);
+
   return (
     <Marker zIndex={zIndex} {...props} onMouseOver={() => push(1)} onMouseOut={() => push(-1)} >
       { infoVisible && actualCafe && actualCafe.name === props.data.name ? <MapInfoWindow toggleClose={closeInfo} {...props} /> : null }

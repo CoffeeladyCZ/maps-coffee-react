@@ -1,11 +1,11 @@
 import React from 'react';
-import { Controller } from "react-hook-form";
+import { Controller, Control } from "react-hook-form";
 import { Select, MenuItem, InputLabel, FormControl } from "@mui/material/";
 
 type FormSelectPropsType = {
   name: string,
   label: string,
-  control: any,
+  control: Control,
   required: boolean,
   options: string[] | null,
 }

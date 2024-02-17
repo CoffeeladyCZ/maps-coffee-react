@@ -3,8 +3,8 @@ import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-const container = document.getElementById('app');
-const root = createRoot(container!);
+const appElement = document.getElementById('app');
+const root = createRoot(appElement ? appElement : document.createElement('div'));
 
 root.render(<App />);
 
