@@ -2,17 +2,19 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import dayjs from 'dayjs';
 
-import { Typography, Grid, Skeleton } from '@mui/material';
-import { LocalCafeOutlined } from '@mui/icons-material';
+import { Typography, Grid, Skeleton, Tooltip, IconButton } from '@mui/material';
+import { LocalCafeOutlined, EditOutlined } from '@mui/icons-material';
 
-import { getCafeDetailData } from '../../Utils/apiUtils';
+import { getCafeDetailData, updateCafeDetailData } from '../../Utils/apiUtils';
 import { setCafeDetail } from '../../store/cafeDetail';
 import { RootState } from '../../store';
 import 'tailwindcss/tailwind.css';
 
 import Map from '../../common/Map/AppMap';
-import { openTime } from '../../types/cafe';
+import { openTime, CafeDetailResponse } from '../../types/cafe';
+import EditCafeForm from './EditCafeForm';
 
 type ParamsType = {
 id: string;
@@ -20,9 +22,10 @@ id: string;
 
 const CafeDetail: React.FC = () => {
   const { t } = useTranslation();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { id } = useParams<ParamsType>();
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const dispatch = useDispatch();
   const cafeDetail = useSelector((state: RootState) => state.cafeDetail.cafeDetail);
@@ -40,6 +43,25 @@ const CafeDetail: React.FC = () => {
       setIsLoading(false);
     }
   }, [dispatch, id]);
+
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+  }
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  }
+
+  const submitEditCafe = async(data: CafeDetailResponse) => {
+    setIsLoading(true);
+    try {
+      await updateCafeDetailData(data, `/cafe/${id}`);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   useEffect(() => {
     getCafeDetail();
@@ -66,8 +88,20 @@ const CafeDetail: React.FC = () => {
         <Skeleton variant="rectangular" width={210} height={118} />
       ) : (
         <Grid container gap={1}>
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} sm={8} className="flex justify-between">
             <Typography variant="h4">{name}</Typography>
+            <Tooltip title={t('detail.edit')} placement="top">
+              <IconButton onClick={handleOpenDialog}>
+                <EditOutlined fontSize="medium" />
+              </IconButton>
+            </Tooltip>
+            <EditCafeForm
+              data={cafeDetail}
+              openDialog={openDialog}
+              onClose={handleCloseDialog}
+              isLoading={isLoading}
+              onFormData={submitEditCafe}
+            />
           </Grid>
           <Grid item xs={12} sm={8} className="pb-6">
             <Typography variant="subtitle1">{ address.street }</Typography>
@@ -98,7 +132,7 @@ const CafeDetail: React.FC = () => {
                       <Typography variant="body1">{ t(`detail.days.${item.day_of_week}`)}:</Typography>
                     </Grid>
                     <Grid item xs={12} sm={9} md={10}>
-                      <Typography variant="body1">{`${item.open_time} - ${item.close_time}`}</Typography>
+                      <Typography variant="body1">{`${dayjs(item.open_time).format('LT')} - ${dayjs(item.close_time).format('LT')}`}</Typography>
                     </Grid>
                   </Grid>
                 )

@@ -33,7 +33,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start:frontend": "set PORT=3006 && vite",
+    "start:frontend": "set PORT=4000 && vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "start:server": "cd ../maps-coffee-api && npm run devstart",

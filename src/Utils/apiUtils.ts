@@ -1,4 +1,4 @@
-import { httpGet, httpPost } from './axiosService';
+import { httpGet, httpPost, httpPatch } from './axiosService';
 import { CafeDetailResponse } from '../types/cafe';
 
 export const getCafeDetailData = async (url: string): Promise<CafeDetailResponse | void> => {
@@ -27,6 +27,16 @@ export const getCafeList = async (url: string) => {
 export const addNewData = async (data: CafeDetailResponse, url: string) => {
   try {
     const response = await httpPost(url, data);
+    const fetchData = await response.data;
+    return fetchData;
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+export const updateCafeDetailData = async (data: CafeDetailResponse, url: string) => {
+  try {
+    const response = await httpPatch(url, data);
     const fetchData = await response.data;
     return fetchData;
   } catch (error) {

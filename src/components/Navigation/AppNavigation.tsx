@@ -16,7 +16,7 @@ import { setLocations, setCurrentLocation } from '../../store/locations';
 import { setActualCafe } from '../../store/cafeDetail';
 
 
-import AddCafeForm from '../Form/AddCafeForm';
+import AddCafeForm from '../Cafe/AddCafeForm';
 
 const SearchCafe = () => {
   const { t } = useTranslation();
