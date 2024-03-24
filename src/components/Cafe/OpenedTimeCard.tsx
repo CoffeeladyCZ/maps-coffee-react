@@ -6,7 +6,7 @@ import { DevTool } from '@hookform/devtools';
 import { Divider, Grid, Typography } from '@mui/material';
 
 import { TOpeningHours } from '../../types/cafe';
-import FormTimeField from '../Form/FormComponets/FormTimeField';
+import FormTimeField from '../common/FormComponets/FormTimeField';
 
 type TOpeningHoursProps = {
   openingHours: TOpeningHours;

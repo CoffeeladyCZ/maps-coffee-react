@@ -1,6 +1,7 @@
-import CafeDetail from '../components/Cafe/CafeDetail';
-import Home from '../components/Home';
-import AppRegistration from '../components/Registration/AppRegistration';
+import CafeDetail from '../pages/CafeDetail';
+import Home from '../pages/Home';
+import Registration from '../pages/Registration/Registration';
+import Login from '../pages/Login/Login';
 
 /**
  * Sorts routes
@@ -28,13 +29,6 @@ const sortRoutes = (routes, sortBy, sortOrder) => {
  * @prop {string} label - label pro routu - da se pouzit jako title h1 atp.
  * @prop {order} number - pozice napriklad pro menu, pokud chces treba pouzit pro linky v nejake navigaci- Sortuji se dole v exportu
  * @prop {JSXElement | Element} route - Element nebo Komponent ktery se ma renderovat
- * @prop {boolean?} inFooter - pouziva se pro filter exportu routes pro footer, napr. navigace ve footeru - nepovinne
- * @prop {boolean?} inHeader - pouziva se pro filter exportu routes pro header, napr. navigace v headeru - nepovinne
- * @prop {JSXElement | Element | SVGElement | null} icon - muze se pouzit jako ikona pro navigaci napriklad - nepovinne
- * @prop {boolean?} disabled  - zamezí exportu routy a ta bude nedosupná - nepovinne
- * @prop {string?} additionalClass - doplňkové classy pro danou routu jako jeden string  napr.: 'class-1 class-2 ...' - nepovinne
- */
-
 /**
  * Routes
  * pole Route
@@ -51,23 +45,29 @@ const routes = [
   },
   {
     exact: false,
-    path: '/registration',
-    label: 'Registrace',
-    order: 3,
-    route: <AppRegistration />
-  },
-  {
-    exact: false,
     path: '/cafe/:id',
     label: 'Detail',
     order: 4,
     route: <CafeDetail />
   },
+  {
+    exact: false,
+    path: '/registration',
+    label: 'Registrace',
+    order: 5,
+    route: <Registration />
+  },
+  {
+    exact: false,
+    path: '/login',
+    label: 'Login',
+    order: 5,
+    route: <Login />
+  },
 ];
 
-// zde se meguji a sortuji vsechn pole s routami
 export const AllRoutes = sortRoutes(routes.filter(route => !route.disabled));
-// toto je treba pro navigaci v headeru
+
 export const HeaderNavItems = AllRoutes.filter(route => route.inHeader);
-// toto je treba pro navigaci ve footeru
+
 export const FooterNavItems = AllRoutes.filter(route => route.inFooter);

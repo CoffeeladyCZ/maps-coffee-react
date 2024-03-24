@@ -118,7 +118,7 @@ const Navigation: React.FC = () => {
 
   const addCreateCafe = async (data: CafeDetailResponse) => {
     try {
-      await addNewData(data, '/create');
+      await addNewData(data, '/api/create');
     } catch (error) {
       setShowError(true);
       return null;

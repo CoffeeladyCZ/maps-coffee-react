@@ -7,14 +7,14 @@ import dayjs from 'dayjs';
 import { Typography, Grid, Skeleton, Tooltip, IconButton } from '@mui/material';
 import { LocalCafeOutlined, EditOutlined } from '@mui/icons-material';
 
-import { getCafeDetailData, updateCafeDetailData } from '../../Utils/apiUtils';
-import { setCafeDetail } from '../../store/cafeDetail';
-import { RootState } from '../../store';
+import { getCafeDetailData, updateCafeDetailData } from '../Utils/apiUtils';
+import { setCafeDetail } from '../store/cafeDetail';
+import { RootState } from '../store';
 import 'tailwindcss/tailwind.css';
 
-import Map from '../../common/Map/AppMap';
-import { openTime, CafeDetailResponse } from '../../types/cafe';
-import EditCafeForm from './EditCafeForm';
+import Map from '../components/Map/AppMap';
+import { openTime, CafeDetailResponse } from '../types/cafe';
+import EditCafeForm from '../components/Cafe/EditCafeForm';
 
 type ParamsType = {
 id: string;
@@ -33,7 +33,7 @@ const CafeDetail: React.FC = () => {
   const getCafeDetail = useCallback(async() => {
     setIsLoading(true);
     try {
-      const detail = await getCafeDetailData(`/cafe/${id}`);
+      const detail = await getCafeDetailData(`/api/cafe/${id}`);
       if (detail) {
         dispatch(setCafeDetail(detail));
       }
@@ -55,7 +55,7 @@ const CafeDetail: React.FC = () => {
   const submitEditCafe = async(data: CafeDetailResponse) => {
     setIsLoading(true);
     try {
-      await updateCafeDetailData(data, `/cafe/${id}`);
+      await updateCafeDetailData(data, `/api/cafe/${id}`);
     } catch (err) {
       console.error(err);
     } finally {

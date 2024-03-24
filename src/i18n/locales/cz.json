@@ -63,6 +63,16 @@
     "somethingWrong": "Něco je špatně.",
     "404": "Tato stránka neexistuje!"
   },
+  "loginUser": {
+    "username": "Uživatelské jméno",
+    "password": "Heslo",
+    "registrationInfo": "Nemáš zatím účet?",
+    "registrationAction": "Zaregistrovat se můžeš zde"
+  },
+  "registration": {
+    "createAccount": "Vytvořit účet",
+    "submit":"Registrovat" 
+  },
   "notExist": "Tato kavárna pravděpodobně neexistuje!",
   "profile": "Profil",
   "account": "Můj účet",

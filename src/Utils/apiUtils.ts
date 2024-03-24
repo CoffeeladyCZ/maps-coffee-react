@@ -46,7 +46,7 @@ export const updateCafeDetailData = async (data: CafeDetailResponse, url: string
 
 export const getLocationsData = async () => {
   try {
-    const response = await httpGet<{_id: string, locations: string[]}[]>('/locations');
+    const response = await httpGet<{_id: string, locations: string[]}[]>('/api/locations');
     const fetchData = await response.data;
     return fetchData;
   } catch (error) {

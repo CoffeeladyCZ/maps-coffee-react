@@ -23,11 +23,11 @@ const LanguageSwitch: React.FC = () => {
   return (
     <div>
       {currentLanguage === 'cz' ? (
-        <Button startIcon={<Language />} onClick={() => handleLanguageChange('en')}>
+        <Button onClick={() => handleLanguageChange('en')}>
           {t('language.english')}
         </Button>
       ) : (
-        <Button startIcon={<Language />} onClick={() => handleLanguageChange('cz')}>
+        <Button onClick={() => handleLanguageChange('cz')}>
           {t('language.czech')}
         </Button>
       )}
