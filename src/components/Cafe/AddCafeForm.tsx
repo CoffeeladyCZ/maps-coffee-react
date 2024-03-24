@@ -12,9 +12,9 @@ import { RootState } from '../../store';
 import { FormValues, CafeDetailResponse } from '../../types/cafe';
 
 import { styled } from '@mui/material/styles';
-import FormTextField from '../Form/FormComponets/FormTextField';
-import FormSelect from '../Form/FormComponets/FormSelect';
-import FormTimeField from '../Form/FormComponets/FormTimeField';
+import FormTextField from '../common/FormComponets/FormTextField';
+import FormSelect from '../common/FormComponets/FormSelect';
+import FormTimeField from '../common/FormComponets/FormTimeField';
 
 type FormNewCafeType ={
   openDialog: boolean;

@@ -53,6 +53,16 @@
     "somethingWrong": "Something is wrong.",
     "404": "This page is doesn't exist!"
   },
+  "loginUser": {
+    "username": "Username",
+    "password": "Password",
+    "registrationInfo": "Don't have an account?",
+    "registrationAction": "Sign up"
+  },
+  "registration": {
+    "createAccount": "Create your account",
+    "submit":"Sign up" 
+  },
   "notExist": "This cafe probably doesn't exist!",
   "profile": "Profil",
   "account": "My account",

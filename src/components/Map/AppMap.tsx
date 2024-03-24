@@ -2,7 +2,7 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import MarkerComponent from '../../components/Marker/AppMarker';
+import MarkerComponent from '../Marker/AppMarker';
 
 import coffeePin from '../../img/newPin.svg';
 

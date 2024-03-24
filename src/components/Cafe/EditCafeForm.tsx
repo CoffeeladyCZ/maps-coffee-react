@@ -16,8 +16,8 @@ import { getLocationsData } from '../../Utils/apiUtils';
 export { daysOfWeek } from '../../constants';
 
 import { styled } from '@mui/material/styles';
-import FormTextField from '../Form/FormComponets/FormTextField';
-import FormSelect from '../Form/FormComponets/FormSelect';
+import FormTextField from '../common/FormComponets/FormTextField';
+import FormSelect from '../common/FormComponets/FormSelect';
 import OpenedTimeCard from './OpenedTimeCard';
 import { daysOfWeek } from '../../constants';
 
