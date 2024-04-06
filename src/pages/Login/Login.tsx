@@ -9,7 +9,6 @@ import { Button, Card, CardActions, CardContent, Grid, Link, Typography } from '
 import { httpPost } from '../../Utils/axiosService';
 import { UserLogin } from '../../constants';
 import { setLogin } from '../../store/settings';
-import { FieldErrors } from '../../types/cafe';
 
 type FormValues = {
   username: string;

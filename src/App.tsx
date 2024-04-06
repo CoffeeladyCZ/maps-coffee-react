@@ -1,6 +1,4 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import { PopUpStateProvider } from './contexts/PopupContext';
-import { MapsStateProvider } from './contexts/MapsContext';
 import MyRoutes from './routes/Routes';
 import { Container, ThemeProvider } from '@mui/material';
 import { theme } from './theme/theme.js';
@@ -19,17 +17,13 @@ const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <MapsStateProvider>
-          <PopUpStateProvider>
-            <Container>
-              <Router>
-                <Header />
-                <MyRoutes />
-                <Footer />
-              </Router>
-            </Container>
-          </PopUpStateProvider>
-        </MapsStateProvider>
+        <Container>
+          <Router>
+            <Header />
+            <MyRoutes />
+            <Footer />
+          </Router>
+        </Container>
       </ThemeProvider>
     </Provider>
   );

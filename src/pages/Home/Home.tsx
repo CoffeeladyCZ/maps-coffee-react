@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Map from '../../components/Map/AppMap';
+import Map from '../../components/common/Map/AppMap';
 import CafeList from '../../components/Cafe/CafeList';
 import Navigation from '../../components/Navigation/AppNavigation';
 

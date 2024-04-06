@@ -7,14 +7,14 @@ import dayjs from 'dayjs';
 import { Typography, Grid, Skeleton, Tooltip, IconButton } from '@mui/material';
 import { LocalCafeOutlined, EditOutlined } from '@mui/icons-material';
 
-import { getCafeDetailData, updateCafeDetailData } from '../Utils/apiUtils';
-import { setCafeDetail } from '../store/cafeDetail';
-import { RootState } from '../store';
+import { getCafeDetailData, updateCafeDetailData } from '../../Utils/apiUtils';
+import { setCafeDetail } from '../../store/cafeDetail';
+import { RootState } from '../../store';
 import 'tailwindcss/tailwind.css';
 
-import Map from '../components/Map/AppMap';
-import { openTime, CafeDetailResponse } from '../types/cafe';
-import EditCafeForm from '../components/Cafe/EditCafeForm';
+import Map from '../../components/common/Map/AppMap';
+import { openTime, CafeDetailResponse } from '../../types/cafe';
+import EditCafeForm from '../../components/Cafe/EditCafeForm';
 
 type ParamsType = {
 id: string;

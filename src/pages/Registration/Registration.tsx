@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -21,7 +21,6 @@ const Registration: FC = () => {
   }
 
   const onSubmit = (values: FormValues) => {
-    console.log(values);
     createNewUser(values);
     reset();
   }

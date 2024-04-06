@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Grid } from '@mui/material';
 import User from './User';
-import LanguageSwitch from '../common/LanguageSwitch';
+import LanguageSwitch from './LanguageSwitch';
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
