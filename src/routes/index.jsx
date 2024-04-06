@@ -1,5 +1,5 @@
-import CafeDetail from '../pages/CafeDetail';
-import Home from '../pages/Home';
+import CafeDetail from '../pages/CafeDetail/CafeDetail';
+import Home from '../pages/Home/Home';
 import Registration from '../pages/Registration/Registration';
 import Login from '../pages/Login/Login';
 

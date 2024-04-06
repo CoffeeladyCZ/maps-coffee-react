@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { Language } from '@mui/icons-material';
 import { Button } from '@mui/material';
 
 import { setLanguage } from '../../store/settings';

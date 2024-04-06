@@ -2,13 +2,13 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import MarkerComponent from '../Marker/AppMarker';
+import MarkerComponent from '../../Marker/AppMarker';
 
-import coffeePin from '../../img/newPin.svg';
+import coffeePin from '../../../img/newPin.svg';
 
-import { RootState } from '../../store';
-import { CafeDetailResponse } from '../../types/cafe';
-import { setActualCafe } from '../../store/cafeDetail';
+import { RootState } from '../../../store';
+import { CafeDetailResponse } from '../../../types/cafe';
+import { setActualCafe } from '../../../store/cafeDetail';
 
 interface MapProps {
   height: string;
