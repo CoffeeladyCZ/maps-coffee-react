@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import { buildClass } from '../Utils';
+import { buildClass } from '../Utils/common';
 import { AllRoutes } from './';
 
 const MyRoutes = () => (

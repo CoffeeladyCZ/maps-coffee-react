@@ -1,10 +1,11 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import FormTextField from '../../components/common/FormComponets/FormTextField';
 import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material';
 import { httpPost } from '../../Utils/axiosService';
+import SimpleAlert from '../../components/common/SimpleAlert/SimpleAlert';
 
 type FormValues = {
   username: string;
@@ -12,6 +13,8 @@ type FormValues = {
 };
 
 const Registration: FC = () => {
+  const [openAlert, setOpenAlert] = useState(false);
+
   const { t } = useTranslation();
   const { control, formState: { errors }, handleSubmit, reset } = useForm<FormValues>();
 
@@ -29,7 +32,7 @@ const Registration: FC = () => {
     try {
       await httpPost('/api/user/registration', data);
     } catch (error) {
-      console.error(error);
+      setOpenAlert(true);
     }
   };
 
@@ -67,6 +70,12 @@ const Registration: FC = () => {
           </CardActions>
         </form>
       </Card>
+      <SimpleAlert
+        severity="error"
+        message={t('errors.somethingWrong')}
+        open={openAlert}
+        onCloseAlert={() => setOpenAlert(false)}
+      />
     </>
   );
 };

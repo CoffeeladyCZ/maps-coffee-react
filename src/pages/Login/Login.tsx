@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { Button, Card, CardActions, CardContent, Grid, Link, Typography } from '
 import { httpPost } from '../../Utils/axiosService';
 import { UserLogin } from '../../constants';
 import { setLogin } from '../../store/settings';
+import SimpleAlert from '../../components/common/SimpleAlert/SimpleAlert';
 
 type FormValues = {
   username: string;
@@ -16,6 +17,9 @@ type FormValues = {
 };
 
 const Login: FC = () => {
+  const [openAlert, setOpenAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+
   const { t } = useTranslation();
   const { control, formState: { errors }, handleSubmit, reset } = useForm<FormValues>();
   const history = useHistory();
@@ -38,9 +42,9 @@ const Login: FC = () => {
       dispatch(setLogin(true));
       history.push('/');
     } catch (error) {
-      console.error(error.response.data.message);
+      setOpenAlert(true);
+      setAlertMessage(error.response.data.message)
       fieldErrors.username = error.response.data.message;
-      console.log(fieldErrors)
     }
   };
 
@@ -90,6 +94,12 @@ const Login: FC = () => {
           </div>
         </form>
       </Card>
+      <SimpleAlert
+        severity="error"
+        message={alertMessage}
+        open={openAlert}
+        onCloseAlert={() => setOpenAlert(false)}
+      />
     </>
   );
 };

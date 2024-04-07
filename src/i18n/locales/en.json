@@ -2,6 +2,7 @@
   "author": "by Marcela Karafizievová",
   "mapCafes": "Map of cafes",
   "nothing": "Nothing",
+  "dataNotExist": "Probably something is wrong.",
   "detail": {
     "openTime": "Opening time",
     "days": {

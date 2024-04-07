@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 import { Typography, Grid, Skeleton, Tooltip, IconButton } from '@mui/material';
 import { LocalCafeOutlined, EditOutlined } from '@mui/icons-material';
 
-import { getCafeDetailData, updateCafeDetailData } from '../../Utils/apiUtils';
+import { getCafeDetailData, updateCafeDetailData } from '../../apiMethods';
 import { setCafeDetail } from '../../store/cafeDetail';
 import { RootState } from '../../store';
 import 'tailwindcss/tailwind.css';
@@ -15,6 +15,7 @@ import 'tailwindcss/tailwind.css';
 import Map from '../../components/common/Map/AppMap';
 import { openTime, CafeDetailResponse } from '../../types/cafe';
 import EditCafeForm from '../../components/Cafe/EditCafeForm';
+import SimpleAlert from '../../components/common/SimpleAlert/SimpleAlert';
 
 type ParamsType = {
 id: string;
@@ -26,6 +27,7 @@ const CafeDetail: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
+  const [openAlert, setOpenAlert] = useState(false);
 
   const dispatch = useDispatch();
   const cafeDetail = useSelector((state: RootState) => state.cafeDetail.cafeDetail);
@@ -38,7 +40,7 @@ const CafeDetail: React.FC = () => {
         dispatch(setCafeDetail(detail));
       }
     } catch(err) {
-      console.error(err);
+      setOpenAlert(true);
     } finally {
       setIsLoading(false);
     }
@@ -57,7 +59,7 @@ const CafeDetail: React.FC = () => {
     try {
       await updateCafeDetailData(data, `/api/cafe/${id}`);
     } catch (err) {
-      console.error(err);
+      setOpenAlert(true);
     } finally {
       setIsLoading(false);
     }
@@ -175,6 +177,12 @@ const CafeDetail: React.FC = () => {
           </Grid>
         </Grid>
       )}
+      <SimpleAlert
+        severity="error"
+        message={t('errors.somethingWrong')}
+        open={openAlert}
+        onCloseAlert={() => setOpenAlert(false)}
+      />
     </>
   );
 };

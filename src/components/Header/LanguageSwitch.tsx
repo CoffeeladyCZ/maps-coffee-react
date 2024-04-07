@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 
 import { setLanguage } from '../../store/settings';
-import { saveLanguageToLocalStorage } from '../../Utils';
+import { saveLanguageToLocalStorage } from '../../Utils/common';
 import { RootState } from '../../store';
 
 const LanguageSwitch: React.FC = () => {
