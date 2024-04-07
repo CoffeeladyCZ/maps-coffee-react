@@ -4,7 +4,7 @@ import { settingsSlice } from './settings';
 import { cafeDetailSlice } from './cafeDetail';
 import { cafeListSlice } from './cafeList';
 import { locationsSlice } from './locations';
-import { getLanguageFromLocalStorage } from '../Utils';
+import { getLanguageFromLocalStorage } from '../Utils/common';
 
 const persistedLanguage = getLanguageFromLocalStorage();
 

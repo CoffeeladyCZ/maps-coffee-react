@@ -16,7 +16,7 @@ export const buildClass = (...classes: string[]) => {
 };
 
 /**
- * create slug from string
+ * Create slug from string
  * @param string - string to be slugified
  * @returns
  */

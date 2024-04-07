@@ -2,6 +2,7 @@
   "author": "by Marcela Karafizievová",
   "mapCafes": "Mapa kaváren",
   "nothing": "Zatím tu nic není",
+  "dataNotExist": "Pravděpodobně se něco pokazilo.",
   "days": {
     "monday": "Pondělí",
     "tuesday": "Úterý",

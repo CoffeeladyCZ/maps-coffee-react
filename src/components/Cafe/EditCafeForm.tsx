@@ -12,13 +12,14 @@ import { LoadingButton } from '@mui/lab/';
 import { RootState } from '../../store';
 import { FormValues, CafeDetailResponse, TOpeningHours, openTime } from '../../types/cafe';
 import { setLocations } from '../../store/locations';
-import { getLocationsData } from '../../Utils/apiUtils';
+import { getLocationsData } from '../../apiMethods';
 export { daysOfWeek } from '../../constants';
 
 import { styled } from '@mui/material/styles';
 import FormTextField from '../common/FormComponets/FormTextField';
 import FormSelect from '../common/FormComponets/FormSelect';
 import OpenedTimeCard from './OpenedTimeCard';
+import SimpleAlert from '../common/SimpleAlert/SimpleAlert';
 import { daysOfWeek } from '../../constants';
 
 type FormNewCafeType ={
@@ -36,6 +37,8 @@ const StyledForm = styled('form')`
 
 const EditCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormData, isLoading, data }) => {
   const [isEditTime, setIsEditTime] = useState(false);
+  const [openAlert, setOpenAlert] = useState(false);
+
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -141,8 +144,6 @@ const EditCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormDa
       slug: data.slug,
       image: data.image,
     }
-    console.log('apiData', apiData)
-
 
     if (isValid) {
       onFormData(apiData);
@@ -205,7 +206,7 @@ const EditCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormDa
         dispatch(setLocations(response));
       }
     } catch (err) {
-      console.error(err);
+      setOpenAlert(true);
     }
   }, [dispatch]);
 
@@ -216,149 +217,157 @@ const EditCafeForm: React.FC<FormNewCafeType> = ({ openDialog, onClose, onFormDa
   }, [locations, getLocations]);
 
   return (
-    <Dialog open={openDialog} maxWidth="xl">
-      <FormProvider {...methods}>
-        <StyledForm onSubmit={handleSubmit(onSubmit)} noValidate>
-          <DialogTitle>
-            <Typography className="text-red-800 font-bold uppercase text-2xl">{ t('dialog.editCafe')}</Typography>
-          </DialogTitle>
-          <Divider />
-          <DialogContent>
-            <Grid container spacing={2} columnGap={4} alignItems="flex-start" className="flex-row justify-center">
-              <Grid container item md={5} spacing={2}>
-                <Grid  item xs={12}>
-                  <FormTextField
-                    name='name'
-                    label={t('dialog.nameCafe')}
-                    errors={fieldErrors}
-                    control={control}
-                    required={true}
-                  />
+    <>
+      <Dialog open={openDialog} maxWidth="xl">
+        <FormProvider {...methods}>
+          <StyledForm onSubmit={handleSubmit(onSubmit)} noValidate>
+            <DialogTitle>
+              <Typography className="text-red-800 font-bold uppercase text-2xl">{ t('dialog.editCafe')}</Typography>
+            </DialogTitle>
+            <Divider />
+            <DialogContent>
+              <Grid container spacing={2} columnGap={4} alignItems="flex-start" className="flex-row justify-center">
+                <Grid container item md={5} spacing={2}>
+                  <Grid  item xs={12}>
+                    <FormTextField
+                      name='name'
+                      label={t('dialog.nameCafe')}
+                      errors={fieldErrors}
+                      control={control}
+                      required={true}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <p className="text-xl font-medium">{ t('dialog.address') }</p>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <FormTextField
+                      name='street'
+                      label={t('dialog.street')}
+                      errors={fieldErrors}
+                      control={control}
+                      required={true}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <FormSelect name="location" label={t('dialog.location')} options={locations} control={control} required={true} />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <FormTextField
+                      name='city'
+                      label={t('dialog.city')}
+                      errors={fieldErrors}
+                      control={control}
+                      required={true}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <FormTextField
+                      name='postCode'
+                      label={t('dialog.postCode')}
+                      errors={fieldErrors}
+                      control={control}
+                      required={true}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <FormTextField
+                      name='lat'
+                      label={t('dialog.lat')}
+                      errors={fieldErrors}
+                      control={control}
+                      required={true}
+                    />
+                  </Grid>
+                  <Grid  item xs={12} sm={6}>
+                    <FormTextField
+                      name='lng'
+                      label={t('dialog.lng')}
+                      errors={fieldErrors}
+                      control={control}
+                      required={true}
+                    />
+                  </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                  <p className="text-xl font-medium">{ t('dialog.address') }</p>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <FormTextField
-                    name='street'
-                    label={t('dialog.street')}
-                    errors={fieldErrors}
-                    control={control}
-                    required={true}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <FormSelect name="location" label={t('dialog.location')} options={locations} control={control} required={true} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <FormTextField
-                    name='city'
-                    label={t('dialog.city')}
-                    errors={fieldErrors}
-                    control={control}
-                    required={true}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <FormTextField
-                    name='postCode'
-                    label={t('dialog.postCode')}
-                    errors={fieldErrors}
-                    control={control}
-                    required={true}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <FormTextField
-                    name='lat'
-                    label={t('dialog.lat')}
-                    errors={fieldErrors}
-                    control={control}
-                    required={true}
-                  />
-                </Grid>
-                <Grid  item xs={12} sm={6}>
-                  <FormTextField
-                    name='lng'
-                    label={t('dialog.lng')}
-                    errors={fieldErrors}
-                    control={control}
-                    required={true}
-                  />
+                <Divider orientation="vertical" variant="middle" flexItem className="hidden lg:inline-flex" />
+                <Grid container item md={6} spacing={2}>
+                  <Grid item xs={12}>
+                    <p className="text-xl font-medium">{ t('dialog.contacts') }</p>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormTextField
+                      name='web'
+                      label={t('dialog.web')}
+                      errors={fieldErrors}
+                      control={control}
+                      required={false}
+                    />
+                  </Grid>
+                  <Grid  item xs={12}>
+                    <FormTextField
+                      name='phone'
+                      label={t('dialog.phone')}
+                      errors={fieldErrors}
+                      control={control}
+                      required={false}
+                    />
+                  </Grid>
+                  <Grid  item xs={12}>
+                    <FormTextField
+                      name='email'
+                      label={t('dialog.email')}
+                      errors={fieldErrors}
+                      control={control}
+                      required={false}
+                    />
+                  </Grid>
+                  <Grid  item xs={12}>
+                    <FormTextField
+                      name='description'
+                      label={t('dialog.description')}
+                      errors={fieldErrors}
+                      control={control}
+                      required={false}
+                    />
+                  </Grid>
+                  <Divider />
+                  <Grid container className="flex flex-column" gap={1}>
+                    {
+                      !isEditTime ? (
+                        <Grid item xs={12} className="p-4 pb-0">
+                          <Button size="small" className="ml-2 mt-2 pt-2" startIcon={<Edit />} onClick={() => setIsEditTime(true)}>{ t('dialog.addOpenedTime') }</Button>
+                        </Grid>
+                      ) : (
+                        <Grid container>
+                          <Grid item xs={12} className="pl-4 pt-4">
+                            <p className="text-xl font-medium">{ t('dialog.openedTime') }</p>
+                          </Grid>
+                          <Grid item xs={12} className=''>
+                            <Typography variant="body2">{ t('')}</Typography>
+                          </Grid>
+                        </Grid>
+                      )
+                    }
+                    { isEditTime && <OpenedTimeCard openingHours={openingHours} update={handleOpeningHoursUpdate} />}
+                  </Grid>
                 </Grid>
               </Grid>
-              <Divider orientation="vertical" variant="middle" flexItem className="hidden lg:inline-flex" />
-              <Grid container item md={6} spacing={2}>
-                <Grid item xs={12}>
-                  <p className="text-xl font-medium">{ t('dialog.contacts') }</p>
-                </Grid>
-                <Grid item xs={12}>
-                  <FormTextField
-                    name='web'
-                    label={t('dialog.web')}
-                    errors={fieldErrors}
-                    control={control}
-                    required={false}
-                  />
-                </Grid>
-                <Grid  item xs={12}>
-                  <FormTextField
-                    name='phone'
-                    label={t('dialog.phone')}
-                    errors={fieldErrors}
-                    control={control}
-                    required={false}
-                  />
-                </Grid>
-                <Grid  item xs={12}>
-                  <FormTextField
-                    name='email'
-                    label={t('dialog.email')}
-                    errors={fieldErrors}
-                    control={control}
-                    required={false}
-                  />
-                </Grid>
-                <Grid  item xs={12}>
-                  <FormTextField
-                    name='description'
-                    label={t('dialog.description')}
-                    errors={fieldErrors}
-                    control={control}
-                    required={false}
-                  />
-                </Grid>
-                <Divider />
-                <Grid container className="flex flex-column" gap={1}>
-                  {
-                    !isEditTime ? (
-                      <Grid item xs={12} className="p-4 pb-0">
-                        <Button size="small" className="ml-2 mt-2 pt-2" startIcon={<Edit />} onClick={() => setIsEditTime(true)}>{ t('dialog.addOpenedTime') }</Button>
-                      </Grid>
-                    ) : (
-                      <Grid container>
-                        <Grid item xs={12} className="pl-4 pt-4">
-                          <p className="text-xl font-medium">{ t('dialog.openedTime') }</p>
-                        </Grid>
-                        <Grid item xs={12} className=''>
-                          <Typography variant="body2">{ t('')}</Typography>
-                        </Grid>
-                      </Grid>
-                    )
-                  }
-                  { isEditTime && <OpenedTimeCard openingHours={openingHours} update={handleOpeningHoursUpdate} />}
-                </Grid>
-              </Grid>
-            </Grid>
-          </DialogContent>
-          <DialogActions className="px-6">
-            <Button variant='outlined' onClick={handleCloseDialog}>{ t('dialog.cancel') }</Button>
-            <LoadingButton type="submit" variant="contained" disabled={!isValid} loading={isLoading}>{ t('dialog.submit') }</LoadingButton>
-          </DialogActions>
-        </StyledForm>
-      </FormProvider>
-      <DevTool control={control} />
-    </Dialog>
+            </DialogContent>
+            <DialogActions className="px-6">
+              <Button variant='outlined' onClick={handleCloseDialog}>{ t('dialog.cancel') }</Button>
+              <LoadingButton type="submit" variant="contained" disabled={!isValid} loading={isLoading}>{ t('dialog.submit') }</LoadingButton>
+            </DialogActions>
+          </StyledForm>
+        </FormProvider>
+        <DevTool control={control} />
+      </Dialog>
+      <SimpleAlert
+        severity="error"
+        message={t('errors.somethingWrong')}
+        open={openAlert}
+        onCloseAlert={() => setOpenAlert(false)}
+      />
+    </>
   );
 }
 
